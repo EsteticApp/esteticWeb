@@ -1,3 +1,1 @@
----
-default_process_types:
-    web: java -jar -Dport=$PORT build/libs/spring-boot.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/esteticapp-0.0.1-SNAPSHOT.jar
