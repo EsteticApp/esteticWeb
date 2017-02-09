@@ -17,4 +17,4 @@ deployment:
   master:
     branch: master
     commands:
-      - ./gradlew artifactoryPublish
+      - ./gradlew stage
