@@ -17,4 +17,7 @@ deployment:
   staging:
     branch: master
     heroku:
-appname: esteticapp
+      appname: esteticapp
+    commands:
+          - ./gradlew stage
+          - heroku local web
