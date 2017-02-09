@@ -4,19 +4,26 @@ buildscript {
 	}
 	repositories {
 		mavenCentral()
+		mavenRepo name: 'Bintray Gradle Plugins', url: 'http://dl.bintray.com/vermeulen-mp/gradle-plugins'
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath 'com.wiredforcode:gradle-heroku-plugin:1.0.0'
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'heroku'
 
 jar {
 	baseName = 'esteticapp'
 	version = '0.0.1-SNAPSHOT'
+}
+
+heroku {
+    appName = 'esteticapp'
 }
 
 sourceCompatibility = 1.8
@@ -24,7 +31,6 @@ sourceCompatibility = 1.8
 repositories {
 	mavenCentral()
 }
-
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
