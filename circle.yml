@@ -14,7 +14,7 @@ test:
    - find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 
 deployment:
-  master:
+  staging:
     branch: master
-    commands:
-      - ./gradlew stage
+    heroku:
+appname: esteticapp
