@@ -18,4 +18,3 @@ deployment:
     branch: master
     commands:
       - ./gradlew stage
-      - heroku local web
