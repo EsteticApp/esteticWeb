@@ -26,7 +26,10 @@ angular.module('myApp.Login', ['ngRoute'])
                         if (data.data.name) {
                             $rootScope.authenticated = true;
                             console.log("pasooooooooo");
+                              
+                            $rootScope.Cliente= true;
                         } else {
+                            $rootScope.Cliente= false;
                             $rootScope.authenticated = false;
                             console.log("No pasoooooooo");
                         }
@@ -41,13 +44,16 @@ angular.module('myApp.Login', ['ngRoute'])
 
                 authenticate();
                 $scope.credentials = {};
+                
                 $scope.login = function () {
                     console.log("hace algo")
                     console.log($scope.credentials)
                     authenticate($scope.credentials, function () {
                         if ($rootScope.authenticated) {
-                            $location.path("/view2");
+                            $location.path("/Cliente");
                             $scope.error = false;
+                            $rootScope.user=$scope.credentials.username;
+                            
                         } else {
                             $location.path("/login");
                             $scope.error = true;
