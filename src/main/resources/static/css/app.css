@@ -5,8 +5,8 @@ header{
 	min-height:124px;
 }
 
-body{
-    background:
+.body-fon{
+     background: url("../image/background.jpg");
 }
 
 .no-margin{
