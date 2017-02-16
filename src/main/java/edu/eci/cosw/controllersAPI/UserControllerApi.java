@@ -7,11 +7,13 @@ package edu.eci.cosw.controllersAPI;
 
 import java.security.Principal;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
  * @author 2101240
  */
+@RestController
 public class UserControllerApi {
     @RequestMapping("/app/user")
     public Principal user(Principal user) {

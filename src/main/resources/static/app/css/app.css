@@ -1,0 +1,47 @@
+/* app css stylesheet */
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+header{
+	min-height:124px;
+}
+
+.body-fon{
+     background: url("../image/background.jpg");
+}
+
+.no-margin{
+    margin:0px !important;
+}
+
+.no-padding{
+    margin:0px !important;
+}
+
+.header-est{
+    background:#5ED596;
+}
+
+.header-est h1{
+   font-family: 'Pacifico', cursive;
+   text-align:center;
+   color: #FFF;
+   margin-top:0px;
+   font-size: 6em;
+}
+
+.logo{
+    text-align:center;
+}
+
+.inicio{
+      text-align: right;
+}
+
+.botones{
+    margin-top:33px;
+}
+
+.logo img{
+    width: auto;
+    height: 109px;
+}
