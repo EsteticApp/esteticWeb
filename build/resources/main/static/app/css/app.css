@@ -1,5 +1,6 @@
 /* app css stylesheet */
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond');
 
 header{
 	min-height:124px;
@@ -44,4 +45,36 @@ header{
 .logo img{
     width: auto;
     height: 109px;
+}
+.foo{
+    background:#337ab7;
+}
+
+.reser{
+    text-align:center;
+    font-family: 'EB Garamond', serif;
+    color:#FFF;
+    font-size: 1.2em;
+    margin-top: 21px;
+}
+
+.redes-logo .fa-facebook-square{
+    color: white;
+    font-size: 28px;
+    margin-top: 33px
+}
+
+.redes-logo .fa-twitter-square{
+    color:#FFF;
+    font-size: 28px;
+    margin-top: 33px
+}
+
+.redes-logo .fa-instagram{
+        font-size: 16px;
+        border: 1px solid #FFF;
+        padding: 3px;
+        margin-top: 34px;
+        border-radius: 4px;
+        background: #FFF;
 }
