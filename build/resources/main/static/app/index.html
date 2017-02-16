@@ -8,54 +8,22 @@
         <link rel="stylesheet" href="css/app.css">
         <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css">
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-<<<<<<< HEAD
-        <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        --> <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-=======
-        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
->>>>>>> e27d592408605c05e7ed6dc47b986c4186cf2182
         <title>EsteticApp</title>
     </head>
     <body class="body-fon">
         <header class="header-est">
-<<<<<<< HEAD
+
             <div class="container">
                 <div class="col-sm-2 logo">
                     <img src = "image/logo.gif"/>
                 </div>
-=======
-			<div class="container">
-				<div class="col-sm-2 logo">
-					<img src = "image/logo.gif"/>
-				</div>
-
-				<div class="col-sm-6 no-margin no-padding">
-					<h1>Estéticapp</h1>
-				</div>
-
-				<div class="col-sm-4 botones">
-					<div class="col-sm-6 inicio">
-						<input class="btn btn-primary" type="button" value="Iniciar Sesión" ng-click = ""/>
-					</div>
-					<div class="col-sm-6">
-						<input class="btn btn-primary" type="button" value=" Registrarse" ng-click = ""/>
-					</div>
-
-				</div>
-			</div>
-		</header>
-        <ul class="menu">
-            <li><a ng-show="!authenticated" href="#!/Login">Login</a></li>
-        </ul>
->>>>>>> e27d592408605c05e7ed6dc47b986c4186cf2182
 
                 <div class="col-sm-6 no-margin no-padding">
                     <h1>Estéticapp</h1>
                 </div>
 
                 <div class="col-sm-4 botones">
-
                     <div class="col-sm-6 inicio" ng-show="!authenticated">
                         <input class="btn btn-primary" type="button" value="Iniciar Sesión" href="#!/Login"/>
                     </div>
@@ -68,25 +36,56 @@
                     <div ng-show="authenticated">
                         <p>imagen
                     </div>
-
-
                 </div>
             </div>
         </header>
+        <!--Menu del Cliente-->
+        <div ng-show="Cliente">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"></a>
+                    </div>
 
-        <div ng-view></div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="container">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#">Inicio</a></li>
+                                <li><a href="#">Mi Perfil</a></li>
+                                <li><a href="#">Servicios</a></li>
+                                <li><a ng-controller="ControladorLogout" ng-click="logout()">Cerrar Sesión</a></li>
+                            </ul>
 
-        <div>Angular seed app: v<span app-version></span></div>
+                        </div>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
 
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="app.js"></script>
-        <script src="Cliente/Cliente.js"></script>
-        <script src="Login/Login.js"></script>
-        <script src="components/version/version.js"></script>
-        <script src="components/version/version-directive.js"></script>
-        <script src="components/version/interpolate-filter.js"></script>
+        <div class="container">
+
+            <div ng-view></div>
+
+            <div>Angular seed app: v<span app-version></span></div>
+
+            <script src="bower_components/angular/angular.js"></script>
+            <script src="bower_components/angular-route/angular-route.js"></script>
+            <script src="bower_components/angular-resource/angular-resource.js"></script>
+             <script src="app.js"></script>
+            <script src="Cliente/Cliente.js"></script>
+            <script src="Login/Login.js"></script>
+            <script src="components/version/version.js"></script>
+            <script src="components/version/version-directive.js"></script>
+            <script src="components/version/interpolate-filter.js"></script>
+        </div>
 
         <footer class="foo">
             <div class="container">
@@ -94,17 +93,17 @@
                     <img src = "image/logo.gif"/>
                 </div>
                 <div class="col-sm-6 reser">
-                        <p>Todos los Derechos Reservados</p>
-                        <p>CopyRight 2017</p>
+                    <p>Todos los Derechos Reservados</p>
+                    <p>CopyRight 2017</p>
                 </div>
                 <div class="col-sm-4 redes-logo">
-                    <div class="col-sm-4">
+                    <div class="col-sm-1">
                         <i class="fa fa-facebook-square" aria-hidden="true"></i>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-1">
                         <i class="fa fa-twitter-square" aria-hidden="true"></i>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-1">
                         <i class="fa fa-instagram" aria-hidden="true"></i>
                     </div>
                 </div>

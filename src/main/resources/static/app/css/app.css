@@ -79,3 +79,8 @@ header{
         border-radius: 4px;
         background: #FFF;
 }
+
+/*Menu*/
+.navbar-nav > li{
+    margin-left: 154px !important;
+}
