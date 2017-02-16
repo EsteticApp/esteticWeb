@@ -1,15 +1,15 @@
 buildscript {
-	ext {
-		springBootVersion = '1.5.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
+    ext {
+        springBootVersion = '1.5.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 
 }
 
@@ -18,14 +18,14 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 jar {
-	baseName = 'esteticapp'
-	version = '0.0.1-SNAPSHOT'
+    baseName = 'esteticapp'
+    version = '0.0.1-SNAPSHOT'
 }
 
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
     maven { url "https://repo.spring.io/snapshot" }
     maven { url "https://repo.spring.io/milestone" }
 }
@@ -36,7 +36,20 @@ dependencies {
         exclude module: 'spring-boot-starter-tomcat'
     }
     compile('org.springframework.boot:spring-boot-starter-jetty')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-web
+    compile group: 'org.springframework.security', name: 'spring-security-web', version: '4.2.1.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core-tiger
+    compile group: 'org.springframework.security', name: 'spring-security-core-tiger', version: '2.0.8.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework/spring-web
+    compile group: 'org.springframework', name: 'spring-web', version: '4.3.6.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.5.1.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-cli
+    compile group: 'org.springframework.boot', name: 'spring-boot-cli', version: '1.5.1.RELEASE'
+
+
 }
 
 task stage(dependsOn: ['build', 'clean'])
