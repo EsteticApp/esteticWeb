@@ -20,18 +20,19 @@ angular.module('myApp.Login', ['ngRoute'])
                     
                     $http.get('user', {headers: headers}).then(successCallback, errorCallback);
                     function successCallback(data) {
-                        console.log("entra");
                         console.log(data.data);
                         console.log(data.data.name);
                         if (data.data.name) {
                             $rootScope.authenticated = true;
-                            console.log("pasooooooooo");
-                              
-                            $rootScope.Cliente= true;
+                            $scope.role=data.data.authorities[0].authority;
+                            $rootScope.Cliente= $scope.role==="CLIENTE";
+                            $rootScope.Professional= $scope.role==="PROFESSIONAL";
+                            console.log($scope.role);
+                            console.log($rootScope.Professional);
+                            console.log($rootScope.Cliente);
                         } else {
                             $rootScope.Cliente= false;
                             $rootScope.authenticated = false;
-                            console.log("No pasoooooooo");
                         }
                         callback && callback();
                     }
@@ -44,16 +45,17 @@ angular.module('myApp.Login', ['ngRoute'])
 
                 authenticate();
                 $scope.credentials = {};
-                
+                $scope.role="";
                 $scope.login = function () {
                     console.log("hace algo")
                     console.log($scope.credentials)
                     authenticate($scope.credentials, function () {
                         if ($rootScope.authenticated) {
-                            $location.path("/Cliente");
+                            $location.path();
                             $scope.error = false;
                             $rootScope.user=$scope.credentials.username;
-                            
+                            console.log($scope.role)
+                            $location.path("/"+$scope.role);
                         } else {
                             $location.path("/login");
                             $scope.error = true;

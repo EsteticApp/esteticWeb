@@ -1,5 +1,7 @@
 package edu.eci.cosw;
 
+import edu.eci.cosw.Interfaz.UserStub;
+import edu.eci.cosw.models.Usuario;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -25,6 +27,15 @@ import org.springframework.web.util.WebUtils;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 @SpringBootApplication
 public class EsteticappApplication {
@@ -37,10 +48,31 @@ public class EsteticappApplication {
     @EnableGlobalMethodSecurity(prePostEnabled = true)
     @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
     protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
+       
+        @Autowired
+        UserStub usersStub;
+        
         @Override
         protected void configure(AuthenticationManagerBuilder builder) throws Exception {
-            builder.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+            builder.authenticationProvider(new AuthenticationProvider() {
+                @Override
+                public Authentication authenticate(Authentication auth) throws AuthenticationException {
+                    String name = auth.getName();
+                    String pass = auth.getCredentials().toString();
+                    Usuario usuario = usersStub.loginUser(name, pass);
+                    if (usuario != null) {
+                        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+                        authorities.add(new SimpleGrantedAuthority(usuario.getRole()));
+                        return new UsernamePasswordAuthenticationToken(name, pass, authorities);
+                    }
+                    return null;
+                }
+
+                @Override
+                public boolean supports(Class<?> type) {
+                    return type.equals(UsernamePasswordAuthenticationToken.class);
+                }
+            });
         }
 
         @Override

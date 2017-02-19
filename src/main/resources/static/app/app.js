@@ -5,7 +5,8 @@ angular.module('myApp', [
     'ngRoute',
     'myApp.Cliente',
     'myApp.Login',
-    'myApp.version'
+    'myApp.version',
+    'myApp.Professional'
 ]).
         config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
                 $locationProvider.hashPrefix('!');
@@ -18,6 +19,8 @@ angular.module('myApp', [
                     $http.post('/logout', {}).success(function () {
                         $rootScope.authenticated = false;
                         $location.path("/Login");
+                        $rootScope.Cliente= false;
+                        $rootScope.Professional= false;
                     }).error(function (data) {
                         $rootScope.authenticated = false;
                     });
