@@ -1,20 +1,14 @@
 machine:
   java:
-    version:
-      oraclejdk8
-
-test:
- override:
-   - ./gradlew clean build -i
- pre:
-   - echo $BINTRAY_USER > gradle.properties
-   - echo $BINTRAY_API_KEY >> gradle.properties
- post:
-   - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-   - find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-
+    version: oraclejdk8
 deployment:
-  master:
+  staging:
     branch: master
-    commands:
-      - ./gradlew stage
+    heroku:
+      appname: esteticapp
+test:
+  override:
+    - ./gradlew test -is
+  post:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;

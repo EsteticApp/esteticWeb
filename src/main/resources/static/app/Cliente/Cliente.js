@@ -3,7 +3,7 @@
 angular.module('myApp.Cliente', ['ngRoute'])
 
         .config(['$routeProvider', function ($routeProvider) {
-                $routeProvider.when('/Cliente', {
+                $routeProvider.when('/CLIENTE', {
                     templateUrl: 'Cliente/Cliente.html',
                     controller: 'ControladorCliente'
                 });
