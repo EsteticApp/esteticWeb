@@ -32,6 +32,7 @@ angular.module('myApp.Login', ['ngRoute'])
                             console.log($rootScope.Cliente);
                         } else {
                             $rootScope.Cliente= false;
+                            $rootScope.Professional= false;
                             $rootScope.authenticated = false;
                         }
                         callback && callback();
