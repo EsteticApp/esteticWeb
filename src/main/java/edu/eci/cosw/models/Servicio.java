@@ -7,9 +7,16 @@ package edu.eci.cosw.models;
 public class Servicio {
 
     private String nombre;
+    private Categoria categoria;
 
-    public Servicio(String nombre){
+    public Servicio(){
+
+    }
+
+    public Servicio(String nombre, Categoria categoria){
+
         this.nombre = nombre;
+        this.categoria = categoria;
     }
 
     public String getNombre() {
@@ -21,6 +28,18 @@ public class Servicio {
 
         this.nombre = nombre;
     }
+
+    public Categoria getCategoria() {
+
+        return categoria;
+    }
+
+    public void setCategoria(Categoria c) {
+
+        this.categoria = c;
+    }
+
+
 
 
 }

@@ -1,5 +1,7 @@
 package edu.eci.cosw.models;
 
+import edu.eci.cosw.Stub.User;
+
 import java.util.List;
 
 /**
@@ -7,40 +9,26 @@ import java.util.List;
  */
 public class Estilista{
 
-    private String nombre;
-    private int cedula;
-    //private String contraseña;
-    //private String correo;
-    private List<String> serviciosEstilista;
+    private Usuario rolEstilista;
+    private List<Servicio> serviciosEstilista;
 
-    public Estilista(String nombre, int cedula, List<String> serviciosEstilista){
+    public Estilista(Usuario rolEstilista, List<Servicio> serviciosEstilista){
 
-        this.nombre = nombre;
-        this.cedula = cedula;
+        this.rolEstilista = rolEstilista;
         this.serviciosEstilista = serviciosEstilista;
     }
 
-    public String getNombre(){
+    public Usuario getRolEstilista(){
 
-        return nombre;
+        return rolEstilista;
     }
 
-    public void setNombre(String nombre){
+    public void setRolEstilista(Usuario rolEstilista){
 
-        this.nombre = nombre;
+        this.rolEstilista = rolEstilista;
     }
 
-    public int getCedula(){
-
-        return cedula;
-    }
-
-    public void setCedula(int cedula){
-
-        this.nombre = nombre;
-    }
-
-    public List<String> getServicios(){
+    public List<Servicio> getServicios(){
 
         return serviciosEstilista;
     }

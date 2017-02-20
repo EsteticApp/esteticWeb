@@ -1,13 +1,16 @@
 package edu.eci.cosw.controllersAPI;
 
-import edu.eci.cosw.service.ServiciosStub;
-import org.apache.log4j.Logger;
+
+import edu.eci.cosw.Interfaz.ServicioOperaciones;
+import edu.eci.cosw.models.Servicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * Created by SYSTEM on 19/02/2017.
@@ -17,16 +20,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/servicios")
 public class SeriviciosControllerApi {
 
-    /*@Autowired
-    ServiciosStub servicios = new ServiciosStub();
+    @Autowired
+    private ServicioOperaciones servicio;
+
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<?> getServiciosManagement(){
-        try {
-            return new ResponseEntity<>(servicios.getServicios(), HttpStatus.ACCEPTED);
-        } catch (Exception ex) {
-            Logger.getLogger(ServiciosStub.class.getName()).log(null, ex);
-            return new ResponseEntity<>("No services found", HttpStatus.NOT_FOUND);
-        }
-    }*/
+    public List<Servicio> getServicios() {
+        return servicio.getServicios();
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public   ResponseEntity<?>  postSerivicio(@RequestBody Servicio s) {
+        servicio.addServicio(s);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+
+    }
 }
