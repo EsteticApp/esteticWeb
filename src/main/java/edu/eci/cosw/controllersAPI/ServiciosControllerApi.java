@@ -35,15 +35,4 @@ public class ServiciosControllerApi {
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
 
     }
-
-    @RequestMapping(path = "/{category}", method = RequestMethod.GET)
-    public ResponseEntity<?> getTaskByPriorityManagement(@PathVariable String category){
-        try {
-            List<Servicio> data = servicio.getServiciosByCategory(category);
-            return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
-        } catch (Exception ex) {
-            Logger.getLogger(ServiciosControllerApi.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>("No services found in that category", HttpStatus.NOT_FOUND);
-        }
-    }
 }

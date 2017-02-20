@@ -8,6 +8,5 @@ import java.util.List;
  */
 public interface ServicioOperaciones {
     public List<Servicio> getServicios();
-    public List<Servicio> getServiciosByCategory(String category);
     public void addServicio(Servicio s);
 }

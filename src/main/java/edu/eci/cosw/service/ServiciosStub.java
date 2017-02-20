@@ -14,48 +14,29 @@ import java.util.List;
 @Service
 public class ServiciosStub implements ServicioOperaciones{
 
-    private static List<Servicio> servicios = new ArrayList<>();
-    private static List<Servicio> serviciosByCategory = new ArrayList<>();
+    private static List<Servicio> servicios;
 
-
-    static{
-
-        Categoria c = new Categoria("Peluqueria");
-        servicios.add(new Servicio( "Cortes", c));
-        servicios.add(new Servicio( "Tintes", c));
-        servicios.add(new Servicio( "Cepillado", c));
-        servicios.add(new Servicio( "Mechas", c));
-        servicios.add(new Servicio( "Extensiones", c));
-        servicios.add(new Servicio( "Recogidos", c));
-
-        c = new Categoria("Uñas");
-        servicios.add(new Servicio( "Manicure", c));
-        servicios.add(new Servicio( "Pedicure", c));
-        servicios.add(new Servicio( "Esmaltado permanente", c));
-        servicios.add(new Servicio( "Decoración", c));
-
-        c = new Categoria("Depilación");
-        servicios.add(new Servicio( "Tradicional", c));
-        servicios.add(new Servicio( "Roll-on", c));
-        servicios.add(new Servicio( "Depilación", c));
-
-        c = new Categoria("Masajes");
-        servicios.add(new Servicio( "Oriental con ventosas", c));
-        servicios.add(new Servicio( "Hot stones", c));
-        servicios.add(new Servicio( "Tuina", c));
-        servicios.add(new Servicio( "Tailandés", c));
-        servicios.add(new Servicio( "Circulatorio", c));
-        servicios.add(new Servicio( "Anticelulítico", c));
-
-    }
-
-    @Override
-    public List<Servicio> getServiciosByCategory(String category) {
-        serviciosByCategory = new ArrayList<>();
-        for(Servicio s : servicios){
-            if(s.getCategoria().getNombre().equals(category))serviciosByCategory.add(s);
-        }
-        return serviciosByCategory;
+    public ServiciosStub(){
+        servicios = new ArrayList<>();
+        Servicio ser = new Servicio("Cortes");servicios.add(ser);
+        ser = new Servicio("Tintes");servicios.add(ser);
+        ser = new Servicio("Cepillado");servicios.add(ser);
+        ser = new Servicio("Mechas");servicios.add(ser);
+        ser = new Servicio("Extensiones");servicios.add(ser);
+        ser = new Servicio("Recogidos");servicios.add(ser);
+        ser = new Servicio("Manicure");servicios.add(ser);
+        ser = new Servicio("Pedicure");servicios.add(ser);
+        ser = new Servicio("Esmaltado permanente");servicios.add(ser);
+        ser = new Servicio("Decoración");servicios.add(ser);
+        ser = new Servicio("Tradicional");servicios.add(ser);
+        ser = new Servicio("Roll-on");servicios.add(ser);
+        ser = new Servicio("Depilación");servicios.add(ser);
+        ser = new Servicio("Oriental con ventosas");servicios.add(ser);
+        ser = new Servicio("Hot stones");servicios.add(ser);
+        ser = new Servicio("Tuina");servicios.add(ser);
+        ser = new Servicio("Tailandés");servicios.add(ser);
+        ser = new Servicio("Circulatorio");servicios.add(ser);
+        ser = new Servicio("Anticelulítico");servicios.add(ser);
     }
 
     @Override
@@ -67,6 +48,4 @@ public class ServiciosStub implements ServicioOperaciones{
     public void addServicio(Servicio s) {
         servicios.add(s);
     }
-
-
 }
