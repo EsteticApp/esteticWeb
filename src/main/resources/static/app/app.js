@@ -5,6 +5,7 @@ angular.module('myApp', [
     'ngRoute',
     'myApp.Cliente',
     'myApp.Login',
+    'myApp.Servicios',
     'myApp.version',
     'myApp.Professional'
 ]).
