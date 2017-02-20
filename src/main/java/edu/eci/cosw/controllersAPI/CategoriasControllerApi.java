@@ -29,7 +29,7 @@ public class CategoriasControllerApi {
             return new ResponseEntity<>(categorias.getCategorias(), HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             Logger.getLogger(CategoriasServiceStub.class.getName()).log(null, ex);
-            return new ResponseEntity<>("No clients found", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No categories found", HttpStatus.NOT_FOUND);
         }
     }
 

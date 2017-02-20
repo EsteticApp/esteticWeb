@@ -49,8 +49,11 @@ header{
 }
 .foo{
     background:#337ab7;
-    top:-20px;
-    position:inherit;
+    /*top:-20px;
+    position:inherit;*/
+    bottom: 0;
+    width: 100%;
+    position: fixed;
 }
 
 .reser{

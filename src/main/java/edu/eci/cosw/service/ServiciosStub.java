@@ -15,6 +15,7 @@ import java.util.List;
 public class ServiciosStub implements ServicioOperaciones{
 
     private static List<Servicio> servicios = new ArrayList<>();
+    private static List<Servicio> serviciosByCategory = new ArrayList<>();
 
 
     static{
@@ -46,6 +47,15 @@ public class ServiciosStub implements ServicioOperaciones{
         servicios.add(new Servicio( "Circulatorio", c));
         servicios.add(new Servicio( "Anticelulítico", c));
 
+    }
+
+    @Override
+    public List<Servicio> getServiciosByCategory(String category) {
+        serviciosByCategory = new ArrayList<>();
+        for(Servicio s : servicios){
+            if(s.getCategoria().getNombre().equals(category))serviciosByCategory.add(s);
+        }
+        return serviciosByCategory;
     }
 
     @Override
