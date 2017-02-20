@@ -61,7 +61,7 @@ angular.module('myApp.Login', ['ngRoute'])
                             $location.path("/login");
                             $scope.error = true;
                         }
-                        console.log("PAsa por aca")
+                        console.log("Pasa por aca")
                     });
                 };
             }
