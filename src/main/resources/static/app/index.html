@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css">
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
         <title>EsteticApp</title>
     </head>
     <body class="body-fon">
@@ -39,10 +41,11 @@
                 </div>
             </div>
         </header>
+        <hr ng-show="!authenticated" class="lineaHr">
         <!--Menu del Cliente-->
         <div ng-show="Cliente ">
             <nav class="navbar navbar-default">
-                <div class="container-fluid">
+                <div class="container-fluid menuBarraNegro">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -57,11 +60,11 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <div class="container">
-                            <ul class="nav navbar-nav">
-                                <li><a ng-show="authenticated" href="#!/CLIENTE">Inicio</a></li>
-                                <li><a ng-show="authenticated" href="#">Mi Perfil</a></li>
-                                <li><a ng-show="authenticated" href="#!/Servicios">Servicios</a></li>
-                                <li><a ng-controller="ControladorLogout" ng-click="logout()">Cerrar Sesión</a></li>
+                            <ul class="nav navbar-nav ">
+                                <li><a class="textMenu" ng-show="authenticated" href="#!/CLIENTE">Inicio</a></li>
+                                <li><a class="textMenu"  ng-show="authenticated" href="#">Mi Perfil</a></li>
+                                <li><a class="textMenu"  ng-show="authenticated" href="#!/Servicios">Servicios</a></li>
+                                <li><a class="textMenu"  ng-controller="ControladorLogout" ng-click="logout()">Cerrar Sesión</a></li>
                             </ul>
 
                         </div>
