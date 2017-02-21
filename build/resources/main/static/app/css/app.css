@@ -108,7 +108,7 @@ text-align:center;
 .fondo{
     background:#FFF;
     opacity:0.9;
-    padding: 270px;
+    padding: 140px;
 }
 
 .login{
@@ -164,6 +164,12 @@ text-align:center;
 .menuBarraNegro {
     background-color: #000000;
     border-color: #000000;
+}
+
+.view{
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #5ED596;
 }
 
 /*Opacidad de fondos*/

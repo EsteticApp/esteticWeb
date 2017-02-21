@@ -27,13 +27,13 @@
 
                 <div class="col-sm-4 botones">
                     <div class="col-sm-6 inicio" ng-show="!authenticated">
-                        <input class="btn btn-primary" type="button" value="Iniciar Sesión" href="#!/Login"/>
+                        <a class="btn btn-primary" type="button" href="#!/Login">Iniciar Sesión</a>
                     </div>
                     <div ng-show="authenticated">
                         <p>{{user}}
                     </div>
                     <div class="col-sm-6" ng-show="!authenticated">
-                        <input class="btn btn-primary" type="button" value="Registrarse" href="#!/Registrar"/>
+                        <a class="btn btn-primary" type="submit" href="#!/Opciones">Registrarse</a>
                     </div>
                     <div ng-show="authenticated">
                         <p>imagen

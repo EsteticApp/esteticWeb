@@ -22,7 +22,7 @@ angular.module('myApp', [
         
         .controller('ControladorLogout', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location) {
                 $scope.logout = function () {
-                    $http.post('/logout', {}).success(function () {
+                    $http.post('/logout', {}).then(function () {
                         $rootScope.authenticated = false;
                         $location.path("/Login");
                         $rootScope.Cliente= false;
