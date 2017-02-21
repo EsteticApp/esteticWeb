@@ -192,6 +192,28 @@ text-align:center;
     text-decoration: none;
 }
 
+
+
+/*Inicio*/
+.inicioc{
+    background:#e5e5e5;
+}
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width:70%;
+      margin: auto;
+  }
+
+.inicio h1{
+    text-align:center;
+    font-family: 'Pacifico';
+}
+
+.inicio p{
+    font-family: 'EB Garamond', serif;
+    text-align:justify;
+}
+
 /*Opacidad de fondos*/
 .opacidad {
     top: 0px;
