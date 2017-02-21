@@ -43,7 +43,7 @@ public class CategoriasServiceStub implements CategoryManagement{
         cat = new Categoria("Depilación");
         ser = new Servicio("Tradicional");cat.addService(ser);
         ser = new Servicio("Roll-on");cat.addService(ser);
-        ser = new Servicio("Depilación");cat.addService(ser);
+        ser = new Servicio("Egipcia");cat.addService(ser);
         categorias.add(cat);
 
         cat = new Categoria("Masajes");

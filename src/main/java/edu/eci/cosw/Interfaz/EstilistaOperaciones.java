@@ -1,6 +1,7 @@
 package edu.eci.cosw.Interfaz;
 
 import edu.eci.cosw.models.Estilista;
+import edu.eci.cosw.models.Servicio;
 
 import java.util.List;
 
@@ -9,5 +10,6 @@ import java.util.List;
  */
 public interface EstilistaOperaciones {
     public List<Estilista> getEstilistas();
+    public List<Servicio> getServicesByStylist(String stylist);
     public void addEstilista(Estilista e);
 }

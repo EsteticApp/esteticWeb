@@ -11,23 +11,19 @@ import edu.eci.cosw.Interfaz.Users;
  *
  * @author ANDRES CAICEDO
  */
-public class Usuario implements Users{
+public class SimpleUsuario implements Users{
 
      private String nombre;
-     private int cedula;
      private String email;
-     private String password;
      private String role;
 
-    public Usuario(String nombre, int cedula, String email, String password, String role) {
+    public SimpleUsuario(String nombre, String email, String role) {
         this.nombre = nombre;
-        this.cedula = cedula;
         this.email = email;
-        this.password = password;
         this.role=role;
     }
 
-    public Usuario() {
+    public SimpleUsuario() {
     }
 
     public String getRole() {
@@ -46,28 +42,12 @@ public class Usuario implements Users{
         this.nombre = nombre;
     }
 
-    public int getCedula() {
-        return cedula;
-    }
-
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
 }

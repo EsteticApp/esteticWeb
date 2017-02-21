@@ -1,24 +1,25 @@
 package edu.eci.cosw.models;
 
-import edu.eci.cosw.Stub.User;
+import edu.eci.cosw.Interfaz.Users;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 /**
  * Created by estudiante on 2/16/17.
  */
 public class Estilista{
 
-    private Usuario rolEstilista;
-    private List<Servicio> serviciosEstilista;
+    private Users rolEstilista;
+    private List<Categoria> categorias;
 
-    public Estilista(Usuario rolEstilista, List<Servicio> serviciosEstilista){
-
+    public Estilista(Users rolEstilista){
         this.rolEstilista = rolEstilista;
-        this.serviciosEstilista = serviciosEstilista;
+        this.categorias = new ArrayList<>();
     }
 
-    public Usuario getRolEstilista(){
+    public Users getRolEstilista(){
 
         return rolEstilista;
     }
@@ -28,11 +29,45 @@ public class Estilista{
         this.rolEstilista = rolEstilista;
     }
 
-    public List<Servicio> getServicios(){
-
-        return serviciosEstilista;
+    public List<Categoria> getCategorias() {
+        return categorias;
     }
 
+    public void setCategorias(List<Categoria> categorias) {
+        this.categorias = categorias;
+    }
 
+    public void setServiceToCategory(Servicio service, String category){
+        for(Categoria cat : categorias){
+            if(cat.getName().equals(category)){
+                cat.addService(service);
+                break;
+            }
+        }
+    }
 
+    public List<Servicio> getServicesFromCategory(String category){
+        List<Servicio> servicies = new ArrayList<>();
+        for(Categoria cat : categorias){
+            if(cat.getName().equals(category)){
+                servicies = cat.getServices();
+                break;
+            }
+        }
+        return servicies;
+    }
+
+    public void addCategory(Categoria category){
+        categorias.add(category);
+    }
+
+    public List<Servicio> getAllServicies(){
+        List<Servicio> servicies = new ArrayList<>();
+        for(Categoria cat : categorias){
+            for(Servicio ser : cat.getServices()){
+                servicies.add(ser);
+            }
+        }
+        return servicies;
+    }
 }
