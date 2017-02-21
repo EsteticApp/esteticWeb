@@ -4,6 +4,7 @@
 angular.module('myApp', [
     'ngRoute',
     'ngMaterial',
+    'myApp.Inicio',
     'myApp.Cliente',
     'myApp.Login',
     'myApp.Servicios',
@@ -16,7 +17,7 @@ angular.module('myApp', [
 ]).
         config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
                 $locationProvider.hashPrefix('!');
-                $routeProvider.otherwise({redirectTo: '/Login'});
+                $routeProvider.otherwise({redirectTo: '/Inicio'});
                 $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
             }])
         

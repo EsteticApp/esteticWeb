@@ -156,6 +156,7 @@ text-align:center;
 
 .opcion{
     background:#e5e5e5;
+    height: 578px;
 }
 
 .register img{
@@ -170,6 +171,25 @@ text-align:center;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #5ED596;
+}
+
+.opcion h1{
+    font-family: 'Pacifico';
+    text-align: center;
+    margin-top: 51px;
+    padding: 29px;
+}
+
+
+.opcion a{
+    color: #000;
+    font-size: 35px;
+}
+
+.opcion a:hover{
+    color: #000;
+    font-size: 35px;
+    text-decoration: none;
 }
 
 /*Opacidad de fondos*/
