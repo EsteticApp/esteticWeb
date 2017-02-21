@@ -108,10 +108,11 @@ text-align:center;
     font-family: 'Pacifico', cursive;
 }
 
+/*Login*/
 .fondo{
     background:#FFF;
     opacity:0.9;
-    padding: 65px;
+    padding: 270px;
 }
 
 .login{
@@ -122,8 +123,33 @@ text-align:center;
      opacity: 1;
      z-index:1;
 }
-    position: inherit;
 
+.gly .fa-user{
+    font-size: 28px;
+    color: #000;
+}
+
+.gly .fa-lock{
+    font-size:28px;
+    color:#000;
+}
+
+.cont{
+    font-family: 'EB Garamond', serif;
+
+}
+
+.login-2{
+    margin-top:15px;
+}
+
+
+.sub{
+    text-align:center;
+}
+
+.sub .btn-primary{
+    margin-top:20px;
 }
 
 .textMenu{
