@@ -48,6 +48,7 @@ angular.module('myApp.Login', ['ngRoute'])
                 $scope.credentials = {};
                 $scope.role="";
                 $scope.login = function () {
+                    $rootScope.value = false;
                     console.log("hace algo")
                     console.log($scope.credentials)
                     authenticate($scope.credentials, function () {
