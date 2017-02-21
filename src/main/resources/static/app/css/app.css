@@ -97,7 +97,6 @@ header{
 /*Menu*/
 .navbar-nav > li{
     margin-left: 154px !important;
-<<<<<<< HEAD
 }
 
 .titulo{
@@ -123,7 +122,6 @@ text-align:center;
      opacity: 1;
      z-index:1;
 }
-=======
     position: inherit;
 
 }
@@ -141,14 +139,14 @@ text-align:center;
 
 /*Opacidad de fondos*/
 .opacidad {
-	top:0px;
-	left:0px;
-	width:100%;
-	height:100%;
-	background-color:#5ed596;
-	opacity: 0.98;
-	position:inherit;
-	top:-20px;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #c5c5c5;
+    opacity: 0.989;
+    position: relative;
+    top: -21px;
 }
 
 .centrado{
@@ -236,4 +234,3 @@ ul.topnav li.icon {display: none;}
     background-color: #000;
     height: 8px;
  }
->>>>>>> 3ce5bf552bd709d0e5bb46baacce9c95493a6a81
