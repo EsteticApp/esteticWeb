@@ -11,12 +11,10 @@ angular.module('myApp.Registrar', ['ngRoute'])
 
 
         .controller('ControladorRegistrar', ['$scope', '$rootScope', 'registrarService', '$location', function ($scope, $rootScope, registrarService, $location) {
-                $scope.users = {};
-                $scope.value = false;
                 $scope.RegistrarUsu = function () {
-                    $scope.users.role="CLIENTE"
-                    registrarService.Registrar($scope.users);
-                    console.log($scope.users)
-                    $scope.value = true;
+                    registrarService.Registrar($rootScope.users);
+                    console.log($rootScope.users)
+                    $rootScope.value = true;
+                    $location.path("/Login");
                 }
             }]);
