@@ -84,3 +84,26 @@ header{
 .navbar-nav > li{
     margin-left: 154px !important;
 }
+
+.titulo{
+    text-align:center;
+}
+
+.titulo h1{
+    font-family: 'Pacifico', cursive;
+}
+
+.fondo{
+    background:#FFF;
+    opacity:0.9;
+    padding: 65px;
+}
+
+.login{
+    border: 1px solid #5ED596;
+     padding: 21px;
+     border-radius: 6px;
+     background: #FFF;
+     opacity: 1;
+     z-index:1;
+}
