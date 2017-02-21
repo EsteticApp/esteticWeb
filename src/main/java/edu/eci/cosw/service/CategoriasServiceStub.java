@@ -23,8 +23,32 @@ public class CategoriasServiceStub implements CategoryManagement{
     private List<Servicio> serviciosFilter;
 
     public CategoriasServiceStub(){
+        fillCategories();
+    }
+
+    public List<String> getCategoriesName() throws Exception {
+        if(categorias == null)fillCategories();
+        List<String> lista = new ArrayList<String>();
+        for (Categoria c : categorias){
+            lista.add(c.getName());
+        }
+        if(lista.isEmpty())throw new Exception();
+        return lista;
+    }
+
+    public List<Servicio> getServicesByCategory(String category) throws Exception {
+        if(categorias == null)fillCategories();
+        List<Servicio> services = new ArrayList<>();
+        for(Categoria cat : categorias){
+            if(cat.getName().equals(category))services = cat.getServices();
+        }
+        if(services.isEmpty()) throw new Exception();
+        return services;
+    }
+
+    private void fillCategories(){
         categorias = new ArrayList<>();
-        Categoria cat = new Categoria("Peluqueria");
+        Categoria cat = new Categoria("Peluquería");
         Servicio ser = new Servicio("Cortes");cat.addService(ser);
         ser = new Servicio("Tintes");cat.addService(ser);
         ser = new Servicio("Cepillado");cat.addService(ser);
@@ -54,21 +78,5 @@ public class CategoriasServiceStub implements CategoryManagement{
         ser = new Servicio("Circulatorio");cat.addService(ser);
         ser = new Servicio("Anticelulítico");cat.addService(ser);
         categorias.add(cat);
-    }
-
-    public List<String> getCategoriesName(){
-        List<String> lista = new ArrayList<String>();
-        for (Categoria c : categorias){
-            lista.add(c.getName());
-        }
-        return lista;
-    }
-
-    public List<Servicio> getServicesByCategory(String category){
-        List<Servicio> services = new ArrayList<>();
-        for(Categoria cat : categorias){
-            if(cat.getName().equals(category))services = cat.getServices();
-        }
-        return services;
     }
 }

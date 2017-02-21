@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface EstilistaOperaciones {
     public List<Estilista> getEstilistas();
-    public List<Estilista> getStylistsByCategory(String category);
-    public List<Servicio> getServicesByStylist(String stylist);
+    public List<Estilista> getStylistsByCategory(String category) throws Exception;
+    public List<Servicio> getServicesByStylist(String stylist) throws Exception;
     public void addEstilista(Estilista e);
 }

@@ -21,7 +21,8 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
     private UserApp user;
 
     @Override
-    public List<Servicio> getServicesByStylist(String stylist) {
+    public List<Servicio> getServicesByStylist(String stylist) throws Exception{
+        if(estilistas == null) fillStylist();
         List<Servicio> servicies = new ArrayList<>();
         SimpleUsuario su;
         for(Estilista sty : estilistas){
@@ -31,12 +32,42 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
                 break;
             }
         }
+        if(servicies.isEmpty())throw new Exception();
         return servicies;
     }
 
     @Override
     public List<Estilista> getEstilistas(){
+        if(estilistas == null)fillStylist();
+        return estilistas;
+    }
 
+    @Override
+    public List<Estilista> getStylistsByCategory(String category) throws Exception{
+        if(estilistas == null) fillStylist();
+        List<Estilista> stylist = new ArrayList<>();
+        for(Estilista sty : estilistas){
+            for(Categoria cat : sty.getCategorias()){
+                if(cat.getName().equals(category)){
+                    stylist.add(sty);
+                    break;
+                }
+            }
+        }
+        if(stylist.isEmpty())throw new Exception();
+        return stylist;
+    }
+
+    @Override
+    public void addEstilista(Estilista e) {
+
+        if(e.getRolEstilista().equals("PROFESSIONAL")){
+            estilistas.add(e);
+        }
+
+    }
+
+    private void fillStylist(){
         estilistas = new ArrayList<>();
         List<SimpleUsuario> users = user.getSimpleUsers();
 
@@ -150,30 +181,5 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         serv = new Servicio("Tuina");
         category.addService(serv);
         estilistas.get(4).addCategory(category);
-
-        return estilistas;
-    }
-
-    @Override
-    public List<Estilista> getStylistsByCategory(String category) {
-        List<Estilista> stylist = new ArrayList<>();
-        for(Estilista sty : estilistas){
-            for(Categoria cat : sty.getCategorias()){
-                if(cat.getName().equals(category)){
-                    stylist.add(sty);
-                    break;
-                }
-            }
-        }
-        return stylist;
-    }
-
-    @Override
-    public void addEstilista(Estilista e) {
-
-        if(e.getRolEstilista().equals("PROFESSIONAL")){
-            estilistas.add(e);
-        }
-
     }
 }
