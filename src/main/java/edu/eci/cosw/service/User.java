@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.cosw.Stub;
+package edu.eci.cosw.service;
 import edu.eci.cosw.Interfaz.UserStub;
+import edu.eci.cosw.models.SimpleUsuario;
 import edu.eci.cosw.models.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,8 @@ public class User implements UserStub{
 
     }
 
+    public User(){}
+
     @Override
     public List<Usuario> getUsers() {
         return users;
@@ -46,6 +49,20 @@ public class User implements UserStub{
     @Override
     public void addUser(Usuario user) {
         users.add(user);
+    }
+
+    @Override
+    public List<SimpleUsuario> getSimpleUsers() {
+        ArrayList<SimpleUsuario> simpleUsers = new ArrayList<>();
+        SimpleUsuario user;
+        for(Usuario usr : users){
+            user = new SimpleUsuario();
+            user.setNombre(usr.getNombre());
+            user.setEmail(usr.getEmail());
+            user.setRole(usr.getRole());
+            simpleUsers.add(user);
+        }
+        return simpleUsers;
     }
 
     @Override
