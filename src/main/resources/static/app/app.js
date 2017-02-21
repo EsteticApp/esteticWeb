@@ -6,6 +6,7 @@ angular.module('myApp', [
     'myApp.Cliente',
     'myApp.Login',
     'myApp.Servicios',
+    'myApp.ServiciosDisponibles',
     'myApp.version',
     'myApp.Professional',
     'myApp.Registrar',
