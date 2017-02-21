@@ -1,6 +1,5 @@
 package edu.eci.cosw;
 
-import edu.eci.cosw.Interfaz.UserStub;
 import edu.eci.cosw.models.Usuario;
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -38,6 +37,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import edu.eci.cosw.Interfaz.UserApp;
 
 @SpringBootApplication
 public class EsteticappApplication {
@@ -52,7 +52,7 @@ public class EsteticappApplication {
     protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
        
         @Autowired
-        UserStub usersStub;
+        UserApp usersStub;
         
         @Override
         protected void configure(AuthenticationManagerBuilder builder) throws Exception {

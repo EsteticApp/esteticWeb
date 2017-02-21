@@ -1,14 +1,21 @@
 package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.EstilistaOperaciones;
+<<<<<<< HEAD
 import edu.eci.cosw.Interfaz.UserStub;
 import edu.eci.cosw.models.*;
+=======
+import edu.eci.cosw.Stub.User;
+import edu.eci.cosw.models.Estilista;
+import edu.eci.cosw.models.Usuario;
+>>>>>>> 1f8e3555b8962cb06d44c8c1fd25dd5df7523179
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.scanner.ScannerImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import edu.eci.cosw.Interfaz.UserApp;
 
 /**
  * Created by SYSTEM on 19/02/2017.
@@ -18,6 +25,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
 
     private List<Estilista> estilistas;
     @Autowired
+<<<<<<< HEAD
     private UserStub user;
 
     @Override
@@ -34,6 +42,9 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         return servicies;
     }
 
+=======
+    private UserApp user;
+>>>>>>> 1f8e3555b8962cb06d44c8c1fd25dd5df7523179
     @Override
     public List<Estilista> getEstilistas(){
 

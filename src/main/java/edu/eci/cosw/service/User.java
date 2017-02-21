@@ -3,19 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+<<<<<<< HEAD:src/main/java/edu/eci/cosw/service/User.java
 package edu.eci.cosw.service;
 import edu.eci.cosw.Interfaz.UserStub;
 import edu.eci.cosw.models.SimpleUsuario;
+=======
+package edu.eci.cosw.Stub;
+import edu.eci.cosw.Interfaz.UserApp;
+>>>>>>> 1f8e3555b8962cb06d44c8c1fd25dd5df7523179:src/main/java/edu/eci/cosw/Stub/User.java
 import edu.eci.cosw.models.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import edu.eci.cosw.Interfaz.UserApp;
 /**
  *
  * @author ANDRES CAICEDO
  */
 @Service
-public class User implements UserStub{
+public class User implements UserApp{
 
     private static List<Usuario> users;
 
