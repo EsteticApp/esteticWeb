@@ -4,17 +4,18 @@
  * and open the template in the editor.
  */
 package edu.eci.cosw.Stub;
-import edu.eci.cosw.Interfaz.UserStub;
+import edu.eci.cosw.Interfaz.UserApp;
 import edu.eci.cosw.models.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import edu.eci.cosw.Interfaz.UserApp;
 /**
  *
  * @author ANDRES CAICEDO
  */
 @Service
-public class User implements UserStub{
+public class User implements UserApp{
 
     private static List<Usuario> users;
 

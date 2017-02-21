@@ -1,7 +1,6 @@
 package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.EstilistaOperaciones;
-import edu.eci.cosw.Interfaz.UserStub;
 import edu.eci.cosw.Stub.User;
 import edu.eci.cosw.models.Estilista;
 import edu.eci.cosw.models.Usuario;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import edu.eci.cosw.Interfaz.UserApp;
 
 /**
  * Created by SYSTEM on 19/02/2017.
@@ -19,7 +19,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
 
     private static List<Estilista> estilistas = new ArrayList<>();
     @Autowired
-    private UserStub user;
+    private UserApp user;
     @Override
     public List<Estilista> getEstilistas(){
         //Estilistas quemados

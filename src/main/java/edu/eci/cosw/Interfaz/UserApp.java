@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author ANDRES CAICEDO
  */
-public interface UserStub {
+public interface UserApp {
     
 
     public List<Usuario> getUsers();
