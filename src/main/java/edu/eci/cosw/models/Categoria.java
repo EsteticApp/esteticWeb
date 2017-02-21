@@ -1,6 +1,7 @@
 package edu.eci.cosw.models;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,57 +11,43 @@ import java.util.List;
 
 public class Categoria {
 
-    private String nombre;
-    private List<Servicio> servicios;
+    private String name;
+    private List<Servicio> services = new ArrayList<>();
 
     /**
      * Constructor de una categoria
-     * @param nombre de la categoria
+     * @param name de la categoria
      */
-    public Categoria(String nombre){
+    public Categoria(String name){
 
-        this.nombre = nombre;
+        this.name = name;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    /**
-     * Actualizacion de nombre de la categoria
-     * @param nombre
-     */
-    public void actualizaCategoria(String nombre){
-        this.nombre = nombre;
-    }
 
     /**
      * Retorna los servicios de una categoria
      * @return lista con servicios de una categoria
      */
-    public List<Servicio> getServicios(){
-        return servicios;
+    public List<Servicio> getServices(){
+        return services;
     }
 
     /**
      * Agrega un servicio si este no existe
-     * @param servicio
+     * @param service
      * @return true si el nuevo servicio no existe
      */
-    public boolean addServicio(Servicio servicio){
-        boolean estado = true;
-        for(Servicio serv : servicios){
-            if(serv.getNombre().equals(servicio.getNombre())){
-                estado=false;
-            }
-        }
-        if (estado){servicios.add(servicio);}
+    public boolean addService(Servicio service){
+        boolean estado = ! services.contains(service);
+        if(estado)services.add(service);
         return estado;
     }
-
-
 }

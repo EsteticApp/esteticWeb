@@ -9,6 +9,8 @@
         <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css">
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
         <title>EsteticApp</title>
     </head>
     <body class="body-fon">
@@ -39,8 +41,40 @@
                 </div>
             </div>
         </header>
+
         <!--Menu del Cliente-->
-        <div ng-show="Cliente">
+        <div ng-show="Cliente ">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid menuBarraNegro">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <div class="container">
+                            <ul class="nav navbar-nav ">
+                                <li><a class="textMenu" ng-show="authenticated" href="#!/CLIENTE">Inicio</a></li>
+                                <li><a class="textMenu"  ng-show="authenticated" href="#">Mi Perfil</a></li>
+                                <li><a class="textMenu"  ng-show="authenticated" href="#!/Servicios">Servicios</a></li>
+                                <li><a class="textMenu"  ng-controller="ControladorLogout" ng-click="logout()">Cerrar Sesión</a></li>
+                            </ul>
+
+                        </div>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+
+        <!--Menu del Profesional-->
+        <div ng-show="Professional">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -69,20 +103,32 @@
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
-
+        
         <div class="container">
 
-            <div ng-view></div>
+            <div ng-view >
+
+            </div>
 
             <script src="bower_components/angular/angular.js"></script>
             <script src="bower_components/angular-route/angular-route.js"></script>
             <script src="bower_components/angular-resource/angular-resource.js"></script>
-             <script src="app.js"></script>
+            <script src="app.js"></script>
             <script src="Cliente/Cliente.js"></script>
+            <script src="Servicios/Servicios.js"></script>
+            <script src="Professional/Professional.js"></script>
             <script src="Login/Login.js"></script>
             <script src="components/version/version.js"></script>
             <script src="components/version/version-directive.js"></script>
             <script src="components/version/interpolate-filter.js"></script>
+            <!--Dependencias de Angular material-->
+            <script src="bower_components/angular-animate/angular-animate.js"></script>
+            <script src="bower_components/angular-aria/angular-aria.js"></script>
+
+            <!--Angular material-->
+            <script src="bower_components/angular-material/angular-material.js"></script>
+
+
         </div>
 
         <footer class="foo">
