@@ -21,7 +21,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
     private UserApp user;
 
     @Override
-    public List<Servicio> getServicesByStylist(String stylist) {
+    public List<Servicio> getServicesByStylist(String stylist) throws Exception{
         if(estilistas == null) fillStylist();
         List<Servicio> servicies = new ArrayList<>();
         SimpleUsuario su;
@@ -32,6 +32,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
                 break;
             }
         }
+        if(servicies.isEmpty())throw new Exception();
         return servicies;
     }
 
@@ -42,7 +43,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
     }
 
     @Override
-    public List<Estilista> getStylistsByCategory(String category) {
+    public List<Estilista> getStylistsByCategory(String category) throws Exception{
         if(estilistas == null) fillStylist();
         List<Estilista> stylist = new ArrayList<>();
         for(Estilista sty : estilistas){
@@ -53,6 +54,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
                 }
             }
         }
+        if(stylist.isEmpty())throw new Exception();
         return stylist;
     }
 
