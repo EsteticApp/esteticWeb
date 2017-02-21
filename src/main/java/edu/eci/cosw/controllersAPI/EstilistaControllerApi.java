@@ -36,7 +36,7 @@ public class EstilistaControllerApi {
         }
     }
 
-    @RequestMapping(path = "/{stylist}", method = RequestMethod.GET)
+    @RequestMapping(path = "/id/{stylist}", method = RequestMethod.GET)
     public ResponseEntity<?> getServicesByStylistManagement(@PathVariable String stylist){
         try {
             List<Servicio> data = estilista.getServicesByStylist(stylist);
@@ -44,6 +44,17 @@ public class EstilistaControllerApi {
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(EstilistaControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No services found in that category", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(path = "/{category}", method = RequestMethod.GET)
+    public ResponseEntity<?> getStylistsByCategoryManagement(@PathVariable String category){
+        try {
+            List<Estilista> data = estilista.getStylistsByCategory(category);
+            return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(EstilistaControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("No stylist found in that category", HttpStatus.NOT_FOUND);
         }
     }
 

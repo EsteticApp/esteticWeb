@@ -68,10 +68,10 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         estilistas.get(0).addCategory(category);
 
         //Segundo estilísta
-        category = new Categoria("Peluquería");
+        /*category = new Categoria("Peluquería");
         serv = new Servicio("Recogidos");
         category.addService(serv);
-        estilistas.get(1).addCategory(category);
+        estilistas.get(1).addCategory(category);*/
 
         category = new Categoria("Uñas");
         serv = new Servicio("Decoración");
@@ -89,10 +89,10 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         estilistas.get(1).addCategory(category);
 
         //Tercer estilísta
-        category = new Categoria("Peluquería");
+        /*category = new Categoria("Peluquería");
         serv = new Servicio("Cortes");
         category.addService(serv);
-        estilistas.get(2).addCategory(category);
+        estilistas.get(2).addCategory(category);*/
 
         category = new Categoria("Uñas");
         serv = new Servicio("Esmaltado permanente");
@@ -110,10 +110,10 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         estilistas.get(2).addCategory(category);
 
         //Cuarto estilísta
-        category = new Categoria("Peluquería");
+        /*category = new Categoria("Peluquería");
         serv = new Servicio("Extensiones");
         category.addService(serv);
-        estilistas.get(3).addCategory(category);
+        estilistas.get(3).addCategory(category);*/
 
         category = new Categoria("Uñas");
         serv = new Servicio("Pedicure");
@@ -131,10 +131,10 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         estilistas.get(3).addCategory(category);
 
         //Quinto estilísta
-        category = new Categoria("Peluquería");
+        /*category = new Categoria("Peluquería");
         serv = new Servicio("Tintes");
         category.addService(serv);
-        estilistas.get(4).addCategory(category);
+        estilistas.get(4).addCategory(category);*/
 
         category = new Categoria("Uñas");
         serv = new Servicio("Manicure");
@@ -152,6 +152,20 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         estilistas.get(4).addCategory(category);
 
         return estilistas;
+    }
+
+    @Override
+    public List<Estilista> getStylistsByCategory(String category) {
+        List<Estilista> stylist = new ArrayList<>();
+        for(Estilista sty : estilistas){
+            for(Categoria cat : sty.getCategorias()){
+                if(cat.getName().equals(category)){
+                    stylist.add(sty);
+                    break;
+                }
+            }
+        }
+        return stylist;
     }
 
     @Override
