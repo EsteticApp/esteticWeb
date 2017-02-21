@@ -152,8 +152,15 @@ text-align:center;
     font-size:large;
 }
 
+/*Opciones*/
 
+.opcion{
+    background:#e5e5e5;
+}
 
+.register img{
+    height:90px;
+}
 .menuBarraNegro {
     background-color: #000000;
     border-color: #000000;
