@@ -112,7 +112,7 @@ text-align:center;
 .fondo{
     background:#FFF;
     opacity:0.9;
-    padding: 65px;
+    padding: 207px;
 }
 
 .login{
@@ -133,12 +133,24 @@ text-align:center;
 }
 
 
+.gly .fa-user{
+    font-size: 28px;
+    color:#000;
+}
 
 .menuBarraNegro {
     background-color: #000000;
     border-color: #000000;
 }
 
+.cont{
+    text-align:center;
+}
+
+
+.cont .btn-primary{
+    margin-top:20px;
+}
 /*Opacidad de fondos*/
 .opacidad {
 	top:0px;
@@ -157,6 +169,16 @@ text-align:center;
     margin: 8px 0;
     box-sizing: border-box;
     margin:0 auto;
+}
+
+.gly .fa-lock{
+    font-size: 28px;
+    margin-top: 6px;
+    color: #000;
+}
+
+.login-2{
+    padding:15px;
 }
 
 .centrado2{
@@ -236,4 +258,5 @@ ul.topnav li.icon {display: none;}
     background-color: #000;
     height: 8px;
  }
->>>>>>> 3ce5bf552bd709d0e5bb46baacce9c95493a6a81
+
+
