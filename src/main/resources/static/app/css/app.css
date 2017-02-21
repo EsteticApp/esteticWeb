@@ -322,3 +322,11 @@ section#beautyservice article {
 .contenedor-servicios {
     conta
 }
+
+/*DISEÑO PARA SERVICIOSDISPONIBLES*/
+
+.listdemoBasicUsage md-divider {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
