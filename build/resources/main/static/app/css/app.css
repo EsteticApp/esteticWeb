@@ -58,7 +58,6 @@ header{
     position:inherit;*/
     bottom: 0;
     width: 100%;
-    position: fixed;
 }
 
 .reser{
@@ -190,6 +189,28 @@ text-align:center;
     color: #000;
     font-size: 35px;
     text-decoration: none;
+}
+
+
+
+/*Inicio*/
+.inicioc{
+    background:#e5e5e5;
+}
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width:70%;
+      margin: auto;
+  }
+
+.inicio h1{
+    text-align:center;
+    font-family: 'Pacifico';
+}
+
+.inicio p{
+    font-family: 'EB Garamond', serif;
+    text-align:justify;
 }
 
 /*Opacidad de fondos*/
