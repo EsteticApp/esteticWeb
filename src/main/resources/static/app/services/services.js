@@ -23,7 +23,19 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
             });
 
         })
-        
+
+        .factory('estilistasCategorias', function($resource){
+                    var categoria = localStorage.getItem('categoria');
+                    console.log('LA CATEGORIA ES <<<>>>>'+categoria);
+                    return $resource('/estilistas/'+categoria,{},{
+                        get: {
+                            method: 'GET',
+                            isArray: true
+                        }
+                    });
+
+             })
+
         .factory('registrarService', function($resource){
             return $resource('./Registrar',
             {nombre:'@nombre',cedula:'@cedula',mail:'@mail',password:'@password',role:'@role'},{

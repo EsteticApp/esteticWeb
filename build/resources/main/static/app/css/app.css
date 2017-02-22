@@ -361,5 +361,16 @@ section#beautyservice article {
 .listdemoBasicUsage md-divider {
   margin-top: 10px;
   margin-bottom: 0;
+  line-header:1px;
 }
+
+.interlineado{
+    line-header:1px;
+}
+
+.size-avatar{
+    width: 60px;
+    height: 60px;
+}
+
 
