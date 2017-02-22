@@ -10,13 +10,13 @@
             <md-list flex>
                 <md-list ng-controller="ControladorServiciosDisponibles" ng-cloak>
                     <md-subheader class="md-no-sticky">Estilistas:</md-subheader>
-<<<<<<< HEAD
+
                     <md-list-item ng-repeat="estilista in estilistas" ng-click="professional()" class="noright">
                         <img ng-src="{{ estilista.img }}" class="md-avatar" />
-=======
+
                     <md-list-item style="background:bisque;" ng-repeat="estilista in estilistas" ng-click="goToPerson(estilista.rolEstilista.nombre, $event)" class="noright">
                         <img ng-src="image/peluqueria.jpg" class="md-avatar" />
->>>>>>> 831223e323961512e4bc0de6f9a6ead117d35a9f
+
                         <div class="md-list-item-text interlineado" layout="column">
                             <h4>{{ estilista.rolEstilista.nombre }}</h4>
                             <p>
