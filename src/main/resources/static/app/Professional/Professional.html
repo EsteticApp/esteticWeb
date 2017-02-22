@@ -1,9 +1,26 @@
-<div ng-show="Professional">
-<p>Esta parte es Professional</p>
-<p>
-    Showing of 'interpolate' filter:
-    {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
-</div>
 <div ng-show="Cliente">
+    <div class="opacidad container">
+        <h1 class="titulo">Servicios Estilista:</h1>
+
+
+       <div ng-controller="ControladorProfessional" layout="column" layout-align="center center" style="padding:40px" ng-cloak>
+            <p>Selecciona un servicio: </p>
+            <div layout="column" layout-align="center center">
+                <md-select placeholder="Escoger servicio" ng-model="servicio" md-on-open="cargarServiciosEstilista()" style="min-width: 200px;">
+                    <md-option ng-value="servicio" ng-repeat="servicio in servicios">
+                        {{servicio.name}}
+                    </md-option>
+                </md-select>
+                <p class="md-caption">Servicios seleccionados: {{ servicio ? servicio.name : 'Aun no han seleccionado servicios' }}</p>
+            </div>
+           <input type="button" ng-click="solicitarServicio()" value="Reservar">
+        </div>
+
+
+
+    </div>
 </div>
+
+<div ng-show="Professional">
+</div>
+

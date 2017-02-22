@@ -14,6 +14,12 @@ angular.module('myApp.ServiciosDisponibles', ['ngRoute', 'ngMaterial'])
                estilistasCategorias.get(function(data){
                        $scope.estilistas = data;
                })
+
+               $scope.professional = function(){
+                    console.log("Profesional");
+                    $location.path("/Professional");
+               }
+
          }])
 
         .controller('ListCtrl', function($scope, $mdDialog) {
@@ -25,15 +31,18 @@ angular.module('myApp.ServiciosDisponibles', ['ngRoute', 'ngMaterial'])
           //];
 
           $scope.goToPerson = function(person, event) {
-            $mdDialog.show(
+
+         /*$mdDialog.show(
               $mdDialog.alert()
                 .title('Navigating')
                 .textContent('Inspect ' + person)
                 .ariaLabel('Person inspect demo')
                 .ok('Neat!')
                 .targetEvent(event)
-            );
+            );*/
           };
+
+
         });
 
 
