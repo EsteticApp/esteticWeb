@@ -6,14 +6,19 @@
                 <h2 class="titulo2-servicios">ESTILISTAS DISPONIBLES</h2>
                 <h4 class="titulo4-servicios">Selecciona uno de los estilistas para ver mas detalles.</h4>
             </header>
+            <md-progress-linear md-mode="determinate" value="{{vm.determinateValue}}"></md-progress-linear>
             <md-list flex>
                 <md-list ng-controller="ListCtrl" ng-cloak>
                     <md-subheader class="md-no-sticky">Estilistas:</md-subheader>
-                    <md-list-item ng-repeat="estilista in estilistas" ng-click="goToPerson(estilista.name, $event)" class="noright">
-                        <img ng-src="{{ estilista.img }}" class="md-avatar" />
+                    <md-list-item style="background:bisque;" ng-repeat="estilista in estilistas" ng-click="goToPerson(estilista.rolEstilista.nombre, $event)" class="noright">
+                        <img ng-src="image/peluqueria.jpg" class="md-avatar" />
                         <div class="md-list-item-text interlineado" layout="column">
-                            <h4>{{ estilista.name }}</h4>
-                            <p>{{ estilista.name }}</p>
+                            <h4>{{ estilista.rolEstilista.nombre }}</h4>
+                            <p>
+                                <b ng-repeat="servicio in estilista.allServicies">
+                                    <b>-</b>{{ servicio.nombre }}
+                                </b>
+                            </p>
                         </div>
                     </md-list-item>
                 </md-list>
