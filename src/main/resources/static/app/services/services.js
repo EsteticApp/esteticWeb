@@ -24,10 +24,8 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
 
         })
 
-        .factory('estilistasCategorias', function($resource){
-                    var categoria = localStorage.getItem('categoria');
-                    console.log('LA CATEGORIA ES <<<>>>>'+categoria);
-                    return $resource('/estilistas/'+categoria+'/:rolEstilista',{},{
+        .factory('estilistasCategorias', function($resource,$rootScope){
+                    return $resource('/estilistas/'+localStorage.catSeleccionada,{},{
                         get: {
                             method: 'GET',
                             isArray: true

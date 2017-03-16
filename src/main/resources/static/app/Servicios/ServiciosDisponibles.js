@@ -11,9 +11,8 @@ angular.module('myApp.ServiciosDisponibles', ['ngRoute', 'ngMaterial'])
 
 
         .controller('ControladorServiciosDisponibles', ['$scope', '$rootScope', '$http', '$location', 'estilistasCategorias', 'estCat', function ($scope, $rootScope, $http, $location, estilistasCategorias, estCat) {
-                console.log("Categoria seleccionada primer paso : "+$scope.categoriaSeleccionada);
+                console.log("Categoria seleccionada primer paso : "+$rootScope.categoriaSeleccionada+" otra> "+ localStorage.catSeleccionada);
                 estilistasCategorias.get(function (data) {
-                    console.log(data[0]);
                     $scope.estilistas = data;
                 })
 

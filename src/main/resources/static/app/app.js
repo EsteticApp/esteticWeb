@@ -20,6 +20,7 @@ angular.module('myApp', [
                 $locationProvider.hashPrefix('!');
                 $routeProvider.otherwise({redirectTo: '/Inicio'});
                 $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+                localStorage.catSeleccionada = "Unas";
             }])
         
         .controller('ControladorLogout', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location) {

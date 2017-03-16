@@ -12,27 +12,31 @@ angular.module('myApp.Servicios', ['ngRoute'])
         .controller('ControladorServicios', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location) {
 
             $scope.sPeluqueria = function(){
-                console.log("Categoria seleccionada: Peluqueria");
                 $location.path("/ServiciosDisponibles");
-                $scope.categoriaSeleccionada="Peluqueria";
+                $rootScope.categoriaSeleccionada="Peluqueria";
+                localStorage.catSeleccionada = "Peluqueria"
+                console.log($scope.categoriaSeleccionada);
             };
 
             $scope.sUnas = function(){
-                console.log("Categoria seleccionada: Unas");
                 $location.path("/ServiciosDisponibles");
-                $scope.categoriaSeleccionada="Unas";
+                $rootScope.categoriaSeleccionada="Unas";
+                localStorage.catSeleccionada = "Unas"
+                console.log($scope.categoriaSeleccionada);
             };
 
             $scope.sDepilacion = function(){
-                console.log("Categoria seleccionada: Depilacion");
                 $location.path("/ServiciosDisponibles");
-                $scope.categoriaSeleccionada="Depilacion";
+                $rootScope.categoriaSeleccionada="Depilacion";
+                localStorage.catSeleccionada = "Depilacion"
+                console.log($scope.categoriaSeleccionada);
             };
 
             $scope.sMasajes = function(){
-                console.log("Categoria seleccionada: Masajes");
                 $location.path("/ServiciosDisponibles");
-                $scope.categoriaSeleccionada="Masajes";
+                $rootScope.categoriaSeleccionada="Masajes";
+                localStorage.catSeleccionada = "Masajes"
+                console.log($scope.categoriaSeleccionada);
             };
 
 
