@@ -9,7 +9,7 @@
             <md-progress-linear md-mode="determinate" value="{{vm.determinateValue}}"></md-progress-linear>
             <md-list flex>
                 <md-list ng-controller="ControladorServiciosDisponibles" ng-cloak>
-                    <md-subheader class="md-no-sticky">Estilistas:</md-subheader>
+                    <md-subheader class="md-no-sticky">Estilistas:<input type="button" ng-click="pedir()" value="Actualizar" /></md-subheader>
 
                     <md-list-item style="background:bisque;" ng-repeat="estilista in estilistas" ng-click="goToPerson(estilista.rolEstilista.nombre, $event)" class="noright">
                         <img ng-src="image/peluqueria.jpg" class="md-avatar" />

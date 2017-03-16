@@ -25,13 +25,9 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
         })
 
         .factory('estilistasCategorias', function($resource,$rootScope){
-                    return $resource('/estilistas/'+localStorage.catSeleccionada,{},{
-                        get: {
-                            method: 'GET',
-                            isArray: true
-                        }
-                    });
-
+                    console.log("Recibiendo datos categoria:"+localStorage.catSeleccionada);
+                    var esti = $resource('/estilistas/'+localStorage.catSeleccionada+'/:rolEstilista');
+                    return esti;
              })
 
         .factory('registrarService', function($resource){
