@@ -11,9 +11,6 @@
                 <md-list ng-controller="ControladorServiciosDisponibles" ng-cloak>
                     <md-subheader class="md-no-sticky">Estilistas:</md-subheader>
 
-                    <md-list-item ng-repeat="estilista in estilistas" ng-click="professional()" class="noright">
-                        <img ng-src="{{ estilista.img }}" class="md-avatar" />
-
                     <md-list-item style="background:bisque;" ng-repeat="estilista in estilistas" ng-click="goToPerson(estilista.rolEstilista.nombre, $event)" class="noright">
                         <img ng-src="image/peluqueria.jpg" class="md-avatar" />
 

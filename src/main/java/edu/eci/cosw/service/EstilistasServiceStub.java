@@ -37,8 +37,9 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
     }
 
     @Override
-    public List<Estilista> getEstilistas(){
+    public List<Estilista> getEstilistas() throws Exception{
         if(estilistas == null)fillStylist();
+        if(estilistas.isEmpty())throw new Exception();
         return estilistas;
     }
 
@@ -78,17 +79,17 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         }
 
         //Primer estilísta
-        Categoria category = new Categoria("Peluquería");
+        Categoria category = new Categoria("Peluqueria");
         Servicio serv = new Servicio("Cepillado");
         category.addService(serv);
         estilistas.get(0).addCategory(category);
 
-        category = new Categoria("Uñas");
+        category = new Categoria("Unas");
         serv = new Servicio("Manicure");
         category.addService(serv);
         estilistas.get(0).addCategory(category);
 
-        category = new Categoria("Depilación");
+        category = new Categoria("Depilacion");
         serv = new Servicio("Tradicional");
         category.addService(serv);
         estilistas.get(0).addCategory(category);
@@ -104,12 +105,12 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         category.addService(serv);
         estilistas.get(1).addCategory(category);*/
 
-        category = new Categoria("Uñas");
+        category = new Categoria("Unas");
         serv = new Servicio("Decoración");
         category.addService(serv);
         estilistas.get(1).addCategory(category);
 
-        category = new Categoria("Depilación");
+        category = new Categoria("Depilacion");
         serv = new Servicio("Egipcia");
         category.addService(serv);
         estilistas.get(1).addCategory(category);
@@ -125,12 +126,12 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         category.addService(serv);
         estilistas.get(2).addCategory(category);*/
 
-        category = new Categoria("Uñas");
+        category = new Categoria("Unas");
         serv = new Servicio("Esmaltado permanente");
         category.addService(serv);
         estilistas.get(2).addCategory(category);
 
-        category = new Categoria("Depilación");
+        category = new Categoria("Depilacion");
         serv = new Servicio("Roll-on");
         category.addService(serv);
         estilistas.get(2).addCategory(category);
@@ -146,12 +147,12 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         category.addService(serv);
         estilistas.get(3).addCategory(category);*/
 
-        category = new Categoria("Uñas");
+        category = new Categoria("Unas");
         serv = new Servicio("Pedicure");
         category.addService(serv);
         estilistas.get(3).addCategory(category);
 
-        category = new Categoria("Depilación");
+        category = new Categoria("Depilacion");
         serv = new Servicio("Tradicional");
         category.addService(serv);
         estilistas.get(3).addCategory(category);
@@ -167,12 +168,12 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         category.addService(serv);
         estilistas.get(4).addCategory(category);*/
 
-        category = new Categoria("Uñas");
+        category = new Categoria("Unas");
         serv = new Servicio("Manicure");
         category.addService(serv);
         estilistas.get(4).addCategory(category);
 
-        category = new Categoria("Depilación");
+        category = new Categoria("Depilacion");
         serv = new Servicio("Tradicional");
         category.addService(serv);
         estilistas.get(4).addCategory(category);

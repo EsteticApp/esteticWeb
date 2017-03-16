@@ -48,7 +48,7 @@ public class CategoriasServiceStub implements CategoryManagement{
 
     private void fillCategories(){
         categorias = new ArrayList<>();
-        Categoria cat = new Categoria("Peluquería");
+        Categoria cat = new Categoria("Peluqueria");
         Servicio ser = new Servicio("Cortes");cat.addService(ser);
         ser = new Servicio("Tintes");cat.addService(ser);
         ser = new Servicio("Cepillado");cat.addService(ser);
@@ -57,14 +57,14 @@ public class CategoriasServiceStub implements CategoryManagement{
         ser = new Servicio("Recogidos");cat.addService(ser);
         categorias.add(cat);
 
-        cat = new Categoria("Uñas");
+        cat = new Categoria("Unas");
         ser = new Servicio("Manicure");cat.addService(ser);
         ser = new Servicio("Pedicure");cat.addService(ser);
         ser = new Servicio("Esmaltado permanente");cat.addService(ser);
         ser = new Servicio("Decoración");cat.addService(ser);
         categorias.add(cat);
 
-        cat = new Categoria("Depilación");
+        cat = new Categoria("Depilacion");
         ser = new Servicio("Tradicional");cat.addService(ser);
         ser = new Servicio("Roll-on");cat.addService(ser);
         ser = new Servicio("Egipcia");cat.addService(ser);
