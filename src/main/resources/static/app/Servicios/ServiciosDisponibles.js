@@ -10,12 +10,13 @@ angular.module('myApp.ServiciosDisponibles', ['ngRoute', 'ngMaterial'])
             }])
 
 
-        .controller('ControladorServiciosDisponibles', ['$scope', '$rootScope', '$http', '$location', 'estilistasCategorias', 'estCat', function ($scope, $rootScope, $http, $location, estilistasCategorias, estCat) {                $scope.estilistas;
+        .controller('ControladorServiciosDisponibles', ['$resource','$scope', '$rootScope', '$http', '$location', 'estilistasCategorias', 'estCat', function ($resource,$scope, $rootScope, $http, $location, estilistasCategorias, estCat) {                $scope.estilistas;
                 $scope.catselect = localStorage.catSeleccionada;
                 console.log("Selecciono categoria:"+$scope.catselect);
                 $scope.pedir = function(){
                       console.log("solicitando categoria:"+$scope.catselect);
-                      $scope.estilistas = estilistasCategorias.query();
+                      var esti = $resource('/estilistas/'+localStorage.catSeleccionada+'/:rolEstilista');
+                      $scope.estilistas = esti.query();
                 };
             }])
 

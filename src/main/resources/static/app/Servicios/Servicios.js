@@ -9,11 +9,10 @@ angular.module('myApp.Servicios', ['ngRoute'])
                 });
             }])
 
-        .controller('ControladorServicios', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location) {
+        .controller('ControladorServicios', ['$scope', '$http', '$location', function ($scope, $http, $location) {
 
             $scope.sPeluqueria = function(){
                 $location.path("/ServiciosDisponibles");
-                $rootScope.categoriaSeleccionada="Peluqueria";
                 localStorage.catSeleccionada = "Peluqueria";
             };
 
@@ -24,13 +23,11 @@ angular.module('myApp.Servicios', ['ngRoute'])
 
             $scope.sDepilacion = function(){
                 $location.path("/ServiciosDisponibles");
-                $rootScope.categoriaSeleccionada="Depilacion";
                 localStorage.catSeleccionada = "Depilacion";
             };
 
             $scope.sMasajes = function(){
                 $location.path("/ServiciosDisponibles");
-                $rootScope.categoriaSeleccionada="Masajes";
                 localStorage.catSeleccionada = "Masajes";
             };
 
