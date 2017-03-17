@@ -1,19 +1,25 @@
 <div ng-show="Cliente">
     <div class="opacidad container">
         <h1 class="titulo">Servicios Estilista</h1>
-        <p>Haz solicitado los siguientes servicios </p>
+            <p>Seleccione, por favor, los servicios que desea reservar</p>
 
         <md-list ng-controller="ControladorServiciosSolicitados" ng-cloak>
 
             <md-subheader class="md-no-sticky">Servicios de: {{estilista}}</md-subheader>
-            <md-list-item ng-repeat="servicio in servicios">
-                <p> {{ servicio.nombre }} </p>
-                <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
-            </md-list-item>
+            <div layout="column" layout-align="center center">
+                <md-
+                <md-list-item ng-repeat="servicio in servicios">
+                    <md-checkbox class="md-secondary" ng-model="estadoSelect" ng-change="servicioSelect()" ng-true-value="true">
+                        <p> {{ servicio.nombre }} </p>
+                    </md-checkbox>
 
+                </md-list-item>
+            </div>
             <md-divider></md-divider>
 
         </md-list>
+
+    </div>
 
 </div>
 

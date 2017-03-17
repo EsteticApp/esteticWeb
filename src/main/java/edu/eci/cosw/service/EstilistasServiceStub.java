@@ -1,14 +1,16 @@
 package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.EstilistaOperaciones;
-import edu.eci.cosw.models.*;
+import edu.eci.cosw.Interfaz.UserApp;
+import edu.eci.cosw.models.Categoria;
 import edu.eci.cosw.models.Estilista;
+import edu.eci.cosw.models.Servicio;
+import edu.eci.cosw.models.SimpleUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import edu.eci.cosw.Interfaz.UserApp;
 
 /**
  * Created by SYSTEM on 19/02/2017.
@@ -84,6 +86,16 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         category.addService(serv);
         estilistas.get(0).addCategory(category);
 
+        category = new Categoria("Peluqueria");
+        serv = new Servicio("Cortes");
+        category.addService(serv);
+        estilistas.get(0).addCategory(category);
+
+        category = new Categoria("Peluqueria");
+        serv = new Servicio("Tintes");
+        category.addService(serv);
+        estilistas.get(0).addCategory(category);
+
         category = new Categoria("Unas");
         serv = new Servicio("Manicure");
         category.addService(serv);
@@ -104,6 +116,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         serv = new Servicio("Recogidos");
         category.addService(serv);
         estilistas.get(1).addCategory(category);*/
+
 
         category = new Categoria("Unas");
         serv = new Servicio("Decoración");
@@ -148,6 +161,11 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         estilistas.get(3).addCategory(category);*/
 
         category = new Categoria("Unas");
+        serv = new Servicio("Manicure");
+        category.addService(serv);
+        estilistas.get(3).addCategory(category);
+
+        category = new Categoria("Unas");
         serv = new Servicio("Pedicure");
         category.addService(serv);
         estilistas.get(3).addCategory(category);
@@ -158,7 +176,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         estilistas.get(3).addCategory(category);
 
         category = new Categoria("Masajes");
-        serv = new Servicio("Tuina");
+        serv = new Servicio("Anticelulítico");
         category.addService(serv);
         estilistas.get(3).addCategory(category);
 
@@ -173,13 +191,23 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         category.addService(serv);
         estilistas.get(4).addCategory(category);
 
+        category = new Categoria("Unas");
+        serv = new Servicio("Pedicure");
+        category.addService(serv);
+        estilistas.get(4).addCategory(category);
+
         category = new Categoria("Depilacion");
         serv = new Servicio("Tradicional");
         category.addService(serv);
         estilistas.get(4).addCategory(category);
 
+        category = new Categoria("Depilacion");
+        serv = new Servicio("Egipcia");
+        category.addService(serv);
+        estilistas.get(4).addCategory(category);
+
         category = new Categoria("Masajes");
-        serv = new Servicio("Tuina");
+        serv = new Servicio("Circulatorio");
         category.addService(serv);
         estilistas.get(4).addCategory(category);
     }

@@ -9,12 +9,24 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute'])
                 });
         }])
 
-        .controller('ControladorServiciosSolicitados', ['$resource','$scope', '$rootScope', '$http', '$location', function ($resource,$scope, $rootScope, $http, $location,$mdDialog) {
+        .controller('ControladorServiciosSolicitados', ['$resource','$scope', '$rootScope', '$http', '$location', function ($resource,$scope, $rootScope, $http, $location) {
               $scope.estilista=localStorage.estilistaSelect;
               var esti = $resource('/estilistas/id/'+localStorage.estilistaSelect);
               $scope.servicios = esti.query();
-            }
-        ]);
+
+
+              $scope.servicioSelect = function(){
+
+                  if ($scope.estadoSelect){
+
+
+                  }else{
+                  }
+
+
+              }
+
+        }]);
 
 
 
