@@ -24,11 +24,11 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
 
         })
 
-        .factory('estilistasCategorias', function($resource,$rootScope){
+        .factory('estilistasCategorias', function($resource){
                     console.log("Recibiendo datos categoria:"+localStorage.catSeleccionada);
                     var esti = $resource('/estilistas/'+localStorage.catSeleccionada+'/:rolEstilista');
                     return esti;
-             })
+         })
 
         .factory('registrarService', function($resource){
             return $resource('./Registrar',
@@ -44,4 +44,4 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
                               isArray: true
                           }
                       });
-        })
+        });
