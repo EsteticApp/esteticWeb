@@ -5,9 +5,9 @@
 
         <md-list ng-controller="ControladorServiciosSolicitados" ng-cloak>
 
-            <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>
-            <md-list-item ng-repeat="topping in toppings">
-                <p> {{ topping.name }} </p>
+            <md-subheader class="md-no-sticky">Servicios de: {{estilista}}</md-subheader>
+            <md-list-item ng-repeat="servicio in servicios">
+                <p> {{ servicio.nombre }} </p>
                 <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
             </md-list-item>
 

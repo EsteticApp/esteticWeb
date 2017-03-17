@@ -9,13 +9,10 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute'])
                 });
         }])
 
-        .controller('ControladorServiciosSolicitados', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location,$mdDialog) {
-              $scope.toppings = [
-                { name: 'Pepperoni', wanted: true },
-                { name: 'Sausage', wanted: false },
-                { name: 'Black Olives', wanted: true },
-                { name: 'Green Peppers', wanted: false }
-              ];
+        .controller('ControladorServiciosSolicitados', ['$resource','$scope', '$rootScope', '$http', '$location', function ($resource,$scope, $rootScope, $http, $location,$mdDialog) {
+              $scope.estilista=localStorage.estilistaSelect;
+              var esti = $resource('/estilistas/id/'+localStorage.estilistaSelect);
+              $scope.servicios = esti.query();
             }
         ]);
 
