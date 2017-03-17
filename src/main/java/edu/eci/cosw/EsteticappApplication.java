@@ -79,7 +79,7 @@ public class EsteticappApplication {
                     .httpBasic()
                     .and()
                     .authorizeRequests()
-                    .antMatchers("/", "/app/**", "/logout", "/Login").permitAll()
+                    .antMatchers("/app/**", "/logout", "/Login", "/").permitAll()
                     .anyRequest().authenticated().and()
                     .logout().logoutSuccessUrl("/")
                     .and().csrf()
