@@ -25,7 +25,6 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
         })
 
         .factory('estilistasCategorias', function($resource){
-                    console.log("Recibiendo datos categoria:"+localStorage.catSeleccionada);
                     var esti = $resource('/estilistas/'+localStorage.catSeleccionada+'/:rolEstilista');
                     return esti;
          })

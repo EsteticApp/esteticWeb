@@ -1,9 +1,22 @@
 <div ng-show="Cliente">
     <div class="opacidad container">
-        <h1 class="titulo">Solicitar servicio</h1>
+        <h1 class="titulo">Servicios Estilista</h1>
         <p>Haz solicitado los siguientes servicios </p>
+
+        <md-list ng-controller="ControladorServiciosSolicitados" ng-cloak>
+
+            <md-subheader class="md-no-sticky">Single Action Checkboxes</md-subheader>
+            <md-list-item ng-repeat="topping in toppings">
+                <p> {{ topping.name }} </p>
+                <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+            </md-list-item>
+
+            <md-divider></md-divider>
+
+        </md-list>
 
 </div>
 
 <div ng-show="Professional">
+
 </div>
