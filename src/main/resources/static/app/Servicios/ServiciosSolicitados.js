@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.ServiciosSolicitados', ['ngRoute'])
+angular.module('myApp.ServiciosSolicitados', ['ngRoute', 'ngMaterial'])
 
         .config(['$routeProvider', function ($routeProvider) {
                 $routeProvider.when('/ServiciosSolicitados', {
@@ -14,17 +14,26 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute'])
               var esti = $resource('/estilistas/id/'+localStorage.estilistaSelect);
               $scope.servicios = esti.query();
 
+              //$scope.servicio = $scope.servicios;
 
-              $scope.servicioSelect = function(){
+                $scope.selection=[];
 
-                  if ($scope.estadoSelect){
+                $scope.servicioSelect = function servicioSelect(servicio) {
+                  var idx = $scope.selection.indexOf(servicio);
+                  console.log(idx);
+                  if (idx > -1) {
+                    // is currently selected
+                    $scope.selection.splice(idx, 1);
+                   }
+                   else {
+                     // is newly selected
+                     $scope.selection.push(servicio);
+                   }
 
 
-                  }else{
-                  }
+                };
 
 
-              }
 
         }]);
 

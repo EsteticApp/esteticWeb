@@ -5,19 +5,33 @@
 
         <md-list ng-controller="ControladorServiciosSolicitados" ng-cloak>
 
-            <md-subheader class="md-no-sticky">Servicios de: {{estilista}}</md-subheader>
+            <md-subheader class="md-no-sticky">Servicios de:
+                    <span class="glyphicon glyphicon-user"></span>
+                    {{estilista}}
+            </md-subheader>
+
             <div layout="column" layout-align="center center">
-                <md-
+
                 <md-list-item ng-repeat="servicio in servicios">
-                    <md-checkbox class="md-secondary" ng-model="estadoSelect" ng-change="servicioSelect()" ng-true-value="true">
+                    <md-checkbox class="md-secondary" ng-model="estadoSelect" > <!--ng-change="servicioSelect(servicio.nombre)"-->
                         <p> {{ servicio.nombre }} </p>
                     </md-checkbox>
-
                 </md-list-item>
+                <md-divider></md-divider>
             </div>
-            <md-divider></md-divider>
-
         </md-list>
+
+        <span>Servicios Seleccionados:</span>
+        <div ng-repeat="servicio in selection" class="selected-item">
+            {{servicio.nombre}}
+        </div>
+
+
+        <p>
+            <button type="button" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-ok-circle"></span> Reservar
+            </button>
+        </p>
 
     </div>
 
