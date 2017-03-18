@@ -91,7 +91,11 @@ header{
 
 /*Menu*/
 .navbar-nav > li{
-    margin-left: 154px !important;
+}
+
+.inicio-header{
+    color: rgb(132, 79, 0);
+    font-size: large;
 }
 
 .titulo{
@@ -148,7 +152,7 @@ text-align:center;
 }
 
 .textMenu{
-    font-size:large;
+    font-size:18px;
 }
 
 /*Opciones*/
