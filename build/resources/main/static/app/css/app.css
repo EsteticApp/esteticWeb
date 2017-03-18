@@ -109,9 +109,9 @@ text-align:center;
 
 /*Login*/
 .fondo{
-    background:#FFF;
+    background:#a79f9f;
     opacity:0.9;
-    padding: 140px;
+    padding: 0px;
 }
 
 .login{
@@ -163,7 +163,9 @@ text-align:center;
 }
 
 .register img{
-    height:90px;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
 }
 .menuBarraNegro {
     background-color: #000000;
@@ -174,6 +176,10 @@ text-align:center;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #5ED596;
+    width: 51%;
+    height: 25%;
+    background: #5ed596;
+    border-radius: 2%;
 }
 
 .opcion h1{
