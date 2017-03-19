@@ -48,6 +48,12 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.5.1.RELEASE'
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-cli
     compile group: 'org.springframework.boot', name: 'spring-boot-cli', version: '1.5.1.RELEASE'
-
+    
+    //Libreria de graddle para mysql
+    compile  'org.hibernate:hibernate-core:4.3.6.Final'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'org.slf4j:slf4j-simple:1.7.7'
+    compile 'org.javassist:javassist:3.15.0-GA'
+    compile 'mysql:mysql-connector-java:5.1.31'
 
 }
