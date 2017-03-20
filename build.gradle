@@ -66,13 +66,4 @@ compile group: 'org.springframework.data', name: 'spring-data-jpa', version: '1.
     //compile('org.springframework.boot:spring-boot-starter-data-jpa')
     runtime('mysql:mysql-connector-java')
 
-
-    
-    //Libreria de graddle para mysql
-    compile  'org.hibernate:hibernate-core:4.3.6.Final'
-    compile 'javax.servlet:javax.servlet-api:3.1.0'
-    //compile 'org.slf4j:slf4j-simple:1.7.7'
-    compile 'org.javassist:javassist:3.15.0-GA'
-    compile 'mysql:mysql-connector-java:5.1.31'
-
 }
