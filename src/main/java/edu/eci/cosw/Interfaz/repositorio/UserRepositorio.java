@@ -17,7 +17,7 @@ import org.springframework.data.repository.query.Param;
  * @author ANDRES CAICEDO
  */
 
-public interface UserRepositorio {//extends JpaRepository<Usuario, String>{
+public interface UserRepositorio extends JpaRepository<Usuario, String>{
     /*
   @Query("from users  WHERE email = :email ")
   public Usuario traerUsuario(@Param("email") String correo) ;*/
