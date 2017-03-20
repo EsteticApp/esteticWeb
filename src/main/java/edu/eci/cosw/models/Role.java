@@ -17,8 +17,8 @@ import javax.persistence.Table;
  * @author Joana
  */
 @Entity
-@Table(name = "Roles")
-public class Role {
+@Table(name = "roles")
+public class Role implements java.io.Serializable{
 
     private int idRole;
     private String nombre;

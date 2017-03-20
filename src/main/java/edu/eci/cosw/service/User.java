@@ -7,13 +7,14 @@
 
 package edu.eci.cosw.service;
 import edu.eci.cosw.models.Usuario;
-import edu.eci.cosw.models.SimpleUsuario;
+
 
 import edu.eci.cosw.Interfaz.UserApp;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import edu.eci.cosw.Interfaz.UserApp;
+import edu.eci.cosw.models.Role;
 /**
  *
  * @author ANDRES CAICEDO
@@ -22,10 +23,10 @@ import edu.eci.cosw.Interfaz.UserApp;
 public class User implements UserApp{
 
     private static List<Usuario> users;
-
+/*
     static {
         users = new ArrayList();
-        String rolUser = "CLIENTE";
+        Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
         // Usuarios y contrasenas - quemado en codigo
         users.add(new Usuario("Marcela Duque",0, "marceduque@mail.com", "Marcela123", rolUser));
         users.add(new Usuario("Alejandro Durán",0, "durancho@mail.com", "Alejandro123", rolUser));
@@ -33,16 +34,15 @@ public class User implements UserApp{
         users.add(new Usuario("Yuli Paola ",0, "paopao@mail.com", "Yuli123", rolUser));
         users.add(new Usuario("Iván Gómez",0, "gomeziv@mail.com", "Ivan123", rolUser));
         
-        rolUser = "PROFESSIONAL";        
+        rolUser = new Role("PROFESSIONAL","personas que ofrecen el servicio");        
         users.add(new Usuario("Ximena Guerrero",67157431, "ximenis@mail.com", "Ximena123", rolUser));
         users.add(new Usuario("Luis Fernandez",19405067, "luchofe@mail.com", "Luis123", rolUser));
         users.add(new Usuario("Juliana Casta",38117674, "julica@mail.com", "Juliana123", rolUser));
         users.add(new Usuario("Sandra Izquierdo",19392904, "sandraz@mail.com", "Sandra123", rolUser));
         users.add(new Usuario("Roberto Lopez",70651124, "robert45@mail.com", "Roberto123", rolUser));
+        */
 
-
-    }
-
+    
     public User(){}
 
     @Override
@@ -56,11 +56,11 @@ public class User implements UserApp{
     }
 
     @Override
-    public List<SimpleUsuario> getSimpleUsers() {
-        ArrayList<SimpleUsuario> simpleUsers = new ArrayList<>();
-        SimpleUsuario user;
+    public List<Usuario> getSimpleUsers() {
+        ArrayList<Usuario> simpleUsers = new ArrayList<>();
+        Usuario user;
         for(Usuario usr : users){
-            user = new SimpleUsuario();
+            user = new Usuario();
             user.setNombre(usr.getNombre());
             user.setEmail(usr.getEmail());
             user.setRole(usr.getRole());

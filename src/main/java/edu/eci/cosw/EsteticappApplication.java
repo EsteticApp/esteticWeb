@@ -2,6 +2,7 @@ package edu.eci.cosw;
 
 import edu.eci.cosw.Interfaz.UserApp;
 import edu.eci.cosw.models.Usuario;
+import edu.eci.cosw.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -35,21 +36,34 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.service.ServiceRegistry;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
 @SpringBootApplication
+@EnableJpaRepositories("edu.eci.cosw.Interfaz.repositorio")
+@EntityScan("edu.eci.cosw.models")
 public class EsteticappApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EsteticappApplication.class, args);
+    public static void main(String[] args) {
+        SpringApplication.run(EsteticappApplication.class, args);
         System.out.println("");
-	}
+    }
+
+    
+
     @Configuration
     @EnableGlobalMethodSecurity(prePostEnabled = true)
     @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
     protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-       
+
         @Autowired
-        UserApp usersStub;
-        
+        ApplicationService usersStub;
+
         @Override
         protected void configure(AuthenticationManagerBuilder builder) throws Exception {
             builder.authenticationProvider(new AuthenticationProvider() {
@@ -57,10 +71,10 @@ public class EsteticappApplication {
                 public Authentication authenticate(Authentication auth) throws AuthenticationException {
                     String name = auth.getName();
                     String pass = auth.getCredentials().toString();
-                    Usuario usuario = usersStub.loginUser(name, pass);
+                    Usuario usuario = usersStub.getUsuario(name, pass);
                     if (usuario != null) {
                         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-                        authorities.add(new SimpleGrantedAuthority(usuario.getRole()));
+                        authorities.add(new SimpleGrantedAuthority(usuario.getRole().getNombre()));
                         return new UsernamePasswordAuthenticationToken(name, pass, authorities);
                     }
                     return null;
@@ -91,7 +105,7 @@ public class EsteticappApplication {
             return new OncePerRequestFilter() {
                 @Override
                 protected void doFilterInternal(HttpServletRequest request,
-                                                HttpServletResponse response, FilterChain filterChain)
+                        HttpServletResponse response, FilterChain filterChain)
                         throws ServletException, IOException {
                     CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class
                             .getName());

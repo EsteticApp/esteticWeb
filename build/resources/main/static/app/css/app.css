@@ -179,7 +179,7 @@ text-align:center;
     width: 51%;
     height: 25%;
     background: #5ed596;
-    border-radius: 2%;
+    border-radius: 15px;
 }
 
 .opcion h1{
@@ -193,6 +193,7 @@ text-align:center;
 .opcion a{
     color: #000;
     font-size: 35px;
+    
 }
 
 .opcion a:hover{
