@@ -179,7 +179,7 @@ text-align:center;
     width: 51%;
     height: 25%;
     background: #5ed596;
-    border-radius: 2%;
+    border-radius: 15px;
 }
 
 .opcion h1{
@@ -193,6 +193,7 @@ text-align:center;
 .opcion a{
     color: #000;
     font-size: 35px;
+    
 }
 
 .opcion a:hover{
@@ -404,4 +405,23 @@ section#beautyservice article {
     height: 60px;
 }
 
+/*Checkbox Servicios Solicitados*/
+.dark-check-cyan{background-image:url(http://csscheckbox.com/checkboxes/dark-check-cyan.png);}
+.dark-check-green{background-image:url
 
+input[type=checkbox].css-checkbox.lrg + label.css-label.lrg {
+	padding-left:22px;
+    height:20px;
+	display:inline-block;
+	line-height:20px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	font-size:15px;
+	vertical-align:middle;
+    cursor:pointer;
+}
+
+input[type=checkbox].css-checkbox.lrg:checked + label.css-label.lrg{
+
+    background-position: 0 -20px;
+}

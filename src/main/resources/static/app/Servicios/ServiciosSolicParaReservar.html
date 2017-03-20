@@ -1,18 +1,40 @@
 <div ng-show="Cliente">
     <div class="opacidad container">
         <h1 class="titulo">Solicitar Servicio</h1>
-        <p>Haz solicitado los siguientes servicios</p>
+        <md-subheader class="md-no-sticky">
+            <p>Haz solicitado los siguientes servicios</p>
+        </md-subheader>
 
+        <div layout="column" layout-align="center center">
+            <span>Servicios Seleccionados:</span>
+            <md-divider ng-repeat="serv in reservar" class="selected-item">
+                <p><p> {{ serv }} </p></p>
+            </md-divider>
+        </div>
 
-        <p>Por favor llene los siguientes datos de contacto</p>
+        <p></p>
 
-        <p>
-            <a href="#">
-                <button type="button" class="btn btn-default btn-sm">
-                    <span class="glyphicon glyphicon-send"></span> Enviar
-                </button>
-            </a>
-        </p>
+        <md-subheader class="md-no-sticky">
+            <p>Por favor llene los siguientes datos de contacto</p>
+        </md-subheader>
+        <div layout="column" layout-align="center center">
+            <md-input-container>
+                <label>Teléfono</label>
+                <input type="text" ng-model="telefono">
+            </md-input-container>
+            <md-input-container>
+                <label>Dirección</label>
+                <input type="text" ng-model="direccion">
+            </md-input-container>
+
+            <p>
+                <a href="#">
+                    <button type="button" class="btn btn-default btn-md" layout-align="center">
+                        <span class="glyphicon glyphicon-send"></span> Enviar
+                    </button>
+                </a>
+            </p>
+        </div>
 
     </div>
 </div>

@@ -12,6 +12,7 @@ angular.module('myApp.ServiciosSolicParaReservar', ['ngRoute', 'ngMaterial'])
 
         .controller('ControladorServiciosSolicParaReservar', ['$resource','$scope', '$rootScope', '$http', '$location', 'estilistasCategorias', 'estCat', function ($resource, $scope, $rootScope, $http, $location, estilistasCategorias, estCat) {
 
+            $scope.select = localStorage.reservar;
 
             }]);
 

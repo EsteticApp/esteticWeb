@@ -14,13 +14,11 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute', 'ngMaterial'])
               var esti = $resource('/estilistas/id/'+localStorage.estilistaSelect);
               $scope.servicios = esti.query();
 
-              //$scope.servicio = $scope.servicios;
-
                 $scope.selection=[];
 
                 $scope.servicioSelect = function servicioSelect(servicio) {
                   var idx = $scope.selection.indexOf(servicio);
-                  console.log(idx);
+                  //console.log("Servicio: " + servicio);
                   if (idx > -1) {
                     // is currently selected
                     $scope.selection.splice(idx, 1);
@@ -30,10 +28,14 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute', 'ngMaterial'])
                      $scope.selection.push(servicio);
                    }
 
-
+                   console.log("Selection: " + $scope.selection);
                 };
 
-
+                $scope.reservar = function(selection){
+                    $location.path("/ServiciosSolicParaReservar");
+                    localStorage.reservar = selection;
+                    console.log("Selectionlocal: " + localStorage.reservar);
+                };
 
         }]);
 

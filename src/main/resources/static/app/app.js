@@ -10,6 +10,7 @@ angular.module('myApp', [
     'myApp.Servicios',
     'myApp.ServiciosDisponibles',
     'myApp.ServiciosSolicitados',
+    'myApp.ServiciosSolicParaReservar',
     'myApp.version',
     'myApp.Professional',
     'myApp.Opciones',

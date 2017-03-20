@@ -1,4 +1,4 @@
-<div ng-show="Cliente">
+<div ng-show="Cliente" xmlns="http://www.w3.org/1999/html">
     <div class="opacidad container">
         <h1 class="titulo">Servicios Estilista</h1>
             <p>Seleccione, por favor, los servicios que desea reservar</p>
@@ -11,28 +11,27 @@
             </md-subheader>
 
             <div layout="column" layout-align="center center">
-
                 <md-list-item ng-repeat="servicio in servicios">
-                    <md-checkbox class="md-secondary" ng-model="estadoSelect" > <!--ng-change="servicioSelect(servicio.nombre)"-->
+                    <input type="checkbox" ng-click="servicioSelect(servicio.nombre)" ng-checked="selection.indexOf(servicio.nombre) > -1" >
                         <p> {{ servicio.nombre }} </p>
-                    </md-checkbox>
+                    </input>
+
                 </md-list-item>
-                <md-divider></md-divider>
+
+                <span>Servicios Seleccionados:</span>
+                <md-divider ng-repeat="s in selection" class="selected-item">
+                    <p>
+                        <p> {{ s }} </p>
+                    </p>
+                </md-divider>
             </div>
+
+            <p>
+                <button type="button" class="btn btn-default btn-md" ng-click="reservar()">
+                    <span class="glyphicon glyphicon-ok-circle"></span> Reservar
+                </button>
+            </p>
         </md-list>
-
-        <span>Servicios Seleccionados:</span>
-        <div ng-repeat="servicio in selection" class="selected-item">
-            {{servicio.nombre}}
-        </div>
-
-
-        <p>
-            <button type="button" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-ok-circle"></span> Reservar
-            </button>
-        </p>
-
     </div>
 
 </div>
