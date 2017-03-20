@@ -5,7 +5,7 @@ import edu.eci.cosw.Interfaz.UserApp;
 import edu.eci.cosw.models.Categoria;
 import edu.eci.cosw.models.Estilista;
 import edu.eci.cosw.models.Servicio;
-import edu.eci.cosw.models.SimpleUsuario;
+import edu.eci.cosw.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,9 +26,9 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
     public List<Servicio> getServicesByStylist(String stylist) throws Exception{
         if(estilistas == null) fillStylist();
         List<Servicio> servicies = new ArrayList<>();
-        SimpleUsuario su;
+        Usuario su;
         for(Estilista sty : estilistas){
-            su = (SimpleUsuario) sty.getRolEstilista();
+            su = (Usuario) sty.getRolEstilista();
             if(su.getNombre().equals(stylist)){
                 servicies = sty.getAllServicies();
                 break;
@@ -72,9 +72,9 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
 
     private void fillStylist(){
         estilistas = new ArrayList<>();
-        List<SimpleUsuario> users = user.getSimpleUsers();
+        List<Usuario> users = user.getSimpleUsers();
 
-        for(SimpleUsuario usr : users){
+        for(Usuario usr : users){
             if(usr.getRole().equals("PROFESSIONAL")){
                 estilistas.add(new Estilista(usr));
             }

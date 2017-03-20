@@ -11,15 +11,15 @@ import java.util.StringJoiner;
  */
 public class Estilista{
 
-    private Users rolEstilista;
+    private Usuario rolEstilista;
     private List<Categoria> categorias;
 
-    public Estilista(Users rolEstilista){
+    public Estilista(Usuario rolEstilista){
         this.rolEstilista = rolEstilista;
         this.categorias = new ArrayList<>();
     }
 
-    public Users getRolEstilista(){
+    public Usuario getRolEstilista(){
 
         return rolEstilista;
     }
