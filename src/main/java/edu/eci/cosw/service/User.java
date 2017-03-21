@@ -23,6 +23,16 @@ import edu.eci.cosw.models.Role;
 public class User implements UserApp{
 
     private static List<Usuario> users;
+
+
+//    static {
+//        users = new ArrayList();
+//        Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
+//        users.add(new Usuario(1,"Cliente prueba",1111111, "cliente@mail.com", "cliente", rolUser,null));
+//        rolUser = new Role("PROFESSIONAL","personas que ofrecen el servicio");
+//        users.add(new Usuario(2,"Profesional prueba",2222222, "profesional@mail.com", "profesional", rolUser,null));
+//    }
+
 /*
     static {
         users = new ArrayList();

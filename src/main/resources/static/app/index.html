@@ -12,11 +12,7 @@
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
-        <script src="javascript/jquery.carousel.js" type="text/javascript"></script>
-        <link href="stylesheets/jquery.carousel.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="shortcut icon" type="image/ico" href="image/favicon.ico"/>
         <title>EsteticApp</title>
     </head>
@@ -68,7 +64,7 @@
                                 <li><a class="textMenu" ng-show="authenticated" href="#!/CLIENTE"><span class="glyphicon glyphicon-star"></span> Inicio</a></li>
                                 <li><a class="textMenu"  ng-show="authenticated" href="#"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
                                 <li><a class="textMenu"  ng-show="authenticated" href="#!/Servicios"><span class="glyphicon glyphicon-briefcase"></span> Servicios</a></li>
-                                <li><a class="textMenu"  ng-show="authenticated" href="#!/Servicios"><span class="glyphicon glyphicon-shopping-cart"></span> Mis Reservas</a></li>
+                                <li><a class="textMenu"  ng-show="authenticated" href="#!/Reservas"><span class="glyphicon glyphicon-shopping-cart"></span> Mis Reservas</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <form class="navbar-form navbar-left">
@@ -105,9 +101,9 @@
                                 <li><a class="textMenu" ng-show="authenticated" href="#!/CLIENTE"><span class="glyphicon glyphicon-star"></span> Inicio</a></li>
                                 <li><a class="textMenu"  ng-show="authenticated" href="#"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
                                 <li><a class="textMenu"  ng-show="authenticated" href="#!/Servicios"><span class="glyphicon glyphicon-briefcase"></span> Servicios</a></li>
-                                <li><a class="textMenu"  ng-show="authenticated" href="#!/Servicios"><span class="glyphicon glyphicon-shopping-cart"></span> Mis Reservas</a></li>
+                                <li><a class="textMenu"  ng-show="authenticated" href="#!/Reservas"><span class="glyphicon glyphicon-shopping-cart"></span> Mis Reservas</a></li>
                             </ul>
-                            <ul class="nav navbar-nav navbar-right">
+                            <ul class="nav navbar-nav navbar-left">
                                 <form class="navbar-form navbar-left">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Search">
@@ -141,6 +137,7 @@
             <script src="Opciones/Opciones.js"></script>
             <script src="Registrar/Registrar.js"></script>
             <script src="Servicios/Servicios.js"></script>
+            <script src="Reservas/Reservas.js"></script>
             <script src="Servicios/ServiciosDisponibles.js"></script>
             <script src="Servicios/ServiciosSolicitados.js"></script>
             <script src="Servicios/ServiciosSolicParaReservar.js"></script>
