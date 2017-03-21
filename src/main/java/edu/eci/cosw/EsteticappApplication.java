@@ -3,6 +3,7 @@ package edu.eci.cosw;
 import edu.eci.cosw.Interfaz.UserApp;
 import edu.eci.cosw.models.Usuario;
 import edu.eci.cosw.service.ApplicationService;
+import edu.eci.cosw.service.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -62,7 +63,9 @@ public class EsteticappApplication {
     protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         @Autowired
+        ///MOdificado mientras realizan pruebas
         ApplicationService usersStub;
+        //User usersStub;
 
         @Override
         protected void configure(AuthenticationManagerBuilder builder) throws Exception {
@@ -71,7 +74,6 @@ public class EsteticappApplication {
                 public Authentication authenticate(Authentication auth) throws AuthenticationException {
                     String name = auth.getName();
                     String pass = auth.getCredentials().toString();
-                    System.out.println("Busca Aqui");
                     Usuario usuario = usersStub.getUsuario(name, pass);
                     System.out.println("Paso Aca");
                     System.out.println(usuario.getIdCard());

@@ -64,7 +64,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
     @Override
     public void addEstilista(Estilista e) {
 
-        if(e.getRolEstilista().equals("PROFESSIONAL")){
+        if(e.getRolEstilista().getRoles_idRole().getNombre().equals("PROFESSIONAL")){
             estilistas.add(e);
         }
 
@@ -72,13 +72,14 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
 
     private void fillStylist(){
         estilistas = new ArrayList<>();
-        //List<Usuario> users = user.getSimpleUsers();
 
+//        List<Usuario> users = user.getSimpleUsers();
 //        for(Usuario usr : users){
-//            if(usr.getRoles_idRole()== 2){
+//            if(usr.getRole().getNombre().equals("PROFESSIONAL")){
 //                estilistas.add(new Estilista(usr));
 //            }
 //        }
+
 
         //Primer estilísta
         Categoria category = new Categoria("Peluqueria");
