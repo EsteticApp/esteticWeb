@@ -19,7 +19,7 @@ import edu.eci.cosw.models.Role;
  *
  * @author ANDRES CAICEDO
  */
-@Service
+//@Service
 public class User implements UserApp{
 
     private static List<Usuario> users;
@@ -59,13 +59,13 @@ public class User implements UserApp{
     public List<Usuario> getSimpleUsers() {
         ArrayList<Usuario> simpleUsers = new ArrayList<>();
         Usuario user;
-        for(Usuario usr : users){
-            user = new Usuario();
-            user.setNombre(usr.getNombre());
-            user.setEmail(usr.getEmail());
-            user.setRole(usr.getRole());
-            simpleUsers.add(user);
-        }
+        //for(Usuario usr : users){
+//            user = new Usuario();
+//            user.setName(usr.getName());
+//            user.setEmail(usr.getEmail());
+//            user.setRoles_idRole(usr.getRoles_idRole());
+//            simpleUsers.add(user);
+//        }
         return simpleUsers;
     }
 
@@ -73,7 +73,7 @@ public class User implements UserApp{
     public Usuario getUserByUsername(String username) {
         Usuario response = null;
         for (Usuario user : users) {
-            if (user.getNombre().equals(username)) {
+            if (user.getName().equals(username)) {
                 response = user;
                 break;
             }
@@ -97,7 +97,7 @@ public class User implements UserApp{
     public Usuario loginUser(String name, String pass) {
         Usuario response = null;
         for (Usuario user : users) {
-            if ((user.getNombre().equals(name) || user.getEmail().equals(name)) && user.getPassword().equals(pass)) {
+            if ((user.getName().equals(name) || user.getEmail().equals(name)) && user.getPassword().equals(pass)) {
                 response = user;
                 break;
             }

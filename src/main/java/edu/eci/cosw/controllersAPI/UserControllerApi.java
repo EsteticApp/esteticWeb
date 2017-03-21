@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserControllerApi {
 
     @Autowired
-    UserApp usersStub;
+    Usuario usersStub;
 
     @RequestMapping("/app/user")
     public Principal user(Principal user) {
@@ -36,7 +36,7 @@ public class UserControllerApi {
 
     @RequestMapping(value = "app/Registrar", method = RequestMethod.POST)
     public ResponseEntity<?> Registraruser(@RequestBody Usuario user) {
-        usersStub.addUser(user);
+        //usersStub.addUser(user);
         System.out.println("Entro Aqui!!!!");
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }

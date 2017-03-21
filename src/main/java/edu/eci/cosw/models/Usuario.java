@@ -17,65 +17,68 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author ANDRES CAICEDO
  */
+@Service
 @Entity
 @Table(name="users")
 public class Usuario implements java.io.Serializable{
     
     private static final long serialVersionUID = 328754985741161521L;
-     private int id;
-     private String nombre;
-     private int cedula;
+     private int iduser;
+     private String name;
+     private String idCard;
      private String email;
      private String password;
-     private Role role;
-     private Blob foto;
+     private Role Roles_idRole;
+     private Blob photo;
+     private int state;
 
-    public Usuario(int id, String nombre, int cedula, String email, String password, Role role, Blob foto) {
-        this.id = id;
-        this.nombre = nombre;
-        this.cedula = cedula;
+    public Usuario(String nombre, String cedula, String email, String password, Role role, Blob foto, int state) {
+        this.name = nombre;
+        this.idCard = cedula;
         this.email = email;
         this.password = password;
-        this.role = role;
-        this.foto = foto;
+        this.Roles_idRole = role;
+        this.photo = foto;
+        this.state=state;
     }
 
-    
-    
     public Usuario() {
     }
 
+    
+   
     @Column(name="iduser")
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    public int getId() {
-        return id;
+    public int getIduser() {
+        return iduser;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIduser(int id) {
+        this.iduser = id;
     }
 
     @Column(name = "name", nullable = false)
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String nombre) {
+        this.name = nombre;
     }
-    @Column(name = "state", nullable = false)
-    public int getCedula() {
-        return cedula;
+    @Column(name = "idcard")
+    public String getIdCard() {
+        return idCard;
     }
     
-    public void setCedula(int cedula) {
-        this.cedula = cedula;
+    public void setIdCard(String cedula) {
+        this.idCard = cedula;
     }
     @Column(name = "email", nullable = false)
     public String getEmail() {
@@ -94,25 +97,39 @@ public class Usuario implements java.io.Serializable{
         this.password = password;
     }
     
-    public Role getRole() {
-        return role;
+   
+   
+    @Column(name = "photo")
+    public Blob getPhoto() {
+        return photo;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    public void setPhoto(Blob foto) {
+        this.photo = foto;
+    }
+    @Column(name = "state")
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumns({
-        @JoinColumn(name = "Roles_idRole", referencedColumnName = "idRole",nullable = false,insertable = false,updatable = false)
+        @JoinColumn(name = "roles_idrole", referencedColumnName = "idrole",nullable = false,insertable = false,updatable = false)
     })
-    public void setRole(Role role) {
-        this.role = role;
-    }
-    @Column(name = "photo", nullable = false)
-    public Blob getFoto() {
-        return foto;
+//    @Column(name = "roles_idrole", nullable = false)
+    public Role getRoles_idRole() {
+        return Roles_idRole;
     }
 
-    public void setFoto(Blob foto) {
-        this.foto = foto;
+    public void setRoles_idRole(Role Roles_idRole) {
+        this.Roles_idRole = Roles_idRole;
     }
+    
+    
 
     
 

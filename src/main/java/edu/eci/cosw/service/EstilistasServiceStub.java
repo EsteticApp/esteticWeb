@@ -20,7 +20,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
 
     private List<Estilista> estilistas;
     @Autowired
-    private UserApp user;
+    private Usuario user;
 
     @Override
     public List<Servicio> getServicesByStylist(String stylist) throws Exception{
@@ -29,7 +29,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         Usuario su;
         for(Estilista sty : estilistas){
             su = (Usuario) sty.getRolEstilista();
-            if(su.getNombre().equals(stylist)){
+            if(su.getName().equals(stylist)){
                 servicies = sty.getAllServicies();
                 break;
             }
@@ -72,13 +72,13 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
 
     private void fillStylist(){
         estilistas = new ArrayList<>();
-        List<Usuario> users = user.getSimpleUsers();
+        //List<Usuario> users = user.getSimpleUsers();
 
-        for(Usuario usr : users){
-            if(usr.getRole().equals("PROFESSIONAL")){
-                estilistas.add(new Estilista(usr));
-            }
-        }
+//        for(Usuario usr : users){
+//            if(usr.getRoles_idRole()== 2){
+//                estilistas.add(new Estilista(usr));
+//            }
+//        }
 
         //Primer estilísta
         Categoria category = new Categoria("Peluqueria");

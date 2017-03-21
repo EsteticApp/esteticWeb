@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.service;
 
+import edu.eci.cosw.Interfaz.repositorio.RoleRepositorio;
 import edu.eci.cosw.Interfaz.repositorio.UserRepositorio;
 import edu.eci.cosw.models.Usuario;
 import java.util.List;
@@ -20,18 +21,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class ApplicationServiceImpl implements ApplicationService{
 
-    @Override
-    public Usuario getUsuario(String email, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    /*@Autowired
+    @Autowired
     private UserRepositorio userRepo;
-    
+    @Autowired
+    private RoleRepositorio roleRepo;
     
     @Override
     public Usuario getUsuario(String email, String password) {
+        System.out.println("pasa aqui");
         return userRepo.traerUsuario(email);
-    }*/
-    
+       
+    }    
 }

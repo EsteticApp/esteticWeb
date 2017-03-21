@@ -17,9 +17,9 @@ import org.springframework.data.repository.query.Param;
  * @author ANDRES CAICEDO
  */
 
-public interface UserRepositorio extends JpaRepository<Usuario, String>{
-    /*extends JpaRepository<Usuario, String>
-  @Query("from users  WHERE email = :email ")
-  public Usuario traerUsuario(@Param("email") String correo) ;*/
+public interface UserRepositorio extends JpaRepository<Usuario, Integer>{
+  //@Query("select user,r  from users user inner join roles r on user.Roles_idRole = Roles.idRole where email = :email ")
+  @Query("select u from Usuario u where u.email=:email")
+  public Usuario traerUsuario(@Param("email") String email) ;
 
 }

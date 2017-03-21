@@ -71,10 +71,13 @@ public class EsteticappApplication {
                 public Authentication authenticate(Authentication auth) throws AuthenticationException {
                     String name = auth.getName();
                     String pass = auth.getCredentials().toString();
+                    System.out.println("Busca Aqui");
                     Usuario usuario = usersStub.getUsuario(name, pass);
+                    System.out.println("Paso Aca");
+                    System.out.println(usuario.getIdCard());
                     if (usuario != null) {
                         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-                        authorities.add(new SimpleGrantedAuthority(usuario.getRole().getNombre()));
+                        authorities.add(new SimpleGrantedAuthority(usuario.getRoles_idRole()+""));
                         return new UsernamePasswordAuthenticationToken(name, pass, authorities);
                     }
                     return null;
