@@ -8,6 +8,7 @@ angular.module('myApp', [
     'myApp.Cliente',
     'myApp.Login',
     'myApp.Servicios',
+    'myApp.Reservas',
     'myApp.ServiciosDisponibles',
     'myApp.ServiciosSolicitados',
     'myApp.ServiciosSolicParaReservar',
