@@ -2,10 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond');
 
-header{
-	min-height:124px;
-}
-
 .body-fon{
 
      background-image: url("../image/background.jpg");
@@ -387,6 +383,13 @@ section#beautyservice article {
 .contenedor-servicios {
     conta
 }
+
+/*DISEÑO PARA RESERVAS*/
+header-reservas{
+    min-height: 25px;
+}
+
+
 
 /*DISEÑO PARA SERVICIOSDISPONIBLES*/
 

@@ -24,7 +24,7 @@ public class User implements UserApp{
 
     private static List<Usuario> users;
 
-
+//
 //    static {
 //        users = new ArrayList();
 //        Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
