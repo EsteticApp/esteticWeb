@@ -32,4 +32,9 @@ public class ApplicationServiceImpl implements ApplicationService{
         return userRepo.traerUsuario(email);
        
     }    
+
+    @Override
+    public void setUsuario(Usuario usuario) {
+        userRepo.save(usuario);
+    }
 }

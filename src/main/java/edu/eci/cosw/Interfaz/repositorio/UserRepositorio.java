@@ -21,6 +21,8 @@ public interface UserRepositorio extends JpaRepository<Usuario, Integer>{
   //@Query("select user,r  from users user inner join roles r on user.Roles_idRole = Roles.idRole where email = :email ")
   @Query("select u from Usuario u where u.email=:email")
   public Usuario traerUsuario(@Param("email") String email) ;
+  
+  
 
 
 }

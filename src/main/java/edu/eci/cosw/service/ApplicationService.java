@@ -15,4 +15,5 @@ import org.springframework.data.repository.query.Param;
  */
 public interface ApplicationService {
     public Usuario getUsuario(String email, String password) ;
+    public void setUsuario(Usuario usuario);
 }

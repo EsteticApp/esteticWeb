@@ -8,6 +8,7 @@ package edu.eci.cosw.controllersAPI;
 
 import edu.eci.cosw.Interfaz.UserApp;
 import edu.eci.cosw.models.Usuario;
+import edu.eci.cosw.service.ApplicationService;
 import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,19 +26,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserControllerApi {
 
     @Autowired
-    Usuario usersStub;
+    ApplicationService users;
 
     @RequestMapping("/app/user")
     public Principal user(Principal user) {
-        System.out.println("Entra por aca");
-        System.out.println(user);
+       
         return user;
     }
 
     @RequestMapping(value = "app/Registrar", method = RequestMethod.POST)
     public ResponseEntity<?> Registraruser(@RequestBody Usuario user) {
-        //usersStub.addUser(user);
-        System.out.println("Entro Aqui!!!!");
+        System.out.println(user.getRoles_idRole().getNombre());
+         System.out.println(user.getRoles_idRole().getIdRole());
+        users.setUsuario(user);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }

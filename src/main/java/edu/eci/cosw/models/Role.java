@@ -34,7 +34,7 @@ public class Role implements java.io.Serializable{
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "idrole", unique = true, nullable = false)
+    @Column(name = "idRole", unique = true, nullable = false)
     public int getIdRole() {
         return idRole;
     }

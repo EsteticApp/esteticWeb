@@ -11,6 +11,7 @@ angular.module('myApp.Registrar', ['ngRoute'])
 
 
         .controller('ControladorRegistrar', ['$scope', '$rootScope', 'registrarService', '$location', function ($scope, $rootScope, registrarService, $location) {
+                
                 $scope.RegistrarUsu = function () {
                     registrarService.Registrar($rootScope.users);
                     console.log($rootScope.users)

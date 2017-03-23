@@ -11,9 +11,15 @@ angular.module('myApp.Opciones', ['ngRoute'])
 
         .controller('OpcionesCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
                 $rootScope.value = false;
-                $rootScope.users = {}
-                $scope.role = function (rol) {
-                    $rootScope.users.role = rol;
-                    console.log($rootScope.users.role);
+                $rootScope.users = {};
+                $rootScope.users.roles_idRole={}
+                $rootScope.idCard="0000";
+                $rootScope.state=1;
+                $rootScope.photo=null;
+                $scope.role = function (id,rol) {
+                    $rootScope.users.roles_idRole.nombre = rol;
+                    $rootScope.users.roles_idRole.idRole = id;
+                    $rootScope.users.roles_idRole.descripcion = "";
+                    console.log($rootScope.users.Roles_idRole);
                 }
             }]);
