@@ -4,6 +4,7 @@ import edu.eci.cosw.Interfaz.UserApp;
 import edu.eci.cosw.models.Usuario;
 import edu.eci.cosw.service.ApplicationService;
 import edu.eci.cosw.service.User;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -65,7 +66,7 @@ public class EsteticappApplication {
         @Autowired
         ///MOdificado mientras realizan pruebas
         ApplicationService usersStub;
-        //User usersStub;
+        //ser usersStub;
 
         @Override
         protected void configure(AuthenticationManagerBuilder builder) throws Exception {
@@ -75,11 +76,14 @@ public class EsteticappApplication {
                     String name = auth.getName();
                     String pass = auth.getCredentials().toString();
                     Usuario usuario = usersStub.getUsuario(name, pass);
+                    //Usuario usuario = usersStub.loginUser(name, pass);
                     System.out.println("Paso Aca");
-                    System.out.println(usuario.getIdCard());
+                    System.out.println(usuario.getRoles_idRole().getNombre());
                     if (usuario != null) {
                         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-                        authorities.add(new SimpleGrantedAuthority(usuario.getRoles_idRole()+""));
+                        //Solo agregue el getNombre();
+                        //authorities.add(new SimpleGrantedAuthority(usuario.getRoles_idRole()+""));
+                        authorities.add(new SimpleGrantedAuthority(usuario.getRoles_idRole().getNombre()+""));
                         return new UsernamePasswordAuthenticationToken(name, pass, authorities);
                     }
                     return null;
