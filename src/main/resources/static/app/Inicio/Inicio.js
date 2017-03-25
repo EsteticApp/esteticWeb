@@ -12,3 +12,4 @@ angular.module('myApp.Inicio', ['ngRoute'])
 .controller('InicioCtrl', [function() {
 
 }])
+
