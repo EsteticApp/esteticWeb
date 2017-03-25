@@ -219,6 +219,13 @@ text-align:center;
       margin: auto;
   }
 
+.menuInicio{
+    width:100%;
+}
+
+.container {
+    width: 95%;
+}
  .textColor{
     background-color:rgba(0,0,0,0.5);
  }

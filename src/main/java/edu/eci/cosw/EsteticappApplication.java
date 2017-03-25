@@ -66,7 +66,7 @@ public class EsteticappApplication {
         @Autowired
         ///MOdificado mientras realizan pruebas
         ApplicationService usersStub;
-        //ser usersStub;
+        //User usersStub;
 
         @Override
         protected void configure(AuthenticationManagerBuilder builder) throws Exception {
