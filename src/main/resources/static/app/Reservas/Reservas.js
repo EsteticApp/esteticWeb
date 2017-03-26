@@ -62,31 +62,75 @@ angular.module('myApp.Reservas', ['ngRoute'])
             $scope.detalles = function(){
                 console.log("detalles servicio");
             };
+
+            $scope.aceptar = function(ev) {
+                console.log("Aceptar servicio");
+                var confirm = $mdDialog.confirm()
+                      .title('Desea aceptar el servicio?')
+                      .textContent('si el servicio es aceptado, se notificara al cliente')
+                      .ariaLabel('Lucky day')
+                      .targetEvent(ev)
+                      .ok('Aceptar')
+                      .cancel('Cancelar');
+
+                $mdDialog.show(confirm).then(function() {
+                  $scope.status = 'You decided to get rid of your debt.';
+                }, function() {
+                  $scope.status = 'You decided to keep your debt.';
+                });
+             };
         }])
 
         .controller('SubheaderAppCtrl', function($scope) {
             var imagePath = 'image/logo-user.png';
-            $scope.messages = [
+            $scope.reservaCliente = [
               {
                 face : imagePath,
-                what: 'Brenda Flores',
-                who: 'Manicure, Pedicure',
+                who: 'Brenda Flores',
+                what: 'Manicure, Pedicure',
                 when: '3:08PM',
-                notes: " $50.000"
+                cost: " $50.000"
               },
               {
                 face : imagePath,
-                what: 'Pedro Camilo ',
-                who: 'Manicure, Pedicure',
+                who: 'Brenda Flores',
+                what: 'Manicure, Pedicure',
                 when: '3:08PM',
-                notes: " $50.000"
+                cost: " $50.000"
               },
               {
                 face : imagePath,
-                what: 'Raul Jacinto',
-                who: 'Manicure, Pedicure',
+                who: 'Brenda Flores',
+                what: 'Manicure, Pedicure',
                 when: '3:08PM',
-                notes: " $50.000"
+                cost: " $50.000"
               }
             ];
+            $scope.reservasProfessional = [
+              {
+                face : imagePath,
+                who: 'Brenda Flores',
+                what: 'Manicure, Pedicure',
+                dress: 'Calle 31 n 25 25 25',
+                when: '3:08PM',
+                cost: " $50.000"
+              },
+              {
+                face : imagePath,
+                who: 'Brenda Flores',
+                what: 'Manicure, Pedicure',
+                dress: 'Calle 31 n 25 25 25',
+                when: '3:08PM',
+                cost: " $50.000"
+              },
+              {
+                face : imagePath,
+                who: 'Brenda Flores',
+                what: 'Manicure, Pedicure',
+                dress: 'Calle 31 n 25 25 25',
+                when: '3:08PM',
+                cost: " $50.000"
+              }
+            ];
+
         });
