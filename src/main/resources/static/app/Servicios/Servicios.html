@@ -3,7 +3,7 @@
         <h1 class="titulo">Servicios:</h1>
 
 
-        <section id="beautyservice" class="ng-scope">
+        <section class="ng-scope">
             <header class="section-head text-center">
                 <h2 class="titulo2-servicios">CATEGORIAS RECOMENDADAS PARA TI</h2>
                 <h4 class="titulo4-servicios">Selecciona una de las categorias disponibles</h4>
@@ -62,6 +62,66 @@
 </div>
 
 <div ng-show="Professional">
+    <div class="opacidad container">
+        <h1 class="titulo">Agregar Servicios:</h1>
+
+
+        <section id="beautyservice" class="ng-scope">
+            <header class="section-head text-center">
+                <h2 class="titulo2-servicios">Servicios que prestas</h2>
+                <h4 class="titulo4-servicios">Selecciona los servicios que vas a prestas, si no encuentras alguno puedes, solicitar agregarlo</h4>
+            </header>
+            <div layout="row">
+                <div class="container" flex="70">
+                    <div ng-controller="ControladorServicios" class="listServicios" layout="column" style="height:600px" ng-cloak >
+                        <md-toolbar md-scroll-shrink ng-if="true"md-theme="default" md-colors="{'background': 'fondo-100', 'color':'fondo-50'}">
+                            <div class="md-toolbar-tools">
+                                <h3>
+                                    <span>Servicios</span>
+                                </h3>
+                            </div>
+                        </md-toolbar>
+                        <md-content flex>
+                            <md-list>
+                                <md-subheader class="md-no-sticky" md-theme="default" md-colors="{'background': 'fondo-100', 'color':'fondo-50'}">Peluqueria</md-subheader>
+                                <md-list-item ng-repeat="p in peluqueria">
+                                    <p> {{ p.name }} </p>
+                                    <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+                                </md-list-item>
+                                <md-divider></md-divider>
+
+                                <md-subheader class="md-no-sticky" md-theme="default" md-colors="{'background': 'fondo-100', 'color':'fondo-50'}">Uñas</md-subheader>
+                                <md-list-item ng-repeat="u in unas">
+                                    <p> {{ u.name }} </p>
+                                    <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+                                </md-list-item>
+                                <md-divider></md-divider>
+
+                                <md-subheader class="md-no-sticky" md-theme="default" md-colors="{'background': 'fondo-100', 'color':'fondo-50'}">Depilación</md-subheader>
+                                <md-list-item ng-repeat="d in depilacion">
+                                    <p> {{ d.name }} </p>
+                                    <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+                                </md-list-item>
+                                <md-divider></md-divider>
+
+                                <md-subheader class="md-no-sticky" md-theme="default" md-colors="{'background': 'fondo-100', 'color':'fondo-50'}">Masajes</md-subheader>
+                                <md-list-item ng-repeat="m in masajes">
+                                    <p> {{ m.name }} </p>
+                                    <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+                                </md-list-item>
+                            </md-list>
+                        </md-content>
+                        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                            <md-button class="md-raised" md-theme="default" md-colors="{'background': 'fondo-100', 'color':'fondo-50'}">Guardar</md-button>
+                            <md-button class="md-raised md-warn">Cancelar</md-button>
+                            <md-button class="md-raised" md-theme="default" md-colors="{'background': 'fondo-200', 'color':'fondo-50'}">Agregar nuevo servicio</md-button>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
 
 
 </div>
