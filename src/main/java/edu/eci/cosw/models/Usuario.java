@@ -118,7 +118,7 @@ public class Usuario implements java.io.Serializable {
     }
 
     @ManyToOne()
-    @JoinColumn(name = "Roles_idRole", referencedColumnName = "idRole", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "Roles_idrole", referencedColumnName = "idrole", nullable = false, insertable = false, updatable = false)
 //    @Column(name = "roles_idrole", nullable = false)
     public Role getRoles_idRole() {
         return roles_idRole;

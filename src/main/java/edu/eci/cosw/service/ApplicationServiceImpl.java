@@ -37,4 +37,9 @@ public class ApplicationServiceImpl implements ApplicationService{
     public void setUsuario(Usuario usuario) {
         userRepo.save(usuario);
     }
+
+    @Override
+    public Usuario traerUsuario(String email) {
+        return userRepo.traerUsuario(email);
+    }
 }
