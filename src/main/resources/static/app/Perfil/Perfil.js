@@ -10,6 +10,8 @@ angular.module('myApp.Perfil', ['ngRoute'])
             }])
 
 
-        .controller('ControladorPerfil', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location) {
+        .controller('ControladorPerfil', ['$scope', '$rootScope', '$http', '$location','usuario', function ($scope, $rootScope, $http, $location,usuario) {
+                $scope.user=usuario.GET($rootScope.email);
+                console.log($scope.user);
             }
         ]);

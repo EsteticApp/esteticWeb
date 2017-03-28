@@ -18,24 +18,38 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.sendgrid.*;
+import java.util.logging.Level;
 
 /**
  *
  * @author 2101240
  */
 @RestController
+@RequestMapping("/app/user")
 public class UserControllerApi {
 
     @Autowired
     ApplicationService users;
 
-    @RequestMapping("/app/user")
+    @RequestMapping("/auteticacion")
     public Principal user(Principal user) {
        
         return user;
     }
+   
+    
+    @RequestMapping(path = "/email/", method = RequestMethod.GET)
+    public ResponseEntity<?> getUser(@PathVariable String email){
+        try {
+            Usuario user= users.getUsuario(email,"");
+            return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(EstilistaControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("No services found in that category", HttpStatus.NOT_FOUND);
+        }
+    }
 
-    @RequestMapping(value = "app/Registrar", method = RequestMethod.POST)
+    @RequestMapping(value = "/Registrar", method = RequestMethod.POST)
     public ResponseEntity Registraruser(@RequestBody Usuario user) {
         try{
 

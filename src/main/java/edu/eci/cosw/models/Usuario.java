@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.sql.Blob;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  *
@@ -108,8 +110,9 @@ public class Usuario implements java.io.Serializable {
         this.state = state;
     }
 
-    @ManyToOne()
-    @JoinColumn(name = "Roles_idrole", referencedColumnName = "idrole", nullable = false, insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Fetch(FetchMode.JOIN)
+    @JoinColumn(name = "Roles_idrole", referencedColumnName = "idrole", nullable = false)
 //    @Column(name = "roles_idrole", nullable = false)
     public Role getRoles_idRole() {
         return roles_idRole;

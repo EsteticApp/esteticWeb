@@ -162,6 +162,18 @@ text-align:center;
     font-size:18px;
 }
 
+/*Perfil*/
+.perfil{
+    text-align: center;
+}
+
+.perfil img{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+
+
 /*Opciones*/
 
 .opcion{
