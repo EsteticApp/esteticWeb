@@ -187,3 +187,14 @@ dl.adr dd a:hover {}
 .btns {text-align:right; overflow:hidden; width:630px;}
 .btns a {display:inline-block; margin:5px 0px 0 23px;}
 #form label strong {float:left; text-align:right; display:block; padding-top:7px; line-height:18px; width:59px; color:#48484e; font-weight:normal; margin-right:7px; white-space:nowrap;} 
+
+div.avatar {
+    /* cambia estos dos valores para definir el tamaño de tu círculo */
+    height: 100px;
+    width: 100px;
+    /* los siguientes valores son independientes del tamaño del círculo */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+}

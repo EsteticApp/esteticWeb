@@ -7,6 +7,8 @@
      background-image: url("../image/background.jpg");
 }
 
+
+
 .no-margin{
     margin:0px !important;
 }
@@ -437,8 +439,8 @@ header-reservas{
     width: 60px;
     height: 60px;
 }
-
 .cuerpoServicios{
     text-align: center;
     margin: auto;
 }
+

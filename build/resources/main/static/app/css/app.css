@@ -7,6 +7,8 @@
      background-image: url("../image/background.jpg");
 }
 
+
+
 .no-margin{
     margin:0px !important;
 }
@@ -438,7 +440,20 @@ header-reservas{
     height: 60px;
 }
 
+<<<<<<< HEAD
 .cuerpoServicios{
     text-align: center;
     margin: auto;
 }
+=======
+.avatar {
+    /* cambia estos dos valores para definir el tamaño de tu círculo */
+    height: 100px !important;
+    width: 100px !important;
+    /* los siguientes valores son independientes del tamaño del círculo */
+    background-repeat: no-repeat !important;
+    background-position: 50% !important;
+    border-radius: 50% !important;
+    background-size: 100% auto !important;
+}
+>>>>>>> bdb1bd76ad9b5eed3aa8ce72703fd637e96fa9b3
