@@ -36,7 +36,7 @@ angular.module('myApp.Reservas', ['ngRoute'])
 
             }])
 
-        .controller('ControladorReservas', ['$scope', '$http', '$location', '$mdDialog',function ($scope, $http, $location,$mdDialog) {
+        .controller('ControladorReservas', ['$resource', '$scope', '$http', '$location', '$mdDialog','reservas',function ($scope, $resource,$http, $location,$mdDialog,reservas) {
 
              $scope.cancelar = function(ev) {
                 console.log("cancelar servicio");
@@ -79,58 +79,64 @@ angular.module('myApp.Reservas', ['ngRoute'])
                   $scope.status = 'You decided to keep your debt.';
                 });
              };
+
+             $scope.reservaCliente =reservas.Reserva.query();
+
         }])
 
-        .controller('SubheaderAppCtrl', function($scope) {
+        .controller('SubheaderAppCtrl',['$resource','reservas',function($scope,$resource,reservas) {
             var imagePath = 'image/logo-user.png';
-            $scope.reservaCliente = [
-              {
-                face : imagePath,
-                who: 'Brenda Flores',
-                what: 'Manicure, Pedicure',
-                when: '3:08PM',
-                cost: " $50.000"
-              },
-              {
-                face : imagePath,
-                who: 'Brenda Flores',
-                what: 'Manicure, Pedicure',
-                when: '3:08PM',
-                cost: " $50.000"
-              },
-              {
-                face : imagePath,
-                who: 'Brenda Flores',
-                what: 'Manicure, Pedicure',
-                when: '3:08PM',
-                cost: " $50.000"
-              }
-            ];
-            $scope.reservasProfessional = [
-              {
-                face : imagePath,
-                who: 'Brenda Flores',
-                what: 'Manicure, Pedicure',
-                dress: 'Calle 31 n 25 25 25',
-                when: '3:08PM',
-                cost: " $50.000"
-              },
-              {
-                face : imagePath,
-                who: 'Brenda Flores',
-                what: 'Manicure, Pedicure',
-                dress: 'Calle 31 n 25 25 25',
-                when: '3:08PM',
-                cost: " $50.000"
-              },
-              {
-                face : imagePath,
-                who: 'Brenda Flores',
-                what: 'Manicure, Pedicure',
-                dress: 'Calle 31 n 25 25 25',
-                when: '3:08PM',
-                cost: " $50.000"
-              }
-            ];
 
-        });
+//            $scope.reservaCliente = [
+//              {
+//                face : imagePath,
+//                who: 'Brenda Flores',
+//                what: 'Manicure, Pedicure',
+//                when: '3:08PM',
+//                cost: " $50.000"
+//              },
+//              {
+//                face : imagePath,
+//                who: 'Brenda Flores',
+//                what: 'Manicure, Pedicure',
+//                when: '3:08PM',
+//                cost: " $50.000"
+//              },
+//              {
+//                face : imagePath,
+//                who: 'Brenda Flores',
+//                what: 'Manicure, Pedicure',
+//                when: '3:08PM',
+//                cost: " $50.000"
+//              }
+//            ];
+//            $scope.reservasProfessional = [
+//              {
+//                face : imagePath,
+//                who: 'Brenda Flores',
+//                what: 'Manicure, Pedicure',
+//                dress: 'Calle 31 n 25 25 25',
+//                when: '3:08PM',
+//                cost: " $50.000"
+//              },
+//              {
+//                face : imagePath,
+//                who: 'Brenda Flores',
+//                what: 'Manicure, Pedicure',
+//                dress: 'Calle 31 n 25 25 25',
+//                when: '3:08PM',
+//                cost: " $50.000"
+//              },
+//              {
+//                face : imagePath,
+//                who: 'Brenda Flores',
+//                what: 'Manicure, Pedicure',
+//                dress: 'Calle 31 n 25 25 25',
+//                when: '3:08PM',
+//                cost: " $50.000"
+//              }
+//            ];
+
+
+
+        }]);

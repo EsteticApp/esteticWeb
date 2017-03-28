@@ -19,11 +19,14 @@ import java.util.List;
 @RequestMapping("/reservas")
 public class ReservasControllerApi {
 
-    ReservasOPeraciones reservas;
+    @Autowired
+    ReservasOPeraciones reservasOPeraciones;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<Reserva> getServicios() {
-        return reservas.getReservas(1);
+    public List<Reserva> getReservas() {
+        System.out.println("Almenos llegue");
+        return reservasOPeraciones.getReservas(1);
+        //return null;
     }
 
 }

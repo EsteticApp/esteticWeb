@@ -33,7 +33,7 @@ angular.module('myApp', [
                         $location.path("/Login");
                         $rootScope.Cliente= false;
                         $rootScope.Professional= false;
-                    }).error(function (data) {
+                    }).then(function (data) {
                         $rootScope.authenticated = false;
                     });
                 };
