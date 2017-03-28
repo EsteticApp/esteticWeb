@@ -6,15 +6,13 @@
 
 
 package edu.eci.cosw.service;
-import edu.eci.cosw.models.Usuario;
-
-
-import edu.eci.cosw.Interfaz.UserApp;
-import java.util.ArrayList;
-import java.util.List;
-import org.springframework.stereotype.Service;
 import edu.eci.cosw.Interfaz.UserApp;
 import edu.eci.cosw.models.Role;
+import edu.eci.cosw.models.Usuario;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author ANDRES CAICEDO
@@ -32,7 +30,7 @@ public class User implements UserApp{
         users = new ArrayList();
         Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
         users.add(new Usuario("Cliente prueba","0","cliente@mail.com", "cliente", rolUser,null,0));
-        rolUser = new Role("PROFESSIONAL","personas que ofrecen el servicio");
+        rolUser = new Role("PROFESSIONAL","Personas que ofrecen el servicio");
         users.add(new Usuario("Profesional prueba","0","profesional@mail.com", "profesional", rolUser,null,0));
     }
 
@@ -72,13 +70,13 @@ public class User implements UserApp{
     public List<Usuario> getSimpleUsers() {
         ArrayList<Usuario> simpleUsers = new ArrayList<>();
         Usuario user;
-        //for(Usuario usr : users){
-//            user = new Usuario();
-//            user.setName(usr.getName());
-//            user.setEmail(usr.getEmail());
-//            user.setRoles_idRole(usr.getRoles_idRole());
-//            simpleUsers.add(user);
-//        }
+        for(Usuario usr : users){
+            user = new Usuario();
+            user.setName(usr.getName());
+            user.setEmail(usr.getEmail());
+            user.setRoles_idRole(usr.getRoles_idRole());
+            simpleUsers.add(user);
+        }
         return simpleUsers;
     }
 

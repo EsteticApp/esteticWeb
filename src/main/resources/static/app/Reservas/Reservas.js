@@ -41,7 +41,7 @@ angular.module('myApp.Reservas', ['ngRoute'])
              $scope.cancelar = function(ev) {
                 console.log("cancelar servicio");
                 var confirm = $mdDialog.confirm()
-                      .title('Desea cancelar el servicio?')
+                      .title('¿Desea cancelar el servicio?')
                       .textContent('si el servicio es cancelado, se notificara al estilista')
                       .ariaLabel('Lucky day')
                       .targetEvent(ev)

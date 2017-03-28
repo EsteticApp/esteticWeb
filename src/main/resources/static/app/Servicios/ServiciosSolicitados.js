@@ -14,6 +14,10 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute', 'ngMaterial'])
               var esti = $resource('/estilistas/id/'+localStorage.estilistaSelect);
               $scope.servicios = esti.query();
 
+              $scope.precios = ['$17.000', '$15.000', '$12.000', '$5.000', '$10.000'];
+
+
+
                 $scope.selection=[];
 
                 $scope.servicioSelect = function servicioSelect(servicio) {
@@ -26,6 +30,11 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute', 'ngMaterial'])
                    else {
                      // is newly selected
                      $scope.selection.push(servicio);
+                     //for(var i = 0; i < $scope.selection.length; i++){
+                            //$scope.precios.indexOf(i);
+
+                     //}
+
                    }
 
                    console.log("Selection: " + $scope.selection);

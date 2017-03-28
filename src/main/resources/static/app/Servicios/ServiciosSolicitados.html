@@ -13,24 +13,30 @@
             <div layout="column" layout-align="center center">
                 <md-list-item ng-repeat="servicio in servicios">
                     <input type="checkbox" ng-click="servicioSelect(servicio.nombre)" ng-checked="selection.indexOf(servicio.nombre) > -1" >
-                        <p> {{ servicio.nombre }} </p>
+                        <p> {{ servicio.nombre }}  </p>
                     </input>
 
                 </md-list-item>
 
                 <span>Servicios Seleccionados:</span>
-                <md-divider ng-repeat="s in selection" class="selected-item">
-                    <p>
-                        <p> {{ s }} </p>
-                    </p>
+
+                <md-divider ng-repeat="s in selection"  class="selected-item" ng-click="reservar(selection)">
+                        <p>
+                            <p> {{ s }} </p>
+                        </p>
+
+                    <!--<li ng-repeat="p in precios">
+                        {{ p }}
+                    </li>-->
+
                 </md-divider>
             </div>
-
             <p>
-                <button type="button" class="btn btn-default btn-md" ng-click="reservar()">
+                <button type="button" class="btn btn-default btn-md" ng-click="reservar(selection)">
                     <span class="glyphicon glyphicon-ok-circle"></span> Reservar
                 </button>
             </p>
+
         </md-list>
     </div>
 

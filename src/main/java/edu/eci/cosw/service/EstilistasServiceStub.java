@@ -1,11 +1,7 @@
 package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.EstilistaOperaciones;
-import edu.eci.cosw.Interfaz.UserApp;
-import edu.eci.cosw.models.Categoria;
-import edu.eci.cosw.models.Estilista;
-import edu.eci.cosw.models.Servicio;
-import edu.eci.cosw.models.Usuario;
+import edu.eci.cosw.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +17,9 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
     private List<Estilista> estilistas;
     @Autowired
     private Usuario user;
+
+    //prueba
+    private static List<Usuario> users;
 
     @Override
     public List<Servicio> getServicesByStylist(String stylist) throws Exception{
@@ -80,6 +79,13 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
 //            }
 //        }
 
+        //prueba desde acá
+        //users = new ArrayList();
+        //Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
+        //users.add(new Usuario("Cliente prueba","0","cliente@mail.com", "cliente", rolUser,null,0));
+
+        //estilistas.add(new Estilista(users.get(0)));
+        //prueba hasta acá
 
         //Primer estilísta
         Categoria category = new Categoria("Peluqueria");
