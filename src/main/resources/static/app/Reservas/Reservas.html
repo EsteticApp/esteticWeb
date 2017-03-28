@@ -1,8 +1,6 @@
 <div ng-show="Cliente">
     <div class="opacidad container">
         <h1 class="titulo">Mis Reservas:</h1>
-
-
         <section id="beautyservice" class="ng-scope reservas">
             <header class="section-head text-center header-reservas">
                 <h2 class="titulo2-servicios">RESERVAS ACTIVAS-CALIFICADAS</h2>
@@ -90,10 +88,6 @@
                     </section>
                 </md-content>
             </div>
-
-
-
-
         </section>
 
     </div>
@@ -101,5 +95,88 @@
 
 <div ng-show="Professional">
 
+    <div class="opacidad container">
+        <h1 class="titulo">Mis Reservas:</h1>
+        <section id="beautyservice" class="ng-scope reservas">
+            <header class="section-head text-center header-reservas">
+                <h2 class="titulo2-servicios">RESERVAS RECIBIDAS</h2>
+            </header>
+
+            <div ng-controller="SubheaderAppCtrl" layout="column" flex layout-fill ng-cloak  md-theme="default">
+
+                <md-toolbar md-scroll-shrink md-theme="default" md-colors="{'background': 'fondo-100', 'color':'fondo-50'}">
+                    <div class="md-toolbar-tools md-accent">Reservas Clientes</div>
+                </md-toolbar>
+
+                <md-content style="height: 600px;" md-theme="default">
+
+                    <section>
+                        <md-subheader md-colors="{'color':'fondo-50','background': 'fondo-200'}">Reservas Nuevas</md-subheader>
+                        <md-list layout-padding>
+                            <md-list-item class="md-3-line" ng-repeat="message in reservaCliente">
+                                <img ng-src="{{message.face}}" class="md-avatar" alt="{{reservaCliente.who}}">
+                                <div class="md-list-item-text">
+                                    <h3>{{message.who}}</h3>
+                                    <h4>{{message.what}}</h4>
+                                    <p> {{message.cost}}</p>
+                                </div>
+                                <md-menu class="md-secondary">
+                                    <md-button class="md-icon-button">
+                                        <md-icon md-svg-icon=""></md-icon>
+                                    </md-button>
+                                    <md-menu-content width="4">
+                                        <md-menu-item>
+                                            <md-button md-colors="{'color':'fondo-100'}" ng-click="aceptar($event)">
+                                                Aceptar
+                                            </md-button>
+                                        </md-menu-item>
+                                        <md-menu-item>
+                                            <md-button md-colors="{'color':'fondo-800'}" ng-click="cancelar ($event)">
+                                                Cancelar
+                                            </md-button>
+                                        </md-menu-item>
+                                        <md-menu-divider></md-menu-divider>
+                                        <md-menu-item>
+                                            <md-button ng-click="detalles($event)">
+                                                Detalles
+                                            </md-button>
+                                        </md-menu-item>
+                                    </md-menu-content>
+                                </md-menu>
+                            </md-list-item>
+                        </md-list>
+                    </section>
+
+                    <section>
+                        <md-subheader md-colors="{'color':'fondo-50','background': 'fondo-800'}">Reservas Atendidas</md-subheader>
+                        <md-list layout="column" layout-padding>
+                            <md-list-item class="md-3-line" ng-repeat="message in reservasProfessional">
+                                <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
+                                <div class="md-list-item-text">
+                                    <h3>{{message.who}}</h3>
+                                    <h4>{{message.what}}</h4>
+                                    <p>{{message.dress}}</p>
+                                    <p>{{message.cost}}</p>
+                                </div>
+                                <md-menu class="md-secondary">
+                                    <md-button class="md-icon-button">
+                                        <md-icon md-svg-icon=""></md-icon>
+                                    </md-button>
+                                    <md-menu-content width="1">
+                                        <md-menu-item>
+                                            <md-button>
+                                                Detalles
+                                            </md-button>
+                                        </md-menu-item>
+                                    </md-menu-content>
+                                </md-menu>
+                            </md-list-item>
+                        </md-list>
+                    </section>
+                </md-content>
+            </div>
+        </section>
+
+    </div>
 
 </div>

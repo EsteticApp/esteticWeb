@@ -336,7 +336,7 @@ ul.topnav li.icon {display: none;}
     background-color: #000;
     height: 8px;
  }
-/*DISEÑO PARA SERVICIOS*/
+/*DISEÑO PARA SERVICIOS CLIENTE*/
 .div-titulos-servicios{
     color:black;
     text-align: center;
@@ -403,6 +403,16 @@ section#beautyservice article {
 .contenedor-servicios {
     conta
 }
+
+/*DISENO SERVICIOS PROFESIONALES*/
+
+.listdemoListControls md-divider {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.listServicios{
+      width: 50%;
+ }
 
 /*DISEÑO PARA RESERVAS*/
 header-reservas{

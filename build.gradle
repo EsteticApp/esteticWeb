@@ -43,5 +43,6 @@ dependencies {
     runtime('com.h2database:h2')
     runtime('mysql:mysql-connector-java')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-
+    //Envio de correos para el registro y el servicio
+    compile 'com.sendgrid:sendgrid-java:3.2.0'
 }
