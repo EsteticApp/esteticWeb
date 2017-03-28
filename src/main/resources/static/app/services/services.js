@@ -25,6 +25,12 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
 
         })
 
+        .factory('reservas', function($resource){
+            return {
+                 Reserva: $resource('/reservas/:id', {id: '@id'})
+            };
+        })
+
         .factory('estilista', function($resource){
             return $resource('/estilistas',{},{
                 GET: { method: 'GET', isArray: true}
