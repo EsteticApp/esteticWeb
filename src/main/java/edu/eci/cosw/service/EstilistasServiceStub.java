@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by SYSTEM on 19/02/2017.
  */
-
+@Service
 public class EstilistasServiceStub implements EstilistaOperaciones{
 
     private List<Estilista> estilistas;
@@ -83,6 +83,9 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
         users = new ArrayList();
         Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
         users.add(new Usuario("Cliente prueba","0","cliente@mail.com", "cliente", rolUser,null,0));
+
+        rolUser = new Role("PROFESSIONAL","Personas que ofrecen el servicio");
+        users.add(new Usuario("Profesional prueba","0","profesional@mail.com", "profesional", rolUser,null,0));
 
         estilistas.add(new Estilista(users.get(0)));
         //prueba hasta acá
