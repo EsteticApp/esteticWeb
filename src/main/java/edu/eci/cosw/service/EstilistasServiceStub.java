@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by SYSTEM on 19/02/2017.
  */
-@Service
+
 public class EstilistasServiceStub implements EstilistaOperaciones{
 
     private List<Estilista> estilistas;
