@@ -80,11 +80,11 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
 //        }
 
         //prueba desde acá
-        //users = new ArrayList();
-        //Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
-        //users.add(new Usuario("Cliente prueba","0","cliente@mail.com", "cliente", rolUser,null,0));
+        users = new ArrayList();
+        Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
+        users.add(new Usuario("Cliente prueba","0","cliente@mail.com", "cliente", rolUser,null,0));
 
-        //estilistas.add(new Estilista(users.get(0)));
+        estilistas.add(new Estilista(users.get(0)));
         //prueba hasta acá
 
         //Primer estilísta
