@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by 2094687 on 3/28/17.
  */
-@Service
+
 public class StylistsService implements EstilistaOperaciones {
 
     @Autowired

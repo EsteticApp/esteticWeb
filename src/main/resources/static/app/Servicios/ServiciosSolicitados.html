@@ -12,34 +12,36 @@
 
             <div class="container-fluid">
                 <div class="row">
+                    <div flex>
 
+                        <div layout="column" layout-align=" center" class="col-xs-6" layout-xs="column">
+                            <md-list-item ng-repeat="servicio in servicios">
+                                <input type="checkbox" ng-click="servicioSelect(servicio.nombre)" ng-checked="selection.indexOf(servicio.nombre) > -1" >
+                                    <p> {{ servicio.nombre }}  </p>
+                                </input>
 
-
-                    <div layout="column" layout-align=" center" class="col-xs-6">
-                        <md-list-item ng-repeat="servicio in servicios">
-                            <input type="checkbox" ng-click="servicioSelect(servicio.nombre)" ng-checked="selection.indexOf(servicio.nombre) > -1" >
-                                <p> {{ servicio.nombre }}  </p>
-                            </input>
-
-                        </md-list-item>
+                            </md-list-item>
+                        </div>
                     </div>
 
-                    <div layout="column" class="col-xs-6">
+                    <div layout="column" class="col-xs-6" layout-xs="column">
 
-                        <span>Servicios Seleccionados:</span>
+                        <div flex>
 
-                        <md-divider ng-repeat="s in selection"  class="selected-item" ng-click="reservar(selection)">
-                                <p>
-                                    <p> {{ s }} </p>
-                                </p>
+                            <span>Servicios Seleccionados:</span>
 
-                            <!--<li ng-repeat="p in precios">
-                                {{ p }}
-                            </li>-->
+                            <md-divider ng-repeat="s in selection"  class="selected-item" ng-click="reservar(selection)">
+                                    <p>
+                                        <p> {{ s }} </p>
+                                    </p>
 
-                        </md-divider>
+                                <!--<li ng-repeat="p in precios">
+                                    {{ p }}
+                                </li>-->
+
+                            </md-divider>
+                         </div>
                     </div>
-                </div>
             </div>
             <p>
                 <button type="button" class="btn btn-default btn-md" ng-click="reservar(selection)">
