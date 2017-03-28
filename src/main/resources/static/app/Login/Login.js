@@ -18,9 +18,11 @@ angular.module('myApp.Login', ['ngRoute'])
                                 + btoa(credentials.username + ":" + credentials.password)
                     } : {};
                     
-                    $http.get('user', {headers: headers}).then(successCallback, errorCallback);
+                    $http.get('user/auteticacion', {headers: headers}).then(successCallback, errorCallback);
                     function successCallback(data) {
                         if (data.data.name) {
+                            console.log(data.data.name)
+                            $rootScope.email=data.data.name;
                             $rootScope.authenticated = true;
                             $scope.role=data.data.authorities[0].authority;
                             $rootScope.Cliente= $scope.role==="CLIENTE";
