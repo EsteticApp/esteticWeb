@@ -1,7 +1,7 @@
 <div ng-show="Cliente">
     <div class="opacidad container">
         <h1 class="titulo">Mis Reservas:</h1>
-        <section id="beautyservice" class="ng-scope reservas">
+        <section class="ng-scope reservas beautyservice">
             <header class="section-head text-center header-reservas">
                 <h2 class="titulo2-servicios">RESERVAS ACTIVAS-CALIFICADAS</h2>
             </header>
@@ -17,14 +17,14 @@
                     <section>
                         <md-subheader md-colors="{'color':'fondo-50','background': 'fondo-200'}">Reservas Activas</md-subheader>
                         <md-list layout-padding>
-                            <md-list-item class="md-3-line" ng-repeat="message in messages">
+                            <md-list-item class="md-3-line" ng-repeat="message in reservaCliente">
                                 <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
                                 <div class="md-list-item-text">
                                     <h3>{{message.what}}</h3>
                                     <h4>{{message.who}}</h4>
-                                    <p>
+                                    <pprofesional>
                                         {{message.notes}}
-                                    </p>
+                                    </pprofesional>
                                 </div>
                                 <md-menu class="md-secondary">
                                     <md-button class="md-icon-button">
@@ -56,7 +56,7 @@
                     <section>
                         <md-subheader md-colors="{'color':'fondo-50','background': 'fondo-800'}">Reservas Calificadas</md-subheader>
                         <md-list layout="column" layout-padding>
-                            <md-list-item class="md-3-line" ng-repeat="message in messages">
+                            <md-list-item class="md-3-line" ng-repeat="message in reservaCliente">
                                 <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
                                 <div class="md-list-item-text">
                                     <h3>{{message.what}}</h3>
@@ -97,7 +97,7 @@
 
     <div class="opacidad container">
         <h1 class="titulo">Mis Reservas:</h1>
-        <section id="beautyservice" class="ng-scope reservas">
+        <section class="ng-scope reservas beautyservice">
             <header class="section-head text-center header-reservas">
                 <h2 class="titulo2-servicios">RESERVAS RECIBIDAS</h2>
             </header>

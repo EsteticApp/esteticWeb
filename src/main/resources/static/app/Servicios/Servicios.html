@@ -3,56 +3,58 @@
         <h1 class="titulo">Servicios:</h1>
 
 
-        <section class="ng-scope">
+        <section class="ng-scope beautyservice" >
             <header class="section-head text-center">
                 <h2 class="titulo2-servicios">CATEGORIAS RECOMENDADAS PARA TI</h2>
                 <h4 class="titulo4-servicios">Selecciona una de las categorias disponibles</h4>
             </header>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <article>
-                            <div class="img use-pointer">
-                                <a ng-click="sPeluqueria()">
-                                    <img src="image/peluqueria.jpg">
-                                    <span class="white text-center">PELUQUERIA</span>
-                                </a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <article>
-                            <div class="img use-pointer">
-                                <a ng-click="sUnas()">
-                                    <img src="image/uñas.jpg">
-                                    <span class="white text-center">UÑAS</span>
-                                </a>
-                            </div>
-                        </article>
+            <div layout="column">
+                <div class="container" flex>
+                    <div class="row" flex>
+                        <div class="col-md-6 col-lg-4">
+                            <article>
+                                <div class="img use-pointer">
+                                    <a ng-click="sPeluqueria()">
+                                        <img src="image/peluqueria.jpg">
+                                        <span class="white text-center">PELUQUERIA</span>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article>
+                                <div class="img use-pointer">
+                                    <a ng-click="sUnas()">
+                                        <img src="image/uñas.jpg">
+                                        <span class="white text-center">UÑAS</span>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <article>
-                            <div class="img use-pointer">
-                                <a ng-click="sDepilacion()">
-                                    <img src="image/depilacion.jpg">
-                                    <span class="white text-center">DEPILACIÓN</span>
-                                </a>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <article>
-                            <div class="img use-pointer">
-                                <a ng-click="sMasajes()">
-                                    <img src="image/masajes.jpg">
-                                    <span class="white text-center">MASAJES</span>
-                                </a>
-                            </div>
-                        </article>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <article>
+                                <div class="img use-pointer">
+                                    <a ng-click="sDepilacion()">
+                                        <img src="image/depilacion.jpg">
+                                        <span class="white text-center">DEPILACIÓN</span>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <article>
+                                <div class="img use-pointer">
+                                    <a ng-click="sMasajes()">
+                                        <img src="image/masajes.jpg">
+                                        <span class="white text-center">MASAJES</span>
+                                    </a>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,7 +68,7 @@
         <h1 class="titulo">Agregar Servicios:</h1>
 
 
-        <section id="beautyservice" class="ng-scope">
+        <section class="ng-scope beautyservice">
             <header class="section-head text-center">
                 <h2 class="titulo2-servicios">Servicios que prestas</h2>
                 <h4 class="titulo4-servicios">Selecciona los servicios que vas a prestas, si no encuentras alguno puedes, solicitar agregarlo</h4>

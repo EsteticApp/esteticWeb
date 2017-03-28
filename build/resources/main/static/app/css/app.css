@@ -373,7 +373,7 @@ span.white {
     font-size: 2em;
     text-transform: uppercase;
     padding: 10px 15px;
-    width: 100%;
+    width: 93%;
     position: absolute;
     bottom: 0;
     z-index: 1;
@@ -381,7 +381,7 @@ span.white {
     color: #5ed596;
 }
 
-section#beautyservice {
+.beautyservice {
         background: rgba(216,216,216,.3);
         /* padding: 30px 0 60px; */
         /* margin: 0 auto; */
@@ -421,6 +421,7 @@ header-reservas{
 
 
 /*DISEÑO PARA SERVICIOSDISPONIBLES*/
+/*DISEÑO PARA SERVICIOSDISPONIBLES*/
 
 .listdemoBasicUsage md-divider {
   margin-top: 10px;
@@ -435,4 +436,9 @@ header-reservas{
 .size-avatar{
     width: 60px;
     height: 60px;
+}
+
+.cuerpoServicios{
+    text-align: center;
+    margin: auto;
 }

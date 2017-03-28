@@ -1,6 +1,7 @@
 package edu.eci.cosw;
 
 import edu.eci.cosw.models.Usuario;
+import edu.eci.cosw.service.ApplicationService;
 import edu.eci.cosw.service.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
