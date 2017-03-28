@@ -8,6 +8,7 @@ public class UsuarioServicio {
     private int Users_iduser;
     private int Services_idServices;
     private String price;
+    //
 
     public UsuarioServicio(int iduser, int idservicio, String precio){
 
