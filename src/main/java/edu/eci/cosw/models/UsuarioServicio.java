@@ -5,21 +5,43 @@ package edu.eci.cosw.models;
  */
 public class UsuarioServicio {
 
-    private String precio;
+    private int Users_iduser;
+    private int Services_idServices;
+    private String price;
 
-    public UsuarioServicio(){
+    public UsuarioServicio(int iduser, int idservicio, String precio){
+
+        Users_iduser = iduser;
+        Services_idServices = idservicio;
+        price = precio;
 
     }
 
-    public UsuarioServicio(String precio){
-        this.precio = precio;
+    public UsuarioServicio(String price){
+        this.price = price;
+    }
+
+    public int getUsers_iduser() {
+        return Users_iduser;
+    }
+
+    public void setUsers_iduser(int users_iduser) {
+        Users_iduser = users_iduser;
+    }
+
+    public int getServices_idServices() {
+        return Services_idServices;
+    }
+
+    public void setServices_idServices(int services_idServices) {
+        Services_idServices = services_idServices;
     }
 
     public String getPrecio() {
-        return precio;
+        return price;
     }
 
     public void setPrecio(String precio) {
-        this.precio = precio;
+        this.price = price;
     }
 }

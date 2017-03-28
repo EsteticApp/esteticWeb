@@ -11,6 +11,7 @@ import edu.eci.cosw.models.Role;
 import edu.eci.cosw.models.Usuario;
 import org.springframework.stereotype.Service;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 /**
