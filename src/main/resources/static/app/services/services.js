@@ -32,6 +32,15 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
             };
         })
 
+        .factory('reservasUsers', function($resource){
+            console.log("consultando reservas users")
+            return $resource('/reservas/email',
+            {id:"@id"},{
+                Consultar: { method: 'POST'}
+            });
+         })
+
+
         .factory('estilista', function($resource){
             return $resource('/estilistas',{},{
                 GET: { method: 'GET', isArray: true}
