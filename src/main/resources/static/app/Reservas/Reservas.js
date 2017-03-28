@@ -36,7 +36,7 @@ angular.module('myApp.Reservas', ['ngRoute'])
 
             }])
 
-        .controller('ControladorReservas', ['$resource', '$scope', '$http', '$location', '$mdDialog','reservas',function ($scope, $resource,$http, $location,$mdDialog,reservas) {
+        .controller('ControladorReservas', ['$scope', '$http', '$location', '$mdDialog','reservas',function ($scope,$http, $location,$mdDialog,reservas) {
 
              $scope.cancelar = function(ev) {
                 console.log("cancelar servicio");
@@ -80,7 +80,10 @@ angular.module('myApp.Reservas', ['ngRoute'])
                 });
              };
 
-             $scope.reservaCliente =reservas.Reserva.query();
+             //console.log(reservas.Reserva.query());
+             var tr = reservas.Reserva.query();
+             $scope.reservaCliente = tr;
+
 
         }])
 

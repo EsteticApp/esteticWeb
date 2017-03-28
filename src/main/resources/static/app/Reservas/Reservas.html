@@ -6,7 +6,7 @@
                 <h2 class="titulo2-servicios">RESERVAS ACTIVAS-CALIFICADAS</h2>
             </header>
 
-            <div ng-controller="SubheaderAppCtrl" layout="column" flex layout-fill ng-cloak  md-theme="default">
+            <div ng-controller="ControladorReservas" layout="column" flex layout-fill ng-cloak  md-theme="default">
 
                 <md-toolbar md-scroll-shrink md-theme="default" md-colors="{'background': 'fondo-100', 'color':'fondo-50'}">
                     <div class="md-toolbar-tools md-accent">Reservas</div>
@@ -20,8 +20,8 @@
                             <md-list-item class="md-3-line" ng-repeat="message in reservaCliente">
                                 <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
                                 <div class="md-list-item-text">
-                                    <h3>{{message.what}}</h3>
-                                    <h4>{{message.who}}</h4>
+                                    <h3>{{message.phone}}</h3>
+                                    <h4>{{message.phone}}</h4>
                                     <pprofesional>
                                         {{message.notes}}
                                     </pprofesional>
