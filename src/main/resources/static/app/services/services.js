@@ -4,11 +4,12 @@
 angular.module('services.modulo', ['ngRoute', 'ngResource'])
 
 
-        .factory('usuario', function($resource){
-            return $resource('./user/email/',{email:"@email"},{
-                GET: { method: 'GET'}
+        .factory('usuarioPost', function($resource){
+            console.log("entra al post")
+            return $resource('./user/email',
+            {email:"@email"},{
+                Usuario: { method: 'POST'}
             });
-
         })
         
         .factory('categoria', function($resource){
@@ -23,6 +24,12 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
                 GET: { method: 'GET', isArray: true}
             });
 
+        })
+
+        .factory('reservas', function($resource){
+            return {
+                 Reserva: $resource('/reservas/:id', {id: '@id'})
+            };
         })
 
         .factory('estilista', function($resource){

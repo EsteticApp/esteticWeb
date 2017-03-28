@@ -13,6 +13,7 @@ angular.module('myApp.Login', ['ngRoute'])
         .controller('ControladorLogin', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location) {
                 $scope.aut = false;
                 $scope.person = [];
+                $rootScope.EmailString={}
                 var authenticate = function (credentials, callback) {
                     var headers = credentials ? {authorization: "Basic "
                                 + btoa(credentials.username + ":" + credentials.password)
@@ -22,7 +23,7 @@ angular.module('myApp.Login', ['ngRoute'])
                     function successCallback(data) {
                         if (data.data.name) {
                             console.log(data.data.name)
-                            $rootScope.email=data.data.name;
+                            $rootScope.EmailString.email=data.data.name;
                             $rootScope.authenticated = true;
                             $scope.role=data.data.authorities[0].authority;
                             $rootScope.Cliente= $scope.role==="CLIENTE";
