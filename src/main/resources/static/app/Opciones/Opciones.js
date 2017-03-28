@@ -13,9 +13,10 @@ angular.module('myApp.Opciones', ['ngRoute'])
                 $rootScope.value = false;
                 $rootScope.users = {};
                 $rootScope.users.roles_idRole={}
-                $rootScope.users.idCard="0000";
+                $rootScope.users.idCard="";
                 $rootScope.users.state=1;
-                $rootScope.users.photo=null;
+//                $rootScope.users.photo=null;
+                $rootScope.photo={}
                 $scope.role = function (id,rol) {
                     $rootScope.users.roles_idRole.nombre = rol;
                     $rootScope.users.roles_idRole.idRole = id;

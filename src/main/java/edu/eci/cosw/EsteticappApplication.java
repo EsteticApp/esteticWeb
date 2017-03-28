@@ -57,8 +57,8 @@ public class EsteticappApplication {
 
         @Autowired
         ///MOdificado mientras realizan pruebas
-        //ApplicationService usersStub;
-        User usersStub;
+        ApplicationService usersStub;
+        //User usersStub;
 
         @Override
         protected void configure(AuthenticationManagerBuilder builder) throws Exception {
@@ -67,10 +67,10 @@ public class EsteticappApplication {
                 public Authentication authenticate(Authentication auth) throws AuthenticationException {
                     String name = auth.getName();
                     String pass = auth.getCredentials().toString();
-                    //Usuario usuario = usersStub.getUsuario(name, pass);
-                    Usuario usuario = usersStub.loginUser(name, pass);
+                    Usuario usuario = usersStub.getUsuario(name, pass);
+//                    Usuario usuario = usersStub.loginUser(name, pass);
                     System.out.println("Paso Aca");
-                    System.out.println(usuario.getRoles_idRole().getNombre());
+                    
                     if (usuario != null) {
                         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
                         //Solo agregue el getNombre();

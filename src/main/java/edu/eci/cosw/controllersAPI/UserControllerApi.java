@@ -19,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.sendgrid.*;
+import edu.eci.cosw.models.ImageEmailString;
 import java.util.logging.Level;
 import javax.sql.rowset.serial.SerialBlob;
 import org.springframework.util.StreamUtils;
@@ -47,7 +48,9 @@ public class UserControllerApi {
             value = "/image/upload",
             method = RequestMethod.POST
     )
-    public ResponseEntity uploadFile(MultipartHttpServletRequest request, @RequestParam(name = "email") EmailString email) {
+    public ResponseEntity uploadFile(@RequestBody ImageEmailString emailimagen) {
+        MultipartHttpServletRequest request=emailimagen.getRequest();
+        EmailString email=emailimagen.getEmail();
         try {
             Iterator<String> itr = request.getFileNames();
             while (itr.hasNext()) {
@@ -57,20 +60,20 @@ public class UserControllerApi {
                 user.setPhoto(new SerialBlob(StreamUtils.copyToByteArray(file.getInputStream())));
                 //-->> GUARDAR EL DESPACHO A TRAVÉS DEL SERVICIO CREADO
                 users.setUsuario(user);
+                System.out.println(request);
             }
         } catch (Exception e) {
             return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }
-
     
+   
     @RequestMapping(path = "/email", method = RequestMethod.POST)
     public ResponseEntity<?> getUser(@RequestBody EmailString email){
         try {
             System.out.println("Lllegua aquiiiii "+email);
             Usuario user= users.getUsuario(email.getEmail(),"");
-            System.out.println(user.getName());
             return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(EstilistaControllerApi.class.getName()).log(Level.SEVERE, null, ex);
@@ -81,7 +84,7 @@ public class UserControllerApi {
     @RequestMapping(value = "/Registrar", method = RequestMethod.POST)
     public ResponseEntity Registraruser(@RequestBody Usuario user) {
         try{
-
+              System.out.println("Lllegua aquiiiii a registrar bien");
             System.out.println(user.getRoles_idRole().getNombre());
             System.out.println(user.getRoles_idRole().getIdRole());
             users.setUsuario(user);
