@@ -1,6 +1,7 @@
 /* app css stylesheet */
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 
 .body-fon{
 
@@ -18,8 +19,12 @@
 }
 
 .header-est{
-    background:#5ED596;
-    width: inherit;
+     background: #5ED596; /* For browsers that do not support gradients */
+             background: -webkit-linear-gradient(#5ED596, #FFF); /* For Safari 5.1 to 6.0 */
+             background: -o-linear-gradient(#5ED596, #FFF); /* For Opera 11.1 to 12.0 */
+             background: -moz-linear-gradient(#5ED596, #FFF); /* For Firefox 3.6 to 15 */
+             background: linear-gradient(#5ED596, #FFF); /* Standard syntax (must be last) */
+
 }
 
 .header-est h1{
@@ -103,6 +108,7 @@
 .titulo h1{
 text-align:center;
     font-family: 'Pacifico', cursive;
+    color:#fff;
 }
 
 /*Login*/
@@ -173,6 +179,11 @@ text-align:center;
     border-radius: 50%;
 }
 
+.perfil label{
+    text-align:center;
+    font-family: 'Lobster', cursive;
+    font-size: 1.8em;
+}
 
 /*Opciones*/
 
