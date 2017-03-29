@@ -16,6 +16,7 @@ public class Reserva {
     private int phone;
     private String address;
     private List<Servicio> servicios;
+    //Estado reserva: activa, pendiente,atendida
     private String state;
     private Double reservationPrice;
     private int idreserva;

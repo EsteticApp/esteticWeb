@@ -17,6 +17,7 @@ angular.module('myApp', [
     'myApp.Opciones',
     'myApp.Registrar',
     'myApp.Perfil',
+    'myApp.Editar',
     'services.modulo'
 ]).
         config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
@@ -37,5 +38,16 @@ angular.module('myApp', [
                         $rootScope.authenticated = false;
                     });
                 };
+
+                $scope.available = false;
+                $scope.state = "No disponible";
+                $scope.changeStatus = function(){
+                    $scope.available = !$scope.available;
+                    if($scope.available){
+                        $scope.state = "Disponible";
+                    }else{
+                        $scope.state = "No disponible";
+                    }
+                }
             }]);
     

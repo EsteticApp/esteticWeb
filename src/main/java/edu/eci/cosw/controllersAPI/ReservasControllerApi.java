@@ -25,7 +25,7 @@ public class ReservasControllerApi {
     @RequestMapping(method = RequestMethod.GET)
     public List<Reserva> getReservas() {
         System.out.println("Almenos llegue");
-        return reservasOPeraciones.getReservas(1);
+        return reservasOPeraciones.getReservasActivas("1");
         //return null;
     }
 
@@ -33,7 +33,7 @@ public class ReservasControllerApi {
     public ResponseEntity<?> getReservasUsers(@RequestBody EmailString email){
         try {
             System.out.println("Lllegua a consulta reserva "+email.getEmail());
-            List<Reserva> reservas = reservasOPeraciones.getReservas(1);
+            List<Reserva> reservas = reservasOPeraciones.getReservasActivas(email.getEmail());
             EmailReservas data = new EmailReservas();
             data.setReservas(reservas);
             System.out.println(data);
