@@ -108,3 +108,20 @@ header{
      z-index:1;
 }
 
+.stateButton {
+  border: none;
+  padding: 14px;
+  color: #fff;
+  margin: 0 10px;
+  background: var(--available);
+  font-weight: 700;
+  border-radius: 4px;
+}
+.isAvailable {
+  background: var(--notAvailable);
+}
+
+:root{
+  --notAvailable: #b90604;
+  --available: #419f41;
+}

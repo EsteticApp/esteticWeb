@@ -110,7 +110,7 @@
                             <ul>
                                 <div ng-app="myApp" ng-controller="ControladorLogout">
                                     <!--<button class="btn btn-danger navbar-btn">Button</button>-->
-                                    <md-button class="stateButton"
+                                    <md-button class="stateButton" ng-class="{'isAvailable':available;}"
                                                ng-click="changeStatus()">{{state}}</md-button>
                                 </div>
                             </ul>
