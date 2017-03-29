@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface UsuarioServicioOperaciones {
 
-    public List<UsuarioServicio> getPrecioServicios();
+    public List<UsuarioServicio> getPrecios();
+    public String getPrecioServicios(int iduser, int idservicio);
     public void addPrecioServicio(String price);
 }

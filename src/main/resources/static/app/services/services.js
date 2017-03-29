@@ -54,6 +54,8 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
             };
         })
 
+        
+
         .factory('estilistasCategorias', function($resource){
                     var esti = $resource('/estilistas/'+localStorage.catSeleccionada+'/:rolEstilista');
                     return esti;

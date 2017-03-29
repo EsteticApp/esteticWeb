@@ -21,8 +21,8 @@ public class UsuarioServicioControllerApi {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<UsuarioServicio> getPrice() {
-        return usuarioServicio.getPrecioServicios();
+    public List<UsuarioServicio> getPriceServices() {
+        return usuarioServicio.getPrecios();
     }
 
 }
