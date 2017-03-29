@@ -60,10 +60,12 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
          })
 
         .factory('registrarService', function($resource){
-            return $resource('./user/Registrar',
+             
+             return $resource('./user/Registrar',
             {name:"@name",idCard:"@idCard",password:"@password",email:"@mail",Roles_idRole:{idRole:"@idRole",nombre:"@nombre"},photo:"@photo",state:"@state"},{
                 Registrar: { method: 'POST'}
             });
+            
         })
 
         .factory('estCat',function($resource){
