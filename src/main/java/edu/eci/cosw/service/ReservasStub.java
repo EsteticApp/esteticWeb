@@ -22,6 +22,7 @@ public class ReservasStub implements ReservasOPeraciones{
     private User user;
 
     public ReservasStub() {
+        //Para cliente
         user = new User();
         Usuario us = user.getUserByEmail("cliente@mail.com");
         System.out.println("usuario prueba:"+us);
@@ -33,15 +34,27 @@ public class ReservasStub implements ReservasOPeraciones{
         ur.setReservas(reservas);
         usuarios = new ArrayList<>();
         usuarios.add(ur);
+
+        //para profesional
+        us = user.getUserByEmail("profesional@mail.com");
+        System.out.println("usuario prueba:"+us);
+        reservas = new ArrayList<>();
+        reservas.add(new Reserva(1,2,new Date(),null,86202011,"Avenida 112 - n 123 34 casa 2",null,"Desconectado",200000.0));
+        reservas.add(new Reserva(2,2,new Date(),null,35026541,"Trans 5 34 56 3 Piso",null,"Desconectado",112000.0));
+        reservas.add(new Reserva(3,3,new Date(),null,31854745,"Calle 1 n 34 56 y ",null,"Desconectado",65000.0));
+        ur = new UsuarioReserva(us);
+        ur.setReservas(reservas);
+        usuarios.add(ur);
     }
 
     @Override
     public List<Reserva> getReservasActivas(String iduser) {
+        List<Reserva> r = new ArrayList<>();
         for (UsuarioReserva ur : usuarios){
             if(ur.getUsuario().getEmail().equals(iduser)){
-                reservas=ur.getReservas();}
+                r=ur.getReservas();}
         }
-        return reservas;
+        return r;
     }
 
     @Override

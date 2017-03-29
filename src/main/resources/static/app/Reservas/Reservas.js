@@ -100,4 +100,21 @@ angular.module('myApp.Reservas', ['ngRoute'])
             {avatar :'image/avatar5.jpg'}
            ];
 
-        }]);
+        }])
+
+        .controller('ControladorReservasProfesionales',['$rootScope','$scope','reservasUsers',function($rootScope,$scope,reservasUsers){
+                   console.log("Controller Reservas de un solo profesional");
+                   var tr = reservasUsers.Consultar($rootScope.EmailString);
+                   $scope.reservaCliente = tr;
+                   $scope.face = 'image/logo-user.png';
+                   console.log(tr);
+
+                   $scope.avatars = [
+                    {avatar :'image/avatar1.jpg'},
+                    {avatar :'image/avatar2.jpg'},
+                    {avatar :'image/avatar3.jpg'},
+                    {avatar :'image/avatar4.jpg'},
+                    {avatar :'image/avatar5.jpg'}
+                   ];
+
+                }]);
