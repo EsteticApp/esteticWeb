@@ -36,6 +36,7 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute', 'ngMaterial'])
 
                    }
 
+
                    console.log("Selection: " + $scope.selection);
                 };
 
