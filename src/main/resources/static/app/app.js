@@ -17,6 +17,7 @@ angular.module('myApp', [
     'myApp.Opciones',
     'myApp.Registrar',
     'myApp.Perfil',
+    'myApp.Editar',
     'services.modulo'
 ]).
         config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
