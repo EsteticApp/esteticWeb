@@ -67,8 +67,13 @@ public class EsteticappApplication {
                 public Authentication authenticate(Authentication auth) throws AuthenticationException {
                     String name = auth.getName();
                     String pass = auth.getCredentials().toString();
+
                    // Usuario usuario = usersStub.getUsuario(name, pass);
                     Usuario usuario = usersStub.loginUser(name, pass);
+
+                    Usuario usuario = usersStub.getUsuario(name, pass);
+                    //Usuario usuario = usersStub.loginUser(name, pass);
+
                     System.out.println("Paso Aca");
                     
                     if (usuario != null) {

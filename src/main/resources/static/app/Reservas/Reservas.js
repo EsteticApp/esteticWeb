@@ -36,7 +36,7 @@ angular.module('myApp.Reservas', ['ngRoute'])
 
             }])
 
-        .controller('ControladorReservas', ['$scope', '$http', '$location', '$mdDialog','reservas','reservasUsers','$rootScope',function ($scope,$http, $location,$mdDialog,reservas,reservasUsers,$rootScope) {
+        .controller('ControladorReservas', ['$scope', '$http', '$location', '$mdDialog','$rootScope',function ($scope,$http, $location,$mdDialog,$rootScope) {
 
              $scope.cancelar = function(ev) {
                 console.log("cancelar servicio");
@@ -82,7 +82,22 @@ angular.module('myApp.Reservas', ['ngRoute'])
 
 //             var tr = reservas.Reserva.query();
 //             $scope.reservaCliente = tr;
-               console.log($rootScope.EmailString);
-               var tr = reservasUsers.Consultar($rootScope.EmailString);
-               $scope.reservaCliente = tr;
+
+        }])
+
+        .controller('ControladorReservasUsuario',['$rootScope','$scope','reservasUsers',function($rootScope,$scope,reservasUsers){
+           console.log("Controller Reservas de un solo cliente");
+           var tr = reservasUsers.Consultar($rootScope.EmailString);
+           $scope.reservaCliente = tr;
+           $scope.face = 'image/logo-user.png';
+           console.log(tr);
+
+           $scope.avatars = [
+            {avatar :'image/avatar1.jpg'},
+            {avatar :'image/avatar2.jpg'},
+            {avatar :'image/avatar3.jpg'},
+            {avatar :'image/avatar4.jpg'},
+            {avatar :'image/avatar5.jpg'}
+           ];
+
         }]);
