@@ -27,9 +27,9 @@ public class ApplicationServiceImpl implements ApplicationService{
     @Override
     public Usuario getUsuario(String email, String password) {
         System.out.println("pasa aqui");
-        //return userRepo.traerUsuario(email);
-        User usr = new User();
-        return usr.getUserByEmail(email);
+        return userRepo.traerUsuario(email);
+//        User usr = new User();
+//        return usr.getUserByEmail(email);
        
     }    
 

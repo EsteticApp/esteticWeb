@@ -5,12 +5,21 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
 
 
         .factory('usuarioPost', function($resource){
-            console.log("entra al post")
+            
             return $resource('./user/email',
             {email:"@email"},{
                 Usuario: { method: 'POST'}
             });
         })
+        
+        .factory('usuarioPhoto', function($resource){
+            return $resource('./user/:email/image',
+            {},{
+                Usuario: { method: 'GET'}
+            });
+        })
+        
+        
         
         .factory('categoria', function($resource){
             return $resource('/categorias',{},{
@@ -71,6 +80,15 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
         .factory('registrarService', function($resource){
              
              return $resource('./user/Registrar',
+            {name:"@name",idCard:"@idCard",password:"@password",email:"@mail",Roles_idRole:{idRole:"@idRole",nombre:"@nombre"},photo:"@photo",state:"@state"},{
+                Registrar: { method: 'POST'}
+            });
+            
+        })
+        
+        .factory('registrarUpdate', function($resource){
+             
+             return $resource('./user/Update',
             {name:"@name",idCard:"@idCard",password:"@password",email:"@mail",Roles_idRole:{idRole:"@idRole",nombre:"@nombre"},photo:"@photo",state:"@state"},{
                 Registrar: { method: 'POST'}
             });

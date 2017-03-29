@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
@@ -92,6 +93,7 @@ public class Usuario implements java.io.Serializable {
         this.password = password;
     }
 
+    @JsonIgnore
     @Column(name = "photo")
     public Blob getPhoto() {
         return photo;

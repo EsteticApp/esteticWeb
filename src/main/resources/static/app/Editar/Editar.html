@@ -4,32 +4,34 @@
     </div>
     <div class  = "col-sm-3"></div>
     <div class="col-sm-6 login">
-        <form role="form" ng-submit="#">
-            <div class="col-sm-12 perfil">
-                <img ng-src="{{users.photo}}">
-            </div>
+        <form role="form" ng-submit="updateUser()">
+           <div class="col-sm-12 perfil">
+                    <img data-ng-src="./user/{{user.email}}/image" data-err-src="image/logo-user.png"/>
+                </div>
             <div class="form-group">
-                <input type="file" file-model="photo"/>
+              <input type="file" file-model="photo"/>
+              <button ng-click="uploadFile()">Subir Foto</button>
             </div>
+            
 
             <div class="form-group">
                 <label for="nombre">Nombre:</label> <input type="text"
-                                                           class="form-control" id="nombre" name="nombre" ng-model="users.name"/>
+                                                           class="form-control" id="nombre" name="nombre" ng-model="user.name"/>
             </div>
-            <div class="form-group" ng-show="users.roles_idRole.nombre=='PROFESSIONAL'">
-                <label for="cedula">Cedula</label> <input type="number"
-                                                          class="form-control" id="cedula" name="idCard" ng-model="users.idCard"/>
+            <div class="form-group" ng-show="user.roles_idRole.nombre==='PROFESSIONAL'">
+                <label for="cedula">Cedula</label> <input type="text"
+                                                          class="form-control" id="cedula" name="idCard" ng-model="user.idCard"/>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label> <input type="email"
-                                                         class="form-control" id="email" name="email" ng-model="users.email"/>
+                                                         class="form-control" id="email" name="email" ng-model="user.email"/>
             </div>
             <div class="form-group">
                 <label for="password">password:</label> <input type="password"
-                                                               class="form-control" id="password" name="password" ng-model="users.password"/>
+                                                               class="form-control" id="password" name="password" ng-model="user.password"/>
             </div>
             <div class="sub">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>Editar mi perfil</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i>Actualizar mi perfil</button>
             </div>
         </form>
     </div>

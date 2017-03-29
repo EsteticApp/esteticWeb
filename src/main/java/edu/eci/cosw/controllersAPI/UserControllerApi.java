@@ -21,8 +21,14 @@ import org.springframework.web.bind.annotation.*;
 import com.sendgrid.*;
 import edu.eci.cosw.models.ImageEmailString;
 import edu.eci.cosw.service.User;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.sql.rowset.serial.SerialBlob;
+import static jdk.nashorn.internal.runtime.Debug.id;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.MediaType;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -36,12 +42,12 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 public class UserControllerApi {
 
     @Autowired
-//    ApplicationService users;
-    User users;
+    ApplicationService users;
+//    User users;
 
     @RequestMapping("/auteticacion")
     public Principal user(Principal user) {
-       
+        
         return user;
     }
    
@@ -62,16 +68,16 @@ public class UserControllerApi {
                 String uploadedFile = itr.next();
                 MultipartFile file = request.getFile(uploadedFile);
                 System.out.println("hace algo aqui");
-//                Usuario user=users.getUsuario(email.getEmail(), "");
+                Usuario user=users.getUsuario(email, "");
                 System.out.println("Busca");
-                Usuario user=users.getUserByEmail(email);
+//                Usuario user=users.getUserByEmail(email);
                 System.out.println("deja de buscar");
                 System.out.println(user.getIduser());
                 System.out.println("Posible Error");
                 user.setPhoto(new SerialBlob(StreamUtils.copyToByteArray(file.getInputStream())));
                 //-->> GUARDAR EL DESPACHO A TRAVÉS DEL SERVICIO CREADO
-//                users.setUsuario(user);
-                users.addUser(user);
+                users.setUsuario(user);
+//                users.addUser(user);
                 System.out.println(request);
             }
         } catch (Exception e) {
@@ -85,8 +91,8 @@ public class UserControllerApi {
     public ResponseEntity<?> getUser(@RequestBody EmailString email){
         try {
             System.out.println("Lllegua aquiiiii "+email);
-//            Usuario user= users.getUsuario(email.getEmail(),"");
-            Usuario user= users.getUserByEmail(email.getEmail());
+            Usuario user= users.getUsuario(email.getEmail(),"");
+//            Usuario user= users.getUserByEmail(email.getEmail());
             return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(EstilistaControllerApi.class.getName()).log(Level.SEVERE, null, ex);
@@ -100,12 +106,40 @@ public class UserControllerApi {
               System.out.println("Lllegua aquiiiii a registrar bien");
             System.out.println(user.getRoles_idRole().getNombre());
             System.out.println(user.getRoles_idRole().getIdRole());
-//            users.setUsuario(user);
-            users.addUser(user);
+            users.setUsuario(user);
+//            users.addUser(user);
         }catch (Exception e){
             return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+    
+    @RequestMapping(value = "/Update", method = RequestMethod.POST)
+    public ResponseEntity updateUser(@RequestBody Usuario user) {
+        try{
+            Usuario us=users.getUsuario(user.getEmail(),"");
+            Blob photo=us.getPhoto();
+            user.setPhoto(photo);
+            users.setUsuario(user);
+//            users.addUser(user);
+        }catch (Exception e){
+            return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+    
+    @RequestMapping(value = "/{email}/image", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<InputStreamResource> getQRCode(@PathVariable String email) {
+        try {
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType("image/png"))
+                    .body(new InputStreamResource(users.getUsuario(email,"").getPhoto().getBinaryStream()));
+        } catch (Exception ex) {
+            Logger.getLogger(UserControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

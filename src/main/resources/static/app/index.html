@@ -40,7 +40,9 @@
                         <a class="btn btn-primary" type="submit" href="#!/Opciones">Registrarse</a>
                     </div>
                     <div ng-show="authenticated">
-                        <img src="image/logo-user.png" style="width:50px;height:50px;">
+                   
+                        <img data-ng-src="./user/{{user}}/image" data-err-src="image/logo-user.png" style="width: 50px;height: 50px; border-radius: 50%;"/>
+                        
                         <p>{{user}}
                     </div>
                 </div>
@@ -102,7 +104,7 @@
                         <div class="container">
                             <ul class="nav navbar-nav ">
                                 <li><a class="textMenu" ng-show="authenticated" href="#!/Professional"><span class="glyphicon glyphicon-star"></span> Inicio</a></li>
-                                <li><a class="textMenu"  ng-show="authenticated" href="#"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
+                                <li><a class="textMenu"  ng-show="authenticated" href="#!/Perfil"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
                                 <li><a class="textMenu"  ng-show="authenticated" href="#!/Servicios"><span class="glyphicon glyphicon-briefcase"></span> Servicios</a></li>
                                 <li><a class="textMenu"  ng-show="authenticated" href="#!/Servicios"><span class="glyphicon glyphicon-briefcase"></span> Servicios</a></li>
                                 <li><a class="textMenu"  ng-show="authenticated" href="#!/Reservas"><span class="glyphicon glyphicon-shopping-cart"></span> Mis Reservas</a></li>
