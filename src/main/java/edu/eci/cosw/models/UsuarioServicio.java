@@ -8,8 +8,6 @@ public class UsuarioServicio {
     private int Users_iduser;
     private int Services_idServices;
     private String price;
-    //
-    //
 
     public UsuarioServicio(int iduser, int idservicio, String precio){
 
@@ -39,11 +37,11 @@ public class UsuarioServicio {
         Services_idServices = services_idServices;
     }
 
-    public String getPrecio() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrice(String precio) {
         this.price = price;
     }
 }

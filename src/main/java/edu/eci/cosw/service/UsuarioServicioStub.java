@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by estudiante on 3/28/17.
+ * Created by SYSTEM on 29/03/2017.
  */
 @Service
-public class UsuarioServicioStub implements UsuarioServicioOperaciones{
+public class UsuarioServicioStub implements UsuarioServicioOperaciones {
 
     private List<UsuarioServicio> precios;
 
