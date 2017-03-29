@@ -110,8 +110,10 @@
                             <ul>
                                 <div ng-app="myApp" ng-controller="ControladorLogout">
                                     <!--https://codepen.io/anon/pen/aJRKoY-->
-                                    <md-button class="stateButton" ng-class="{'isAvailable':available;}"
-                                               ng-click="changeStatus()">{{state}}</md-button>
+                                    <md-button class="stateButton"
+                                               md-theme="default" md-colors="{'background': '{{fondo}}', 'color':'fondo-50'}"
+                                               ng-click="changeStatus()">{{state}}
+                                    </md-button>
                                 </div>
                             </ul>
                             <ul class="nav navbar-nav navbar-left">
