@@ -28,9 +28,16 @@ public class UsuarioServicioStub implements UsuarioServicioOperaciones {
     }
 
     @Override
-    public List<UsuarioServicio> getPrecios() {
-        return precios;
+    public List<UsuarioServicio> getPrecios(int iduser, int idservicio) {
+        List<UsuarioServicio> us = new ArrayList<>();
+        for (UsuarioServicio u : precios){
+            if(  (u.getUsers_iduser() == iduser)   && (u.getServices_idServices() == idservicio)   ){
+                us.add(u);
+            }
+        }
+        return us;
     }
+
     @Override
     public String getPrecioServicios(int iduser, int idservicio){
 

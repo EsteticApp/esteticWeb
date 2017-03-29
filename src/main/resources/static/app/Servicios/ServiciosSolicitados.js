@@ -30,6 +30,7 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute', 'ngMaterial'])
                    else {
                      // is newly selected
                      $scope.selection.push(servicio);
+
                      var p = $resource('/precios/:id', {id: '@id'});
                      $scope.precios = p.query();
 

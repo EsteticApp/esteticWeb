@@ -50,11 +50,18 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
 
         .factory('precios', function($resource){
             return {
-                 Precio: $resource('/precios/:id', {id: '@id'})
+                 Precios: $resource('/precios/:id', {id: '@id'})
             };
         })
 
-        
+        .factory('preciosServicios', function($resource){
+            console.log("Muestra precios por id de servicios")
+            var precio = $resource('/reservas/'+ localStorage.servicioSeleccionado +'/:price');
+            return precio;
+
+        })
+
+
 
         .factory('estilistasCategorias', function($resource){
                     var esti = $resource('/estilistas/'+localStorage.catSeleccionada+'/:rolEstilista');
