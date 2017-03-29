@@ -6,7 +6,7 @@
                 <h2 class="titulo2-servicios">RESERVAS ACTIVAS-CALIFICADAS</h2>
             </header>
 
-            <div ng-controller="ControladorReservas" layout="column" flex layout-fill ng-cloak  md-theme="default">
+            <div ng-controller="ControladorReservasUsuario" layout="column" flex layout-fill ng-cloak  md-theme="default">
 
                 <md-toolbar md-scroll-shrink md-theme="default" md-colors="{'background': 'fondo-100', 'color':'fondo-50'}">
                     <div class="md-toolbar-tools md-accent">Reservas</div>
@@ -17,73 +17,70 @@
                     <section>
                         <md-subheader md-colors="{'color':'fondo-50','background': 'fondo-200'}">Reservas Activas</md-subheader>
                         <md-list layout-padding>
-                            <md-list-item class="md-3-line" ng-repeat="message in reservaCliente.allServicies">
-                                <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
-                                <div class="md-list-item-text">
-                                    <h3>{{message.id.phone}}</h3>
-                                    <h4>{{message.id.phone}}</h4>
-                                    <p>
-                                        {{message.id.phone}}
-                                    </p>
-                                </div>
-                                <md-menu class="md-secondary">
-                                    <md-button class="md-icon-button">
-                                        <md-icon md-svg-icon=""></md-icon>
-                                    </md-button>
-                                    <md-menu-content width="4">
-                                        <md-menu-item>
-                                            <md-button md-colors="{'color':'fondo-800'}" ng-click="cancelar($event)">
-                                                Cancelar
-                                            </md-button>
-                                        </md-menu-item>
-                                        <md-menu-item>
-                                            <md-button md-colors="{'color':'fondo-200'}" ng-click="modificar($event)">
-                                                Modificar
-                                            </md-button>
-                                        </md-menu-item>
-                                        <md-menu-divider></md-menu-divider>
-                                        <md-menu-item>
-                                            <md-button ng-click="detalles($event)">
-                                                Detalles
-                                            </md-button>
-                                        </md-menu-item>
-                                    </md-menu-content>
-                                </md-menu>
-                            </md-list-item>
+                            <div ng-repeat="reservas in reservaCliente track by $index">
+                                <md-list-item class="md-3-line" ng-repeat="reserva in reservas track by $index">
+                                    <img ng-src="image/avatar1.jpg" class="md-avatar" alt="{{message.who}}">
+                                    <div class="md-list-item-text">
+                                        <h3>Profesional: Profesional Fecha:{{reserva.reservationDate}}</h3>
+                                        <h4>Telefono:{{reserva.phone}}</h4>
+                                        <p>Direccion: {{reserva.address}}</p>
+                                        <p>Precio: $ {{reserva.reservationPrice}}</p>
+                                    </div>
+                                    <md-menu class="md-secondary">
+                                        <md-button class="md-icon-button">
+                                            <md-icon md-svg-icon=""></md-icon>
+                                        </md-button>
+                                        <md-menu-content width="4">
+                                            <md-menu-item>
+                                                <md-button md-colors="{'color':'fondo-800'}" ng-click="cancelar($event)">
+                                                    Cancelar
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-item>
+                                                <md-button md-colors="{'color':'fondo-200'}" ng-click="modificar($event)">
+                                                    Modificar
+                                                </md-button>
+                                            </md-menu-item>
+                                            <md-menu-divider></md-menu-divider>
+                                            <md-menu-item>
+                                                <md-button ng-click="detalles($event)">
+                                                    Detalles
+                                                </md-button>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                </md-list-item>
+                            </div>
+
                         </md-list>
                     </section>
 
                     <section>
                         <md-subheader md-colors="{'color':'fondo-50','background': 'fondo-800'}">Reservas Calificadas</md-subheader>
                         <md-list layout="column" layout-padding>
-                            <md-list-item class="md-3-line" ng-repeat="message in reservaCliente">
-                                <img ng-src="{{message.face}}" class="md-avatar" alt="{{message.who}}">
-                                <div class="md-list-item-text">
-                                    <h3>{{message.what}}</h3>
-                                    <h4>{{message.who}}</h4>
-                                    <p>
-                                        {{message.notes}}
-                                    </p>
-                                </div>
-                                <md-menu class="md-secondary">
-                                    <md-button class="md-icon-button">
-                                        <md-icon md-svg-icon=""></md-icon>
-                                    </md-button>
-                                    <md-menu-content width="4">
-                                        <md-menu-item>
-                                            <md-button md-colors="{'color':'fondo-200'}" >
-                                                Reservar nuevamente
-                                            </md-button>
-                                        </md-menu-item>
-                                        <md-menu-divider></md-menu-divider>
-                                        <md-menu-item>
-                                            <md-button>
-                                                Detalles
-                                            </md-button>
-                                        </md-menu-item>
-                                    </md-menu-content>
-                                </md-menu>
-                            </md-list-item>
+                            <div ng-repeat="reservas in reservaCliente track by $index">
+                                <md-list-item class="md-3-line" ng-repeat="reserva in reservas track by $index">
+                                    <img ng-src="image/avatar2.jpg" class="md-avatar" alt="{{message.who}}">
+                                    <div class="md-list-item-text">
+                                        <h3>Profesional: Profesional Fecha:{{reserva.reservationDate}}</h3>
+                                        <h4>Telefono:{{reserva.phone}}</h4>
+                                        <p>Direccion: {{reserva.address}}</p>
+                                        <p>Precio: $ {{reserva.reservationPrice}}</p>
+                                    </div>
+                                    <md-menu class="md-secondary">
+                                        <md-button class="md-icon-button">
+                                            <md-icon md-svg-icon=""></md-icon>
+                                        </md-button>
+                                        <md-menu-content width="1">
+                                            <md-menu-item>
+                                                <md-button ng-click="detalles($event)">
+                                                    Detalles
+                                                </md-button>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                </md-list-item>
+                            </div>
                         </md-list>
                     </section>
                 </md-content>
