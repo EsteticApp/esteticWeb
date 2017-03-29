@@ -456,3 +456,20 @@ header-reservas{
     margin: auto;
 }
 
+.stateButton{
+    border: none;
+    padding: 14px;
+    color: #fff;
+    margin: 0 10px;
+    background: var(--notAvailable);
+    font-weight: 700;
+    border-radius: 4px;
+}
+.isAvailable{
+    background: var(--available);
+}
+
+:root{
+	--notAvailable: #b90604;
+	--available: #419f41;
+}

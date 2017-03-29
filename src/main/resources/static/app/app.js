@@ -37,5 +37,16 @@ angular.module('myApp', [
                         $rootScope.authenticated = false;
                     });
                 };
+
+                $scope.available = false;
+                $scope.state = "No disponible";
+                $scope.changeStatus = function(){
+                    $scope.available = !$scope.available;
+                    if($scope.available){
+                        $scope.state = "Disponible";
+                    }else{
+                        $scope.state = "No disponible";
+                    }
+                }
             }]);
     

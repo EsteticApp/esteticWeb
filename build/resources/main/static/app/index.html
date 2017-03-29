@@ -66,7 +66,9 @@
                                 <li><a class="textMenu"  ng-show="authenticated" href="#!/Reservas"><span class="glyphicon glyphicon-shopping-cart"></span> Mis Reservas</a></li>
                                 
                             </ul>
+
                             <ul class="nav navbar-nav navbar-right">
+                                <!--
                                 <form class="navbar-form navbar-left">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Search">
@@ -77,6 +79,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                -->
                                 <li><a class="textMenu"  ng-controller="ControladorLogout" ng-click="logout()"><span class="glyphicon glyphicon-remove"></span>Cerrar Sesión </a></li>
                             </ul>
                         </div>
@@ -101,9 +104,18 @@
                                 <li><a class="textMenu" ng-show="authenticated" href="#!/Professional"><span class="glyphicon glyphicon-star"></span> Inicio</a></li>
                                 <li><a class="textMenu"  ng-show="authenticated" href="#"><span class="glyphicon glyphicon-user"></span> Mi Perfil</a></li>
                                 <li><a class="textMenu"  ng-show="authenticated" href="#!/Servicios"><span class="glyphicon glyphicon-briefcase"></span> Servicios</a></li>
+                                <li><a class="textMenu"  ng-show="authenticated" href="#!/Servicios"><span class="glyphicon glyphicon-briefcase"></span> Servicios</a></li>
                                 <li><a class="textMenu"  ng-show="authenticated" href="#!/Reservas"><span class="glyphicon glyphicon-shopping-cart"></span> Mis Reservas</a></li>
                             </ul>
+                            <ul>
+                                <div ng-app="myApp" ng-controller="ControladorLogout">
+                                    <!--<button class="btn btn-danger navbar-btn">Button</button>-->
+                                    <md-button class="stateButton"
+                                               ng-click="changeStatus()">{{state}}</md-button>
+                                </div>
+                            </ul>
                             <ul class="nav navbar-nav navbar-left">
+                                <!-- Recuadro de búsqueda
                                 <form class="navbar-form navbar-left">
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Search">
@@ -114,6 +126,7 @@
                                         </div>
                                     </div>
                                 </form>
+                                -->
                                 <li><a class="textMenu"  ng-controller="ControladorLogout" ng-click="logout()"><span class="glyphicon glyphicon-remove"></span>Cerrar Sesión </a></li>
                             </ul>
                         </div>
