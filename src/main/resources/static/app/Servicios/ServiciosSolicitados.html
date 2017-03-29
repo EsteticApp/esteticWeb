@@ -10,17 +10,23 @@
                     {{estilista}}
             </md-subheader>
 
+            <p> </p>
+            <p> </p>
+            <p> </p>
+            <p> </p>
+
             <div class="container-fluid">
-                <div class="row">
                     <div flex>
 
-                        <div layout="column" layout-align=" center" class="col-xs-6" layout-xs="column">
-                            <md-list-item ng-repeat="servicio in servicios">
-                                <input type="checkbox" ng-click="servicioSelect(servicio.nombre)" ng-checked="selection.indexOf(servicio.nombre) > -1" >
-                                    <p> {{ servicio.nombre }}  </p>
-                                </input>
+                        <div layout="column" layout-align="center center" class="col-xs-6" layout-xs="column">
+                            <md-list ng-repeat="servicio in servicios" layout-align="center center">
+                                <md-checkbox type="checkbox" ng-click="servicioSelect(servicio.nombre)" ng-checked="selection.indexOf(servicio.nombre) > -1" >
 
-                            </md-list-item>
+                                    <p> {{ servicio.nombre }}</p>
+
+                                </md-checkbox>
+
+                            </md-list>
                         </div>
                     </div>
 
@@ -36,19 +42,24 @@
                                     </p>
 
                                 <li ng-repeat="p in precios">
-                                    {{ p.price }}
+                                    ${{ p.price }}
                                 </li>
 
                             </md-divider>
                          </div>
                     </div>
             </div>
-            <p>
-                <button type="button" class="btn btn-default btn-md" ng-click="reservar(selection)">
-                    <span class="glyphicon glyphicon-ok-circle"></span> Reservar
-                </button>
-            </p>
 
+            <p> </p>
+            <p> </p>
+
+            <div layout="column" layout-align="center center">
+                <p>
+                    <button type="button" class="btn btn-default btn-md" ng-click="reservar(selection)">
+                        <span class="glyphicon glyphicon-ok-circle">Reservar</span>
+                    </button>
+                </p>
+            </div>
         </md-list>
     </div>
 
