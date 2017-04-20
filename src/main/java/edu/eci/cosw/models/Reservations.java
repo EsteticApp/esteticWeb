@@ -30,7 +30,7 @@ public class Reservations implements java.io.Serializable{
         this.idReservations = idReservations;
     }
 
-    @Column(name = "reservationDate", nullable = false)
+    @Column(name = "reservationdate", nullable = false)
     public Date getReservationDate() {
         return reservationDate;
     }

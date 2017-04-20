@@ -24,25 +24,16 @@ public class CategoriesServiceImpl implements CategoryManagement {
     private ServicesRepository servicesRepository;
 
     @Override
-    public List<String> getCategoriesName() throws Exception {
+    public List<Categories> getCategoriesName() throws Exception {
         List<Categories> categories = categoryRepository.findAll();
-
-        List<String> categoriesNames = new ArrayList<>();
-        for(Categories cat : categories){
-            categoriesNames.add(cat.getName());
-        }
-        if(categoriesNames.isEmpty())throw new Exception();
-        return categoriesNames;
+        if(categories.isEmpty())throw new Exception();
+        return categories;
     }
 
     @Override
-    public List<String> getServicesByCategory(String category) throws Exception {
+    public List<Services> getServicesByCategory(String category) throws Exception {
         List<Services> services = servicesRepository.getServicesByCategory(category);
-        List<String> servicesName = new ArrayList<>();
-        for(Services serv : services){
-            servicesName.add(serv.getName());
-        }
         if(services.isEmpty())throw new Exception();
-        return servicesName;
+        return services;
     }
 }

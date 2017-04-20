@@ -1,5 +1,6 @@
 package edu.eci.cosw.service;
 
+import edu.eci.cosw.Interfaz.repositorio.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -18,17 +19,19 @@ public class ServiciesServiceImpl implements ServiceManagement{
 
     @Autowired
     private ServicesRepository servicesRepository;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Override
-    public List<Services> getServicios() throws Exception{
-
+    public List<Services> getServicios() throws Exception {
         List<Services> services = servicesRepository.findAll();
-
+        if(services.isEmpty())throw new Exception();
         return services;
     }
 
     @Override
-    public void addServicio(Services s) throws Exception{
-
+    public void addServicio(Categories c) throws Exception {
+        // Se debe obtener la Categoría de la BD para que exista una referencia y luego poder agregarle el servicio, ver la prubea de unidad addServiceTest()
+        categoryRepository.saveAndFlush(c);
     }
 }

@@ -23,6 +23,10 @@ public class Categories implements java.io.Serializable{
     public Categories() {
     }
 
+    public Categories(String name) {
+        this.name = name;
+    }
+
     @Column(name = "idcategory", nullable = false)
     @GeneratedValue
     @Id
