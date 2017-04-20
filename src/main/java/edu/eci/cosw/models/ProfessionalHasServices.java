@@ -14,6 +14,8 @@ import static javax.persistence.CascadeType.ALL;
 public class ProfessionalHasServices implements java.io.Serializable{
 
     private ProfessionalHasServicesId id;
+    private Services services;
+    private Professional professional;
     private String price;
 
     public ProfessionalHasServices() {
@@ -26,6 +28,26 @@ public class ProfessionalHasServices implements java.io.Serializable{
 
     public void setId(ProfessionalHasServicesId id) {
         this.id = id;
+    }
+
+    @ManyToOne(cascade = ALL)
+    @JoinColumn(name = "services_idservices", referencedColumnName="idservices", insertable = false, updatable = false, nullable=false)
+    public Services getServices() {
+        return services;
+    }
+
+    public void setServices(Services services) {
+        this.services = services;
+    }
+
+    @ManyToOne(cascade = ALL)
+    @JoinColumn(name = "professional_idprofessional", referencedColumnName="idprofessional", insertable = false, updatable = false, nullable=false)
+    public Professional getProfessional() {
+        return professional;
+    }
+
+    public void setProfessional(Professional professional) {
+        this.professional = professional;
     }
 
     @Column(name = "price", nullable = false, length = 45)

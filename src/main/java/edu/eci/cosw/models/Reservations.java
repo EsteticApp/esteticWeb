@@ -13,8 +13,7 @@ public class Reservations implements java.io.Serializable{
     private Date reservationDate;
     private String phone;
     private String address;
-    private int idProfessional;
-    private int idServices;
+    private ProfessionalHasServicesId professionalHasServicesId;
 
     public Reservations() {
     }
@@ -57,22 +56,13 @@ public class Reservations implements java.io.Serializable{
         this.address = address;
     }
 
-    @Column(name = "professional_has_services_professional_idprofessional", nullable = false, length = 45)
-    public int getIdProfessional() {
-        return idProfessional;
+    @OneToOne (cascade = CascadeType.ALL)
+    
+    public ProfessionalHasServicesId getProfessionalHasServicesId() {
+        return professionalHasServicesId;
     }
 
-    public void setIdProfessional(int idProfessional) {
-        this.idProfessional = idProfessional;
+    public void setProfessionalHasServicesId(ProfessionalHasServicesId professionalHasServicesId) {
+        this.professionalHasServicesId = professionalHasServicesId;
     }
-
-    @Column(name = "professional_has_services_services_idservices", nullable = false, length = 45)
-    public int getIdServices() {
-        return idServices;
-    }
-
-    public void setIdServices(int idServices) {
-        this.idServices = idServices;
-    }
-
 }

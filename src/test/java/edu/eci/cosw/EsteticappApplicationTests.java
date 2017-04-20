@@ -39,8 +39,8 @@ public class EsteticappApplicationTests {
 
 	@Test
 	public void getServicesByCategoryTest(){
-//		List<Services> services = servicesRepository.getServicesByCategory("Peluqueria");
-		List<Services> services = servicesRepository.getServicesByCategory();
+		List<Services> services = servicesRepository.getServicesByCategory("Peluqueria");
 		Assert.assertNotNull(services);
 	}
+
 }
