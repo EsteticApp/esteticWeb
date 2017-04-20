@@ -1,6 +1,7 @@
 package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.EstilistaOperaciones;
+import edu.eci.cosw.interfaz.Usuario;
 import edu.eci.cosw.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
 
     private List<Estilista> estilistas;
     @Autowired
-    private Usuario user;
+    private Professional user;
 
     //prueba
     private static List<Usuario> users;
@@ -25,9 +26,9 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
     public List<Servicio> getServicesByStylist(String stylist) throws Exception{
         if(estilistas == null) fillStylist();
         List<Servicio> servicies = new ArrayList<>();
-        Usuario su;
+        Professional su;
         for(Estilista sty : estilistas){
-            su = (Usuario) sty.getRolEstilista();
+            su = (Professional) sty.getRolEstilista();
             if(su.getName().equals(stylist)){
                 servicies = sty.getAllServicies();
                 break;
@@ -63,7 +64,7 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
     @Override
     public void addEstilista(Estilista e) {
 
-        if(e.getRolEstilista().getRoles_idRole().getNombre().equals("PROFESSIONAL")){
+        if(e.getRolEstilista().getRole().equals("PROFESSIONAL")){
             estilistas.add(e);
         }
 
@@ -81,11 +82,12 @@ public class EstilistasServiceStub implements EstilistaOperaciones{
 
         //prueba desde acá
         users = new ArrayList();
-        Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
-        users.add(new Usuario("Cliente prueba","0","cliente@mail.com", "cliente", rolUser,null,0));
+        
+       
+        users.add(new Cliente("Cliente prueba","cliente@mail.com", "cliente", "CLIENTE",null));
 
-        rolUser = new Role("PROFESSIONAL","Personas que ofrecen el servicio");
-        users.add(new Usuario("Profesional prueba","0","profesional@mail.com", "profesional", rolUser,null,0));
+        
+        users.add(new Professional("Profesional prueba","0","profesional@mail.com","1234", "PROFESSIONAL", null,0));
 
         estilistas.add(new Estilista(users.get(0)));
         //prueba hasta acá

@@ -7,8 +7,9 @@
 
 package edu.eci.cosw.service;
 import edu.eci.cosw.Interfaz.UserApp;
-import edu.eci.cosw.models.Role;
-import edu.eci.cosw.models.Usuario;
+import edu.eci.cosw.interfaz.Usuario;
+import edu.eci.cosw.models.Cliente;
+import edu.eci.cosw.models.Professional;
 import org.springframework.stereotype.Service;
 
 import java.sql.Blob;
@@ -29,10 +30,11 @@ public class User implements UserApp{
 
     static {
         users = new ArrayList();
-        Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
-        users.add(new Usuario("Cliente prueba","0","cliente@mail.com", "cliente", rolUser,null,0));
-        rolUser = new Role("PROFESSIONAL","Personas que ofrecen el servicio");
-        users.add(new Usuario("Profesional prueba","0","profesional@mail.com", "profesional", rolUser,null,0));
+        
+        
+        users.add(new Cliente("Cliente prueba","cliente@mail.com", "cliente", "CLIENTE",null));
+        
+        users.add(new Professional("Profesional prueba","0","profesional@mail.com", "profesional", "CLIENTE",null,0));
     }
 
 /*
@@ -70,12 +72,12 @@ public class User implements UserApp{
     @Override
     public List<Usuario> getSimpleUsers() {
         ArrayList<Usuario> simpleUsers = new ArrayList<>();
-        Usuario user;
+        Professional user;
         for(Usuario usr : users){
-            user = new Usuario();
+            user = new Professional();
             user.setName(usr.getName());
             user.setEmail(usr.getEmail());
-            user.setRoles_idRole(usr.getRoles_idRole());
+            user.setRole(usr.getRole());
             simpleUsers.add(user);
         }
         return simpleUsers;

@@ -1,7 +1,8 @@
 package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.UsuarioServicioOperaciones;
-import edu.eci.cosw.models.Usuario;
+import edu.eci.cosw.interfaz.Usuario;
+import edu.eci.cosw.models.Professional;
 import edu.eci.cosw.models.UsuarioServicio;
 import org.springframework.stereotype.Service;
 

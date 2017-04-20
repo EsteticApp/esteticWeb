@@ -1,6 +1,7 @@
 package edu.eci.cosw;
 
-import edu.eci.cosw.models.Usuario;
+import edu.eci.cosw.interfaz.Usuario;
+import edu.eci.cosw.models.Professional;
 import edu.eci.cosw.service.ApplicationService;
 import edu.eci.cosw.service.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,7 +78,7 @@ public class EsteticappApplication {
                         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
                         //Solo agregue el getNombre();
                         //authorities.add(new SimpleGrantedAuthority(usuario.getRoles_idRole()+""));
-                        authorities.add(new SimpleGrantedAuthority(usuario.getRoles_idRole().getNombre()+""));
+                        authorities.add(new SimpleGrantedAuthority(usuario.getRole()+""));
                         return new UsernamePasswordAuthenticationToken(name, pass, authorities);
                     }
                     return null;

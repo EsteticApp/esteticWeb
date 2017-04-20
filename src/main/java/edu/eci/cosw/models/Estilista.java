@@ -1,6 +1,7 @@
 package edu.eci.cosw.models;
 
 import edu.eci.cosw.Interfaz.Users;
+import edu.eci.cosw.interfaz.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class Estilista{
         return rolEstilista;
     }
 
-    public void setRolEstilista(Usuario rolEstilista){
+    public void setRolEstilista(Professional rolEstilista){
 
         this.rolEstilista = rolEstilista;
     }

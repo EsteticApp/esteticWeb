@@ -8,8 +8,8 @@ package edu.eci.cosw.controllersAPI;
 
 import edu.eci.cosw.models.EmailString;
 import edu.eci.cosw.Interfaz.UserApp;
-import edu.eci.cosw.models.Role;
-import edu.eci.cosw.models.Usuario;
+
+import edu.eci.cosw.models.Professional;
 import edu.eci.cosw.service.ApplicationService;
 import java.security.Principal;
 import java.util.Iterator;
@@ -19,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.sendgrid.*;
+import edu.eci.cosw.interfaz.Usuario;
 import edu.eci.cosw.models.ImageEmailString;
 import edu.eci.cosw.service.User;
 import java.sql.Blob;
@@ -101,11 +102,11 @@ public class UserControllerApi {
     }
 
     @RequestMapping(value = "/Registrar", method = RequestMethod.POST)
-    public ResponseEntity Registraruser(@RequestBody Usuario user) {
+    public ResponseEntity Registraruser(@RequestBody Professional user) {
         try{
               System.out.println("Lllegua aquiiiii a registrar bien");
-            System.out.println(user.getRoles_idRole().getNombre());
-            System.out.println(user.getRoles_idRole().getIdRole());
+            System.out.println(user.getRole());
+            System.out.println(user.getRole());
             users.setUsuario(user);
 //            users.addUser(user);
         }catch (Exception e){
@@ -116,7 +117,7 @@ public class UserControllerApi {
     }
     
     @RequestMapping(value = "/Update", method = RequestMethod.POST)
-    public ResponseEntity updateUser(@RequestBody Usuario user) {
+    public ResponseEntity updateUser(@RequestBody Professional user) {
         try{
             Usuario us=users.getUsuario(user.getEmail(),"");
             Blob photo=us.getPhoto();

@@ -1,5 +1,6 @@
 package edu.eci.cosw.models;
 
+import edu.eci.cosw.interfaz.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 

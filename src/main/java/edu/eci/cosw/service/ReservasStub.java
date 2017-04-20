@@ -1,8 +1,9 @@
 package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.ReservasOPeraciones;
+import edu.eci.cosw.interfaz.Usuario;
 import edu.eci.cosw.models.Reserva;
-import edu.eci.cosw.models.Usuario;
+import edu.eci.cosw.models.Professional;
 import edu.eci.cosw.models.UsuarioReserva;
 import org.springframework.stereotype.Service;
 import java.text.ParseException;

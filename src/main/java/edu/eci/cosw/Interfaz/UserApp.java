@@ -6,7 +6,8 @@
 package edu.eci.cosw.Interfaz;
 
 
-import edu.eci.cosw.models.Usuario;
+import edu.eci.cosw.interfaz.Usuario;
+
 import java.util.List;
 
 /**

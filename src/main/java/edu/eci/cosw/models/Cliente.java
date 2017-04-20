@@ -6,6 +6,7 @@
 package edu.eci.cosw.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import edu.eci.cosw.interfaz.Usuario;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
@@ -20,33 +21,33 @@ import org.hibernate.annotations.FetchMode;
 
 @Service
 @Entity
-@Table(name = "users")
-public class Usuario implements java.io.Serializable {
+@Table(name = "client")
+public class Cliente implements java.io.Serializable, Usuario {
 
     private static final long serialVersionUID = 328754985741161521L;
     private int iduser;
     private String name;
-    private String idCard;
+    
     private String email;
     private String password;
-    private Role roles_idRole;
+    private String role;
     private Blob photo;
-    private int state;
+    
 
-    public Usuario(String nombre, String cedula, String email, String password, Role role, Blob foto, int state) {
+    public Cliente(String nombre, String email, String password, String role, Blob foto) {
         this.name = nombre;
-        this.idCard = cedula;
+        
         this.email = email;
         this.password = password;
-        this.roles_idRole = role;
+        this.role = role;
         this.photo = foto;
-        this.state = state;
+        
     }
 
-    public Usuario() {
+    public Cliente() {
     }
 
-    @Column(name = "iduser")
+    @Column(name = "idcliente")
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     public int getIduser() {
@@ -64,15 +65,6 @@ public class Usuario implements java.io.Serializable {
 
     public void setName(String nombre) {
         this.name = nombre;
-    }
-
-    @Column(name = "idcard")
-    public String getIdCard() {
-        return idCard;
-    }
-
-    public void setIdCard(String cedula) {
-        this.idCard = cedula;
     }
 
     @Column(name = "email", nullable = false)
@@ -103,25 +95,34 @@ public class Usuario implements java.io.Serializable {
         this.photo = foto;
     }
 
-    @Column(name = "state")
+
+    @Column(name = "role")
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String Roles_idRole) {
+        this.role = Roles_idRole;
+    }
+
+    @Override
+    public String getIdCard() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setIdCard(String cedula) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
     public int getState() {
-        return state;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
     public void setState(int state) {
-        this.state = state;
-    }
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @Fetch(FetchMode.JOIN)
-    @JoinColumn(name = "Roles_idrole", referencedColumnName = "idrole", nullable = false)
-//    @Column(name = "roles_idrole", nullable = false)
-    public Role getRoles_idRole() {
-        return roles_idRole;
-    }
-
-    public void setRoles_idRole(Role Roles_idRole) {
-        this.roles_idRole = Roles_idRole;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

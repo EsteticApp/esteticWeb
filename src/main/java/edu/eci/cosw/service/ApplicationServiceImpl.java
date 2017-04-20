@@ -5,11 +5,12 @@
  */
 package edu.eci.cosw.service;
 
-import edu.eci.cosw.Interfaz.repositorio.RoleRepositorio;
-import edu.eci.cosw.Interfaz.repositorio.UserRepositorio;
-import edu.eci.cosw.models.Usuario;
+
+import edu.eci.cosw.models.Professional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import edu.eci.cosw.Interfaz.repositorio.ProfessionalRepositorio;
+import edu.eci.cosw.interfaz.Usuario;
 
 
 /**
@@ -20,9 +21,8 @@ import org.springframework.stereotype.Service;
 public class ApplicationServiceImpl implements ApplicationService{
 
     @Autowired
-    private UserRepositorio userRepo;
-    @Autowired
-    private RoleRepositorio roleRepo;
+    private ProfessionalRepositorio userRepo;
+   
     
     @Override
     public Usuario getUsuario(String email, String password) {
@@ -35,7 +35,7 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     @Override
     public void setUsuario(Usuario usuario) {
-        userRepo.save(usuario);
+        userRepo.save((Professional)usuario);
     }
 
     @Override
