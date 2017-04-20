@@ -72,7 +72,7 @@ public class Professional implements java.io.Serializable, Usuario {
         return email;
     }
 
-    @Column(name = "id_card")
+    @Column(name = "idcard")
     public String getIdCard() {
         return idCard;
     }
