@@ -1,7 +1,7 @@
 package edu.eci.cosw.service;
 
-import edu.eci.cosw.Interfaz.ServicioOperaciones;
-import edu.eci.cosw.models.Categoria;
+import edu.eci.cosw.Interfaz.ServiceManagement;
+import edu.eci.cosw.models.Services;
 import edu.eci.cosw.models.Servicio;
 import org.springframework.stereotype.Service;
 
@@ -12,42 +12,41 @@ import java.util.List;
  * Created by SYSTEM on 19/02/2017.
  */
 @Service
-public class ServiciosStub implements ServicioOperaciones{
+public class ServiciosStub implements ServiceManagement{
 
-    private static List<Servicio> servicios;
+    private static List<Services> servicios;
 
     public ServiciosStub(){
         servicios = new ArrayList<>();
-        Servicio ser = new Servicio("Cortes");servicios.add(ser);
-        ser = new Servicio("Tintes");servicios.add(ser);
-        ser = new Servicio("Cepillado");servicios.add(ser);
-        ser = new Servicio("Mechas");servicios.add(ser);
-        ser = new Servicio("Extensiones");servicios.add(ser);
-        ser = new Servicio("Recogidos");servicios.add(ser);
-        ser = new Servicio("Manicure");servicios.add(ser);
-        ser = new Servicio("Pedicure");servicios.add(ser);
-        ser = new Servicio("Esmaltado permanente");servicios.add(ser);
-        ser = new Servicio("Decoración");servicios.add(ser);
-        ser = new Servicio("Tradicional");servicios.add(ser);
-        ser = new Servicio("Roll-on");servicios.add(ser);
-        ser = new Servicio("Depilación");servicios.add(ser);
-        ser = new Servicio("Oriental con ventosas");servicios.add(ser);
-        ser = new Servicio("Hot stones");servicios.add(ser);
-        ser = new Servicio("Tuina");servicios.add(ser);
-        ser = new Servicio("Tailandés");servicios.add(ser);
-        ser = new Servicio("Circulatorio");servicios.add(ser);
-        ser = new Servicio("Anticelulítico");servicios.add(ser);
+        Services ser = new Services("Cortes");servicios.add(ser);
+        ser = new Services("Tintes");servicios.add(ser);
+        ser = new Services("Cepillado");servicios.add(ser);
+        ser = new Services("Mechas");servicios.add(ser);
+        ser = new Services("Extensiones");servicios.add(ser);
+        ser = new Services("Recogidos");servicios.add(ser);
+        ser = new Services("Manicure");servicios.add(ser);
+        ser = new Services("Pedicure");servicios.add(ser);
+        ser = new Services("Esmaltado permanente");servicios.add(ser);
+        ser = new Services("Decoración");servicios.add(ser);
+        ser = new Services("Tradicional");servicios.add(ser);
+        ser = new Services("Roll-on");servicios.add(ser);
+        ser = new Services("Depilación");servicios.add(ser);
+        ser = new Services("Oriental con ventosas");servicios.add(ser);
+        ser = new Services("Hot stones");servicios.add(ser);
+        ser = new Services("Tuina");servicios.add(ser);
+        ser = new Services("Tailandés");servicios.add(ser);
+        ser = new Services("Circulatorio");servicios.add(ser);
+        ser = new Services("Anticelulítico");servicios.add(ser);
     }
 
     @Override
-    public List<Servicio> getServicios() {
+    public List<Services> getServicios() {
         return servicios;
     }
 
     @Override
-    public void addServicio(Servicio s) {
+    public void addServicio(Services s) {
         servicios.add(s);
     }
-
 
 }

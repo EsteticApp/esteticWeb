@@ -1,7 +1,6 @@
 package edu.eci.cosw.controllersAPI;
 
 import edu.eci.cosw.Interfaz.CategoryManagement;
-import edu.eci.cosw.models.Services;
 import edu.eci.cosw.service.CategoriasServiceStub;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +43,7 @@ public class CategoriesControllerApi {
             List<String> data = categories.getServicesByCategory(category);
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ServiciosControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ServicesControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No services found in that category", HttpStatus.NOT_FOUND);
         }
     }

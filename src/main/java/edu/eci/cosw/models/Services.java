@@ -15,6 +15,10 @@ public class Services implements java.io.Serializable{
     public Services() {
     }
 
+    public Services(String name) {
+        this.name = name;
+    }
+
     @Column(name = "idservices", nullable = false)
     @GeneratedValue
     @Id
