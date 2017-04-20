@@ -41,7 +41,7 @@ public class CategoriesControllerApi {
     @RequestMapping(path = "/{category}", method = RequestMethod.GET)
     public ResponseEntity<?> getTaskByPriorityManagement(@PathVariable String category){
         try {
-            List<Services> data = categories.getServicesByCategory(category);
+            List<String> data = categories.getServicesByCategory(category);
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(ServiciosControllerApi.class.getName()).log(Level.SEVERE, null, ex);

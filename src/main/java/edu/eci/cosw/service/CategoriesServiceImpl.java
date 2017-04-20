@@ -36,10 +36,13 @@ public class CategoriesServiceImpl implements CategoryManagement {
     }
 
     @Override
-    public List<Services> getServicesByCategory(String category) throws Exception {
-//        List<Services> services = servicesRepository.getServicesByCategory(category);
-        List<Services> services = servicesRepository.getServicesByCategory();
+    public List<String> getServicesByCategory(String category) throws Exception {
+        List<Services> services = servicesRepository.getServicesByCategory(category);
+        List<String> servicesName = new ArrayList<>();
+        for(Services serv : services){
+            servicesName.add(serv.getName());
+        }
         if(services.isEmpty())throw new Exception();
-        return services;
+        return servicesName;
     }
 }

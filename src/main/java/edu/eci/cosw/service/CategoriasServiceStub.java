@@ -47,7 +47,7 @@ public class CategoriasServiceStub implements CategoryManagement{
 
 
     @Override
-    public List<Services> getServicesByCategory(String category) throws Exception {
+    public List<String> getServicesByCategory(String category) throws Exception {
         return null;
     }
 

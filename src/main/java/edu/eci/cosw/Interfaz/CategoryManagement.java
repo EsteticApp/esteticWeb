@@ -10,5 +10,5 @@ import java.util.List;
  */
 public interface CategoryManagement {
     public List<String> getCategoriesName() throws Exception;
-    public List<Services> getServicesByCategory(String category) throws Exception;
+    public List<String> getServicesByCategory(String category) throws Exception;
 }
