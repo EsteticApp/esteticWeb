@@ -102,7 +102,7 @@ public class UserControllerApi {
     }
 
     @RequestMapping(value = "/Registrar", method = RequestMethod.POST)
-    public ResponseEntity Registraruser(@RequestBody Professional user) {
+    public ResponseEntity Registraruser(@RequestBody Usuario user) {
         try{
               System.out.println("Lllegua aquiiiii a registrar bien");
             System.out.println(user.getRole());
@@ -110,6 +110,7 @@ public class UserControllerApi {
             users.setUsuario(user);
 //            users.addUser(user);
         }catch (Exception e){
+            System.out.println(e);
             return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 

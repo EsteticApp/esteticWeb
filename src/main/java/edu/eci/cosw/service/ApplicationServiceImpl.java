@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.eci.cosw.Interfaz.repositorio.ProfessionalRepositorio;
 import edu.eci.cosw.interfaz.Usuario;
+import edu.eci.cosw.models.Cliente;
 
 
 /**
@@ -23,6 +24,7 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     @Autowired
     private ProfessionalRepositorio profesionalRepo;
+    @Autowired
     private ClienteRepositorio clienteRepo;
    
     
@@ -41,11 +43,23 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     @Override
     public void setUsuario(Usuario usuario) {
-        profesionalRepo.save((Professional)usuario);
+        System.out.println(usuario.getRole());
+        if(usuario.getRole().equals("PROFESSIONAL")){
+            System.out.println("Esta en profesional");
+            profesionalRepo.save((Professional)usuario);
+        }else{
+            System.out.println("Esta en cliente");
+            clienteRepo.save((Cliente)usuario);
+        }
+        
     }
 
     @Override
     public Usuario traerUsuario(String email) {
-        return profesionalRepo.traerUsuario(email);
+        Usuario pro=profesionalRepo.traerUsuario(email);
+        if(pro==null){
+            pro=clienteRepo.traerUsuario(email);
+        }
+        return pro;
     }
 }

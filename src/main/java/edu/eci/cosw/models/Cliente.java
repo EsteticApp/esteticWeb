@@ -47,7 +47,7 @@ public class Cliente implements java.io.Serializable, Usuario {
     public Cliente() {
     }
 
-    @Column(name = "idcliente")
+    @Column(name = "idclient")
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     public int getIduser() {
@@ -105,24 +105,24 @@ public class Cliente implements java.io.Serializable, Usuario {
         this.role = Roles_idRole;
     }
 
-    @Override
+    @Transient
     public String getIdCard() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "";
     }
 
-    @Override
+    
     public void setIdCard(String cedula) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
     }
 
-    @Override
+    @Transient
     public int getState() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return 0;
     }
 
-    @Override
+    
     public void setState(int state) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
 }

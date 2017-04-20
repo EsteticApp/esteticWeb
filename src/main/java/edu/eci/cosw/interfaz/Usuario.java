@@ -6,13 +6,28 @@
 package edu.eci.cosw.interfaz;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import edu.eci.cosw.models.Cliente;
+import edu.eci.cosw.models.Professional;
 import java.sql.Blob;
 import javax.persistence.Column;
+
 
 /**
  *
  * @author 2101240
  */
+
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME,
+              include = JsonTypeInfo.As.PROPERTY,
+              property = "type")
+@JsonSubTypes({
+    @Type(value = Professional.class, name = "PROFESSIONAL"),
+    @Type(value = Cliente.class, name = "CLIENTE")
+    })
+
 public interface Usuario {
 
     public int getIduser();
