@@ -1,5 +1,6 @@
 package edu.eci.cosw.Interfaz;
 
+import edu.eci.cosw.models.Services;
 import edu.eci.cosw.models.Servicio;
 
 import java.util.List;
@@ -9,5 +10,5 @@ import java.util.List;
  */
 public interface CategoryManagement {
     public List<String> getCategoriesName() throws Exception;
-    public List<Servicio> getServicesByCategory(String category) throws Exception;
+    public List<Services> getServicesByCategory(String category) throws Exception;
 }

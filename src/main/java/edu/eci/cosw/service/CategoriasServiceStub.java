@@ -3,6 +3,7 @@ package edu.eci.cosw.service;
 import edu.eci.cosw.Interfaz.CategoryManagement;
 import edu.eci.cosw.Interfaz.ServicioOperaciones;
 import edu.eci.cosw.models.Categoria;
+import edu.eci.cosw.models.Services;
 import edu.eci.cosw.models.Servicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,6 @@ import java.util.List;
  * Creación de categorias con datos quemados
  * @author Deivan OLiva
  */
-
-@Service
 public class CategoriasServiceStub implements CategoryManagement{
 
     private List<Categoria> categorias;
@@ -36,14 +35,20 @@ public class CategoriasServiceStub implements CategoryManagement{
         return lista;
     }
 
-    public List<Servicio> getServicesByCategory(String category) throws Exception {
-        if(categorias == null)fillCategories();
-        List<Servicio> services = new ArrayList<>();
-        for(Categoria cat : categorias){
-            if(cat.getName().equals(category))services = cat.getServices();
-        }
-        if(services.isEmpty()) throw new Exception();
-        return services;
+//    public List<Services> getServicesByCategory(String category) throws Exception {
+//        if(categorias == null)fillCategories();
+//        List<Servicio> services = new ArrayList<>();
+//        for(Categoria cat : categorias){
+//            if(cat.getName().equals(category))services = cat.getServices();
+//        }
+//        if(services.isEmpty()) throw new Exception();
+//        return services;
+//    }
+
+
+    @Override
+    public List<Services> getServicesByCategory(String category) throws Exception {
+        return null;
     }
 
     private void fillCategories(){
