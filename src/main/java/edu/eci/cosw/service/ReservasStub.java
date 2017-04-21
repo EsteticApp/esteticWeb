@@ -23,6 +23,13 @@ public class ReservasStub implements ReservationManagement {
         return reservationsList;
     }
 
+    @Override
+    public List<Reservations> getReservationByState(String state) throws Exception {
+        List<Reservations> reservationsList = new ArrayList<>();
+        if(reservationsList.isEmpty()) throw new Exception();
+        return reservationsList;
+    }
+
     private static List<Reserva> reservas;
     private List<UsuarioReserva> usuarios;
     private User user;

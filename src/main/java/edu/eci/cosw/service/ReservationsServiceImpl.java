@@ -26,6 +26,13 @@ public class ReservationsServiceImpl implements ReservationManagement{
     }
 
     @Override
+    public List<Reservations> getReservationByState(String state) throws Exception {
+        List<Reservations> reservations = reservationRepository.getReservationByState(state);
+        if(reservations.isEmpty())throw new Exception();
+        return reservations;
+    }
+
+    @Override
     public List<Reserva> getReservasActivas(String iduser) {
         return null;
     }

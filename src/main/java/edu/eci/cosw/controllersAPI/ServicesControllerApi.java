@@ -46,7 +46,7 @@ public class ServicesControllerApi {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> postSerivicio(@RequestBody Categories c) {
+    public ResponseEntity<?> postService(@RequestBody Categories c) {
         try {
             services.addServicio(c);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);

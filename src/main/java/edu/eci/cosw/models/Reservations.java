@@ -13,6 +13,7 @@ public class Reservations implements java.io.Serializable{
     private Date reservationDate;
     private String phone;
     private String address;
+    private String state;
     private int idProfessional;
     private int idServices;
 
@@ -55,6 +56,15 @@ public class Reservations implements java.io.Serializable{
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Column(name = "state", nullable = false, length = 45)
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     @Column(name = "professional_has_services_professional_idprofessional", nullable = false)

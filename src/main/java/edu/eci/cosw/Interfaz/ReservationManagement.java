@@ -13,6 +13,7 @@ import java.util.concurrent.ExecutionException;
 public interface ReservationManagement {
 
     public List<Reservations> getReservations() throws Exception;
+    public List<Reservations> getReservationByState(String state) throws Exception;
 
     public List<Reserva> getReservasActivas(String iduser);
     public List<Reserva> getReservasPendientes(String iduser);

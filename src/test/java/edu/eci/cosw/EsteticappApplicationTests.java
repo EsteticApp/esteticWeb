@@ -6,7 +6,6 @@ import edu.eci.cosw.Interfaz.repositorio.ServicesRepository;
 import edu.eci.cosw.models.Categories;
 import edu.eci.cosw.models.Reservations;
 import edu.eci.cosw.models.Services;
-import org.apache.catalina.LifecycleState;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,10 +33,6 @@ public class EsteticappApplicationTests {
 	@Test
 	public void getCategoryTest(){
 		Categories cat = categoryRepository.findOne(1);
-		System.out.println(cat.getName());
-		for(Services ser : cat.getServices()){
-			System.out.println(ser.getName());
-		}
 		Assert.assertNotNull(cat);
 	}
 
@@ -45,38 +40,48 @@ public class EsteticappApplicationTests {
 	public void getServicesByCategoryTest(){
 		List<Services> services = servicesRepository.getServicesByCategory("Peluqueria");
 		Assert.assertNotNull(services);
+		Assert.assertFalse(services.isEmpty());
 	}
 
 	@Test
 	public void getServicesTest(){
 		List<Services> services = servicesRepository.findAll();
 		Assert.assertNotNull(services);
+		Assert.assertFalse(services.isEmpty());
 	}
 
 	@Test
 	public void addServiceTest(){
 		Categories cat = categoryRepository.findOne(1);
 		List<Services> ser = servicesRepository.findAll();
-		boolean existe = false;
+		boolean exist = false;
 		for (Services s : ser){
 			if(s.getName().equals("Nanomax")) {
-				existe = true;
+				exist = true;
 				break;
 			}
 		}
-		if (!existe){
+		if (!exist){
 			Services service = new Services("Nanomax");
 			cat.getServices().add(service);
 			categoryRepository.saveAndFlush(cat);
-			existe = true;
+			exist = true;
 		}
-		Assert.assertTrue(existe);
+		Assert.assertTrue(exist);
 	}
 
 	@Test
-	public void getReservation(){
+	public void getReservationsTest(){
 		List<Reservations> reservationsList = reservationRepository.findAll();
 		Assert.assertNotNull(reservationsList);
+		Assert.assertFalse(reservationsList.isEmpty());
+	}
+
+	@Test
+	public void getReservationByStateTest(){
+		List<Reservations> reservationsList = reservationRepository.getReservationByState("Aceptada");
+		Assert.assertNotNull(reservationsList);
+		Assert.assertFalse(reservationsList.isEmpty());
 	}
 
 }
