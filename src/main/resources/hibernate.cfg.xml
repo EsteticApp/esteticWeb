@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://54.148.116.145:3306/esteticapp?zeroDateTimeBehavior=convertToNull</property>
+        <property name="hibernate.connection.username">cosw</property>
+        <property name="hibernate.connection.password">cosw20171</property>
+
+        <mapping class="edu.eci.cosw.models.Professional"/>
+        <mapping class="edu.eci.cosw.models.Client"/>
+        <mapping class="edu.eci.cosw.models.Reservations"/>
+        <mapping class="edu.eci.cosw.models.Services"/>
+        <mapping class="edu.eci.cosw.models.Categories"/>
+        <mapping class="edu.eci.cosw.models.ProfessionalHasServices"/>
+
+    </session-factory>
+</hibernate-configuration>

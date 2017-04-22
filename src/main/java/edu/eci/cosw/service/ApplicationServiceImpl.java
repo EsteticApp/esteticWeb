@@ -30,6 +30,7 @@ public class ApplicationServiceImpl implements ApplicationService{
     
     @Override
     public Usuario getUsuario(String email, String password) {
+
         System.out.println("pasa aqui");
         Usuario pro=profesionalRepo.traerUsuario(email);
         if(pro==null){
@@ -38,6 +39,7 @@ public class ApplicationServiceImpl implements ApplicationService{
         return pro;
 //        User usr = new User();
 //        return usr.getUserByEmail(email);
+
        
     }    
 

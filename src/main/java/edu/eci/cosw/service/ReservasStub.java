@@ -1,13 +1,13 @@
 package edu.eci.cosw.service;
 
-import edu.eci.cosw.Interfaz.ReservasOPeraciones;
+
 import edu.eci.cosw.interfaz.Usuario;
 import edu.eci.cosw.models.Reserva;
-import edu.eci.cosw.models.Professional;
+
+import edu.eci.cosw.Interfaz.ReservationManagement;
+import edu.eci.cosw.models.Reservations;
+
 import edu.eci.cosw.models.UsuarioReserva;
-import org.springframework.stereotype.Service;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,8 +15,21 @@ import java.util.List;
 /**
  * Created by 2093715 on 3/28/17.
  */
-@Service
-public class ReservasStub implements ReservasOPeraciones{
+public class ReservasStub implements ReservationManagement {
+
+    @Override
+    public List<Reservations> getReservations() throws Exception{
+        List<Reservations> reservationsList = new ArrayList<>();
+        if(reservationsList.isEmpty()) throw new Exception();
+        return reservationsList;
+    }
+
+    @Override
+    public List<Reservations> getReservationByState(String state) throws Exception {
+        List<Reservations> reservationsList = new ArrayList<>();
+        if(reservationsList.isEmpty()) throw new Exception();
+        return reservationsList;
+    }
 
     private static List<Reserva> reservas;
     private List<UsuarioReserva> usuarios;

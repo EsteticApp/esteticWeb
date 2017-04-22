@@ -1,13 +1,8 @@
 package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.CategoryManagement;
-import edu.eci.cosw.Interfaz.ServicioOperaciones;
-import edu.eci.cosw.models.Categoria;
-import edu.eci.cosw.models.Servicio;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
+import edu.eci.cosw.models.Categories;
+import edu.eci.cosw.models.Services;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,32 +10,31 @@ import java.util.List;
  * Creación de categorias con datos quemados
  * @author Deivan OLiva
  */
-
-@Service
 public class CategoriasServiceStub implements CategoryManagement{
 
-    private List<Categoria> categorias;
-    private List<Servicio> serviciosFilter;
+    private List<Categories> categorias;
+    private List<Services> serviciosFilter;
 
     public CategoriasServiceStub(){
         fillCategories();
     }
 
-    public List<String> getCategoriesName() throws Exception {
+    public List<Categories> getCategoriesName() throws Exception {
         if(categorias == null)fillCategories();
-        List<String> lista = new ArrayList<String>();
-        for (Categoria c : categorias){
-            lista.add(c.getName());
-        }
-        if(lista.isEmpty())throw new Exception();
-        return lista;
+        List<String> lista = new ArrayList<>();
+        if(categorias.isEmpty())throw new Exception();
+        return categorias;
     }
 
-    public List<Servicio> getServicesByCategory(String category) throws Exception {
+    public List<Services> getServicesByCategory(String category) throws Exception {
         if(categorias == null)fillCategories();
-        List<Servicio> services = new ArrayList<>();
-        for(Categoria cat : categorias){
-            if(cat.getName().equals(category))services = cat.getServices();
+        List<Services> services = new ArrayList<>();
+        for(Categories cat : categorias){
+            if(cat.getName().equals(category)){
+                for (Services s : cat.getServices()){
+                    services.add(s);
+                }
+            }
         }
         if(services.isEmpty()) throw new Exception();
         return services;
@@ -48,35 +42,35 @@ public class CategoriasServiceStub implements CategoryManagement{
 
     private void fillCategories(){
         categorias = new ArrayList<>();
-        Categoria cat = new Categoria("Peluqueria");
-        Servicio ser = new Servicio("Cortes");cat.addService(ser);
-        ser = new Servicio("Tintes");cat.addService(ser);
-        ser = new Servicio("Cepillado");cat.addService(ser);
-        ser = new Servicio("Mechas");cat.addService(ser);
-        ser = new Servicio("Extensiones");cat.addService(ser);
-        ser = new Servicio("Recogidos");cat.addService(ser);
+        Categories cat = new Categories("Peluqueria");
+        Services ser = new Services("Cortes");cat.getServices().add(ser);
+        ser = new Services("Tintes");cat.getServices().add(ser);
+        ser = new Services("Cepillado");cat.getServices().add(ser);
+        ser = new Services("Mechas");cat.getServices().add(ser);
+        ser = new Services("Extensiones");cat.getServices().add(ser);
+        ser = new Services("Recogidos");cat.getServices().add(ser);
         categorias.add(cat);
 
-        cat = new Categoria("Unas");
-        ser = new Servicio("Manicure");cat.addService(ser);
-        ser = new Servicio("Pedicure");cat.addService(ser);
-        ser = new Servicio("Esmaltado permanente");cat.addService(ser);
-        ser = new Servicio("Decoración");cat.addService(ser);
+        cat = new Categories("Unas");
+        ser = new Services("Manicure");cat.getServices().add(ser);
+        ser = new Services("Pedicure");cat.getServices().add(ser);
+        ser = new Services("Esmaltado permanente");cat.getServices().add(ser);
+        ser = new Services("Decoración");cat.getServices().add(ser);
         categorias.add(cat);
 
-        cat = new Categoria("Depilacion");
-        ser = new Servicio("Tradicional");cat.addService(ser);
-        ser = new Servicio("Roll-on");cat.addService(ser);
-        ser = new Servicio("Egipcia");cat.addService(ser);
+        cat = new Categories("Depilacion");
+        ser = new Services("Tradicional");cat.getServices().add(ser);
+        ser = new Services("Roll-on");cat.getServices().add(ser);
+        ser = new Services("Egipcia");cat.getServices().add(ser);
         categorias.add(cat);
 
-        cat = new Categoria("Masajes");
-        ser = new Servicio("Oriental con ventosas");cat.addService(ser);
-        ser = new Servicio("Hot stones");cat.addService(ser);
-        ser = new Servicio("Tuina");cat.addService(ser);
-        ser = new Servicio("Tailandés");cat.addService(ser);
-        ser = new Servicio("Circulatorio");cat.addService(ser);
-        ser = new Servicio("Anticelulítico");cat.addService(ser);
+        cat = new Categories("Masajes");
+        ser = new Services("Oriental con ventosas");cat.getServices().add(ser);
+        ser = new Services("Hot stones");cat.getServices().add(ser);
+        ser = new Services("Tuina");cat.getServices().add(ser);
+        ser = new Services("Tailandés");cat.getServices().add(ser);
+        ser = new Services("Circulatorio");cat.getServices().add(ser);
+        ser = new Services("Anticelulítico");cat.getServices().add(ser);
         categorias.add(cat);
     }
 }
