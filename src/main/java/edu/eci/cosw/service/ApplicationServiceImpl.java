@@ -6,13 +6,13 @@
 package edu.eci.cosw.service;
 
 
-import edu.eci.cosw.Interfaz.repositorio.ClienteRepositorio;
+import edu.eci.cosw.Interfaz.repositorio.ClientRepository;
+import edu.eci.cosw.Interfaz.User;
+import edu.eci.cosw.models.Client;
 import edu.eci.cosw.models.Professional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import edu.eci.cosw.Interfaz.repositorio.ProfessionalRepositorio;
-import edu.eci.cosw.interfaz.Usuario;
-import edu.eci.cosw.models.Cliente;
+import edu.eci.cosw.Interfaz.repositorio.ProfessionalRepository;
 
 
 /**
@@ -23,44 +23,39 @@ import edu.eci.cosw.models.Cliente;
 public class ApplicationServiceImpl implements ApplicationService{
 
     @Autowired
-    private ProfessionalRepositorio profesionalRepo;
+    private ProfessionalRepository professionalRepo;
     @Autowired
-    private ClienteRepositorio clienteRepo;
+    private ClientRepository clientRepo;
    
     
     @Override
-    public Usuario getUsuario(String email, String password) {
+    public User getUsuario(String email, String password) {
 
-        System.out.println("pasa aqui");
-        Usuario pro=profesionalRepo.traerUsuario(email);
+        User pro= professionalRepo.getProfessionalByEmail(email);
         if(pro==null){
-            pro=clienteRepo.traerUsuario(email);
+            pro= clientRepo.getClientByEmail(email);
         }
         return pro;
-//        User usr = new User();
-//        return usr.getUserByEmail(email);
-
-       
-    }    
+    }
 
     @Override
-    public void setUsuario(Usuario usuario) {
-        System.out.println(usuario.getRole());
-        if(usuario.getRole().equals("PROFESSIONAL")){
+    public void setUsuario(User user) {
+        System.out.println(user.getRole());
+        if(user.getRole().equals("PROFESSIONAL")){
             System.out.println("Esta en profesional");
-            profesionalRepo.save((Professional)usuario);
+            professionalRepo.save((Professional) user);
         }else{
             System.out.println("Esta en cliente");
-            clienteRepo.save((Cliente)usuario);
+            clientRepo.save((Client) user);
         }
         
     }
 
     @Override
-    public Usuario traerUsuario(String email) {
-        Usuario pro=profesionalRepo.traerUsuario(email);
+    public User traerUsuario(String email) {
+        User pro= professionalRepo.getProfessionalByEmail(email);
         if(pro==null){
-            pro=clienteRepo.traerUsuario(email);
+            pro= clientRepo.getClientByEmail(email);
         }
         return pro;
     }

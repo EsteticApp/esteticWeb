@@ -6,8 +6,7 @@
 package edu.eci.cosw.controllersAPI;
 
 
-import edu.eci.cosw.models.EmailString;
-import edu.eci.cosw.Interfaz.UserApp;
+import edu.eci.cosw.Interfaz.User;
 
 import edu.eci.cosw.models.Professional;
 import edu.eci.cosw.service.ApplicationService;
@@ -18,16 +17,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.sendgrid.*;
-import edu.eci.cosw.interfaz.Usuario;
-import edu.eci.cosw.models.ImageEmailString;
-import edu.eci.cosw.service.User;
+
 import java.sql.Blob;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.rowset.serial.SerialBlob;
-import static jdk.nashorn.internal.runtime.Debug.id;
+
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.util.StreamUtils;
@@ -48,7 +43,7 @@ public class UserControllerApi {
 
     @RequestMapping("/auteticacion")
     public Principal user(Principal user) {
-        
+        System.out.println("LLEGÖ");
         return user;
     }
    
@@ -69,11 +64,11 @@ public class UserControllerApi {
                 String uploadedFile = itr.next();
                 MultipartFile file = request.getFile(uploadedFile);
                 System.out.println("hace algo aqui");
-                Usuario user=users.getUsuario(email, "");
+                User user=users.getUsuario(email, "");
                 System.out.println("Busca");
-//                Usuario user=users.getUserByEmail(email);
+//                User user=users.getUserByEmail(email);
                 System.out.println("deja de buscar");
-                System.out.println(user.getIduser());
+                System.out.println(user.getId());
                 System.out.println("Posible Error");
                 user.setPhoto(new SerialBlob(StreamUtils.copyToByteArray(file.getInputStream())));
                 //-->> GUARDAR EL DESPACHO A TRAVÉS DEL SERVICIO CREADO
@@ -89,20 +84,20 @@ public class UserControllerApi {
     
    
     @RequestMapping(path = "/email", method = RequestMethod.POST)
-    public ResponseEntity<?> getUser(@RequestBody EmailString email){
+    public ResponseEntity<?> getUser(@RequestBody String email){
         try {
             System.out.println("Lllegua aquiiiii "+email);
-            Usuario user= users.getUsuario(email.getEmail(),"");
-//            Usuario user= users.getUserByEmail(email.getEmail());
+            User user= users.getUsuario(email,"");
+//            User user= users.getUserByEmail(email.getEmail());
             return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(EstilistaControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No services found in that category", HttpStatus.NOT_FOUND);
         }
     }
 
     @RequestMapping(value = "/Registrar", method = RequestMethod.POST)
-    public ResponseEntity Registraruser(@RequestBody Usuario user) {
+    public ResponseEntity Registraruser(@RequestBody User user) {
         try{
               System.out.println("Lllegua aquiiiii a registrar bien");
             System.out.println(user.getRole());
@@ -120,7 +115,7 @@ public class UserControllerApi {
     @RequestMapping(value = "/Update", method = RequestMethod.POST)
     public ResponseEntity updateUser(@RequestBody Professional user) {
         try{
-            Usuario us=users.getUsuario(user.getEmail(),"");
+            User us=users.getUsuario(user.getEmail(),"");
             Blob photo=us.getPhoto();
             user.setPhoto(photo);
             users.setUsuario(user);

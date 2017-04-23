@@ -1,9 +1,7 @@
 package edu.eci.cosw;
 
-import edu.eci.cosw.interfaz.Usuario;
-import edu.eci.cosw.models.Professional;
+import edu.eci.cosw.Interfaz.User;
 import edu.eci.cosw.service.ApplicationService;
-import edu.eci.cosw.service.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -49,8 +47,6 @@ public class EsteticappApplication {
         System.out.println("");
     }
 
-    
-
     @Configuration
     @EnableGlobalMethodSecurity(prePostEnabled = true)
     @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
@@ -69,16 +65,16 @@ public class EsteticappApplication {
                     String name = auth.getName();
                     String pass = auth.getCredentials().toString();
 
-                    Usuario usuario = usersStub.getUsuario(name, pass);
-//                    Usuario usuario = usersStub.loginUser(name, pass);
+                    User user = usersStub.getUsuario(name, pass);
+//                    User user = usersStub.loginUser(name, pass);
 
                     System.out.println("Paso Aca");
                     
-                    if (usuario != null) {
+                    if (user != null) {
                         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
                         //Solo agregue el getNombre();
-                        //authorities.add(new SimpleGrantedAuthority(usuario.getRoles_idRole()+""));
-                        authorities.add(new SimpleGrantedAuthority(usuario.getRole()+""));
+                        //authorities.add(new SimpleGrantedAuthority(user.getRoles_idRole()+""));
+                        authorities.add(new SimpleGrantedAuthority(user.getRole()+""));
                         return new UsernamePasswordAuthenticationToken(name, pass, authorities);
                     }
                     return null;

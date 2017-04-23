@@ -1,10 +1,8 @@
 package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.ServiceManagement;
-import edu.eci.cosw.models.Categoria;
 import edu.eci.cosw.models.Categories;
 import edu.eci.cosw.models.Services;
-import edu.eci.cosw.models.Servicio;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -48,6 +46,7 @@ public class ServiciosStub implements ServiceManagement{
 
     @Override
     public void addServicio(Categories c) {
+        if(servicios == null) servicios = new ArrayList<>();
         for(Services ser : c.getServices()){
             servicios.add(ser);
         }

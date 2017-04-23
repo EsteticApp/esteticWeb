@@ -19,7 +19,7 @@ public class CategoriasServiceStub implements CategoryManagement{
         fillCategories();
     }
 
-    public List<Categories> getCategoriesName() throws Exception {
+    public List<Categories> getCategories() throws Exception {
         if(categorias == null)fillCategories();
         List<String> lista = new ArrayList<>();
         if(categorias.isEmpty())throw new Exception();

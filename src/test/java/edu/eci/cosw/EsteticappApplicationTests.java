@@ -1,11 +1,7 @@
 package edu.eci.cosw;
 
-import edu.eci.cosw.Interfaz.repositorio.CategoryRepository;
-import edu.eci.cosw.Interfaz.repositorio.ReservationRepository;
-import edu.eci.cosw.Interfaz.repositorio.ServicesRepository;
-import edu.eci.cosw.models.Categories;
-import edu.eci.cosw.models.Reservations;
-import edu.eci.cosw.models.Services;
+import edu.eci.cosw.Interfaz.repositorio.*;
+import edu.eci.cosw.models.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,6 +22,10 @@ public class EsteticappApplicationTests {
 	private ServicesRepository servicesRepository;
 	@Autowired
 	private ReservationRepository reservationRepository;
+	@Autowired
+	private ProfessionalHasServicesRepository phsRepo;
+	@Autowired
+	private ProfessionalRepository professionalRepository;
 
 	@Test
 	public void contextLoads() {
@@ -85,4 +85,57 @@ public class EsteticappApplicationTests {
 		Assert.assertFalse(reservationsList.isEmpty());
 	}
 
+	@Test
+	public void getPHSsTest(){
+		List<ProfessionalHasServices> phsList = phsRepo.findAll();
+		for(ProfessionalHasServices phs : phsList){
+			System.out.println("_______________________________________________");
+			System.out.println(phs.getProfessional().getName());
+			System.out.println(phs.getServices().getName());
+		}
+		Assert.assertNotNull(phsList);
+	}
+
+	@Test
+	public void getPHSsByService(){
+		List<ProfessionalHasServices> phsList = phsRepo.getPHSsByService("Cortes");
+		System.out.println("getPHSsByService output");
+		for(ProfessionalHasServices phs : phsList){
+			System.out.println("_______________________________________________");
+			System.out.println(phs.getProfessional().getName());
+			System.out.println(phs.getServices().getName());
+		}
+		Assert.assertNotNull(phsList);
+	}
+
+	@Test
+	public void getPHSsByProfessional(){
+		List<ProfessionalHasServices> phsList = phsRepo.getPHSsByProfessional("Adrian");
+		System.out.println("getPHSsByProfessional output");
+		for(ProfessionalHasServices phs : phsList){
+			System.out.println("_______________________________________________");
+			System.out.println(phs.getProfessional().getName());
+			System.out.println(phs.getServices().getName());
+		}
+		Assert.assertNotNull(phsList);
+	}
+
+	@Test
+	public void addProfessionalTest(){
+
+		List<Professional> professionalList = professionalRepository.findAll();
+		boolean exist = false;
+		for (Professional p : professionalList){
+			if(p.getName().equals("Profesional UTest")) {
+				exist = true;
+				break;
+			}
+		}
+		if (!exist){
+			Professional professional = new Professional("Profesional UTest","2094687","junit@mail.com","123456", "PROFESSIONAL", null,0);
+			professionalRepository.saveAndFlush(professional);
+			exist = true;
+		}
+		Assert.assertTrue(exist);
+	}
 }

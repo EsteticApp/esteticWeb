@@ -6,8 +6,6 @@
 package edu.eci.cosw.Interfaz;
 
 
-import edu.eci.cosw.interfaz.Usuario;
-
 import java.util.List;
 
 /**
@@ -17,10 +15,10 @@ import java.util.List;
 public interface UserApp {
     
 
-    public List<Usuario> getUsers();
-    public void addUser(Usuario user);
-    public Usuario getUserByUsername(String username);
-    public List<Usuario> getSimpleUsers();
-    public Usuario getUserByEmail(String email);
-    public Usuario loginUser(String name, String pass);
+    public List<User> getUsers();
+    public void addUser(User user);
+    public User getUserByUsername(String username);
+    public List<User> getSimpleUsers();
+    public User getUserByEmail(String email);
+    public User loginUser(String name, String pass);
 }

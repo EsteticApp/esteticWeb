@@ -6,13 +6,11 @@
 package edu.eci.cosw.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import edu.eci.cosw.interfaz.Usuario;
+import edu.eci.cosw.Interfaz.User;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.sql.Blob;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 /**
  *
@@ -22,10 +20,10 @@ import org.hibernate.annotations.FetchMode;
 @Service
 @Entity
 @Table(name = "professional")
-public class Professional implements java.io.Serializable, Usuario {
+public class Professional implements java.io.Serializable, User {
 
     private static final long serialVersionUID = 328754985741161521L;
-    private int iduser;
+    private int idProfessional;
     private String name;
     private String idCard;
     private String email;
@@ -50,12 +48,12 @@ public class Professional implements java.io.Serializable, Usuario {
     @Column(name = "idprofessional")
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    public int getIduser() {
-        return iduser;
+    public int getId() {
+        return idProfessional;
     }
 
-    public void setIduser(int id) {
-        this.iduser = id;
+    public void setId(int id) {
+        this.idProfessional = id;
     }
 
     @Column(name = "name", nullable = false)
@@ -120,7 +118,5 @@ public class Professional implements java.io.Serializable, Usuario {
     public void setRole(String Roles_idRole) {
         this.role = Roles_idRole;
     }
-    
-    
 
 }

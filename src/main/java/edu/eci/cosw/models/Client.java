@@ -1,5 +1,7 @@
 package edu.eci.cosw.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import edu.eci.cosw.Interfaz.User;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -15,8 +17,8 @@ import static javax.persistence.CascadeType.ALL;
  */
 @Entity
 @Table(name = "client")
-public class Client implements java.io.Serializable{
-    private int idProfessional;
+public class Client implements java.io.Serializable, User {
+    private int id;
     private String name;
     private String email;
     private Blob photo;
@@ -27,8 +29,16 @@ public class Client implements java.io.Serializable{
     public Client() {
     }
 
-    public Client(int idProfessional, String name, String email, Blob photo, String password, String role) {
-        this.idProfessional = idProfessional;
+    public Client(String name, String email, String password, Blob photo) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.photo = photo;
+        this.role = "CLIENT";
+    }
+
+    public Client(int idClient, String name, String email, Blob photo, String password, String role) {
+        this.id = idClient;
         this.name = name;
         this.email = email;
         this.photo = photo;
@@ -36,15 +46,17 @@ public class Client implements java.io.Serializable{
         this.role = role;
     }
 
+    @Override
     @Column(name = "idclient", nullable = false)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    public int getIdProfessional() {
-        return idProfessional;
+    public int getId() {
+        return id;
     }
 
-    public void setIdProfessional(int idProfessional) {
-        this.idProfessional = idProfessional;
+    @Override
+    public void setId(int idClient) {
+        this.id = idClient;
     }
 
     @Column(name = "name", nullable = false, length = 45)
@@ -65,6 +77,7 @@ public class Client implements java.io.Serializable{
         this.email = email;
     }
 
+    @JsonIgnore
     @Column(name = "photo", nullable = false)
     public Blob getPhoto() {
         return photo;
@@ -101,5 +114,27 @@ public class Client implements java.io.Serializable{
 
     public void setReservations(Set<Reservations> reservations) {
         this.reservations = reservations;
+    }
+
+
+    @Transient
+    public String getIdCard() {
+        return null;
+    }
+
+    @Override
+    public void setIdCard(String cedula) {
+
+    }
+
+    @Transient
+    @Override
+    public int getState() {
+        return -1;
+    }
+
+    @Override
+    public void setState(int state) {
+
     }
 }

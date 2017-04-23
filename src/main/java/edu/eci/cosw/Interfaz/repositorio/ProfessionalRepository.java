@@ -17,13 +17,11 @@ import org.springframework.data.repository.query.Param;
  * @author ANDRES CAICEDO
  */
 
-public interface ProfessionalRepositorio extends JpaRepository<Professional, Integer>{
-    @Query("select distinct user from Professional as user where email LIKE :email ")
-  //@Query("from Usuario As u, Role As r  where u.email=:email")
-  public Professional traerUsuario(@Param("email") String email);
+public interface ProfessionalRepository extends JpaRepository<Professional, Integer>{
 
-    @Query("select distinct user from Professional as user where role = PROFESSIONAL")
-    public List<Professional> getStylist();
+    //@Query("from User As u, Role As r  where u.email=:email")
+    @Query("select distinct user from Professional as user where email LIKE :email ")
+    public Professional getProfessionalByEmail(@Param("email") String email);
 
     @Query("select distinct user from Professional as user where role = PROFESSIONAL")
     public List<Professional> getStylistByCategory();

@@ -2,12 +2,8 @@ package edu.eci.cosw.controllersAPI;
 
 
 import edu.eci.cosw.Interfaz.ServiceManagement;
-import edu.eci.cosw.models.Categoria;
 import edu.eci.cosw.models.Categories;
 import edu.eci.cosw.models.Services;
-import edu.eci.cosw.models.Servicio;
-import edu.eci.cosw.service.CategoriasServiceStub;
-import edu.eci.cosw.service.ServiciesServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by SYSTEM on 19/02/2017.

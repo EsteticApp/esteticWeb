@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.cosw.interfaz;
+package edu.eci.cosw.Interfaz;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import edu.eci.cosw.models.Cliente;
+import edu.eci.cosw.models.Client;
 import edu.eci.cosw.models.Professional;
 import java.sql.Blob;
-import javax.persistence.Column;
-
 
 /**
  *
@@ -25,14 +22,14 @@ import javax.persistence.Column;
               property = "type")
 @JsonSubTypes({
     @Type(value = Professional.class, name = "PROFESSIONAL"),
-    @Type(value = Cliente.class, name = "CLIENTE")
+    @Type(value = Client.class, name = "CLIENT")
     })
 
-public interface Usuario {
+public interface User {
 
-    public int getIduser();
+    public int getId();
 
-    public void setIduser(int id);
+    public void setId(int id);
 
     public String getName();
 

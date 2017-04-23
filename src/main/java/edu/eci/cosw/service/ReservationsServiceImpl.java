@@ -2,7 +2,6 @@ package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.ReservationManagement;
 import edu.eci.cosw.Interfaz.repositorio.ReservationRepository;
-import edu.eci.cosw.models.Reserva;
 import edu.eci.cosw.models.Reservations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,23 +31,4 @@ public class ReservationsServiceImpl implements ReservationManagement{
         return reservations;
     }
 
-    @Override
-    public List<Reserva> getReservasActivas(String iduser) {
-        return null;
-    }
-
-    @Override
-    public List<Reserva> getReservasPendientes(String iduser) {
-        return null;
-    }
-
-    @Override
-    public List<Reserva> getReservasAtendidas(String iduser) {
-        return null;
-    }
-
-    @Override
-    public void addReserva(Reserva s) {
-
-    }
 }

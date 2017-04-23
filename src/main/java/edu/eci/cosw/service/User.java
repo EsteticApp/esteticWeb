@@ -7,12 +7,10 @@
 
 package edu.eci.cosw.service;
 import edu.eci.cosw.Interfaz.UserApp;
-import edu.eci.cosw.interfaz.Usuario;
-import edu.eci.cosw.models.Cliente;
+import edu.eci.cosw.models.Client;
 import edu.eci.cosw.models.Professional;
 import org.springframework.stereotype.Service;
 
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -22,7 +20,7 @@ import java.util.List;
 @Service
 public class User implements UserApp{
 
-    private static List<Usuario> users;
+    private static List<edu.eci.cosw.Interfaz.User> users;
 
     /**
      * Estos solo los uso para pruebas mientras se termina login BD
@@ -32,7 +30,7 @@ public class User implements UserApp{
         users = new ArrayList();
         
         
-        users.add(new Cliente("Cliente prueba","cliente@mail.com", "cliente", "CLIENTE",null));
+        users.add(new Client("Cliente prueba","cliente@mail.com", "cliente",null));
         
         users.add(new Professional("Profesional prueba","0","profesional@mail.com", "profesional", "CLIENTE",null,0));
     }
@@ -42,38 +40,38 @@ public class User implements UserApp{
         users = new ArrayList();
         Role rolUser =new Role("CLIENTE","Persona que compraran el servicio");
         // Usuarios y contrasenas - quemado en codigo
-        users.add(new Usuario("Marcela Duque",0, "marceduque@mail.com", "Marcela123", rolUser));
-        users.add(new Usuario("Alejandro Durán",0, "durancho@mail.com", "Alejandro123", rolUser));
-        users.add(new Usuario("Fabián Pérez",0, "fapez@mail.com", "Fabian123", rolUser));
-        users.add(new Usuario("Yuli Paola ",0, "paopao@mail.com", "Yuli123", rolUser));
-        users.add(new Usuario("Iván Gómez",0, "gomeziv@mail.com", "Ivan123", rolUser));
+        users.add(new User("Marcela Duque",0, "marceduque@mail.com", "Marcela123", rolUser));
+        users.add(new User("Alejandro Durán",0, "durancho@mail.com", "Alejandro123", rolUser));
+        users.add(new User("Fabián Pérez",0, "fapez@mail.com", "Fabian123", rolUser));
+        users.add(new User("Yuli Paola ",0, "paopao@mail.com", "Yuli123", rolUser));
+        users.add(new User("Iván Gómez",0, "gomeziv@mail.com", "Ivan123", rolUser));
         
         rolUser = new Role("PROFESSIONAL","personas que ofrecen el servicio");        
-        users.add(new Usuario("Ximena Guerrero",67157431, "ximenis@mail.com", "Ximena123", rolUser));
-        users.add(new Usuario("Luis Fernandez",19405067, "luchofe@mail.com", "Luis123", rolUser));
-        users.add(new Usuario("Juliana Casta",38117674, "julica@mail.com", "Juliana123", rolUser));
-        users.add(new Usuario("Sandra Izquierdo",19392904, "sandraz@mail.com", "Sandra123", rolUser));
-        users.add(new Usuario("Roberto Lopez",70651124, "robert45@mail.com", "Roberto123", rolUser));
+        users.add(new User("Ximena Guerrero",67157431, "ximenis@mail.com", "Ximena123", rolUser));
+        users.add(new User("Luis Fernandez",19405067, "luchofe@mail.com", "Luis123", rolUser));
+        users.add(new User("Juliana Casta",38117674, "julica@mail.com", "Juliana123", rolUser));
+        users.add(new User("Sandra Izquierdo",19392904, "sandraz@mail.com", "Sandra123", rolUser));
+        users.add(new User("Roberto Lopez",70651124, "robert45@mail.com", "Roberto123", rolUser));
         */
 
     
     public User(){}
 
     @Override
-    public List<Usuario> getUsers() {
+    public List<edu.eci.cosw.Interfaz.User> getUsers() {
         return users;
     }
 
     @Override
-    public void addUser(Usuario user) {
+    public void addUser(edu.eci.cosw.Interfaz.User user) {
         users.add(user);
     }
 
     @Override
-    public List<Usuario> getSimpleUsers() {
-        ArrayList<Usuario> simpleUsers = new ArrayList<>();
+    public List<edu.eci.cosw.Interfaz.User> getSimpleUsers() {
+        ArrayList<edu.eci.cosw.Interfaz.User> simpleUsers = new ArrayList<>();
         Professional user;
-        for(Usuario usr : users){
+        for(edu.eci.cosw.Interfaz.User usr : users){
             user = new Professional();
             user.setName(usr.getName());
             user.setEmail(usr.getEmail());
@@ -84,9 +82,9 @@ public class User implements UserApp{
     }
 
     @Override
-    public Usuario getUserByUsername(String username) {
-        Usuario response = null;
-        for (Usuario user : users) {
+    public edu.eci.cosw.Interfaz.User getUserByUsername(String username) {
+        edu.eci.cosw.Interfaz.User response = null;
+        for (edu.eci.cosw.Interfaz.User user : users) {
             if (user.getName().equals(username)) {
                 response = user;
                 break;
@@ -96,9 +94,9 @@ public class User implements UserApp{
     }
 
     @Override
-    public Usuario getUserByEmail(String email) {
-        Usuario response = null;
-        for (Usuario user : users) {
+    public edu.eci.cosw.Interfaz.User getUserByEmail(String email) {
+        edu.eci.cosw.Interfaz.User response = null;
+        for (edu.eci.cosw.Interfaz.User user : users) {
             if (user.getEmail().equals(email)) {
                 response = user;
                 break;
@@ -108,9 +106,9 @@ public class User implements UserApp{
     }
 
     @Override
-    public Usuario loginUser(String name, String pass) {
-        Usuario response = null;
-        for (Usuario user : users) {
+    public edu.eci.cosw.Interfaz.User loginUser(String name, String pass) {
+        edu.eci.cosw.Interfaz.User response = null;
+        for (edu.eci.cosw.Interfaz.User user : users) {
             if ((user.getName().equals(name) || user.getEmail().equals(name)) && user.getPassword().equals(pass)) {
                 response = user;
                 break;
