@@ -62,6 +62,24 @@ public class ProfessionalsServiceImpl implements ProfessionalManagement {
     }
 
     @Override
+    public Professional getProfessionalByEmail(String email) throws Exception {
+        Professional professional = professionalRepository.getProfessionalByEmail(email);
+        return professional;
+    }
+
+    @Override
+    public List<Professional> getProfessionalByState(int state) throws Exception {
+        List<Professional> professionalList = professionalRepository.getProfessionalByState(state);
+        if(professionalList.isEmpty()) throw new Exception();
+        return professionalList;
+    }
+
+    @Override
+    public void updateProfessional(Professional p) throws Exception {
+        professionalRepository.saveAndFlush(p);
+    }
+
+    @Override
     public void addProfessional(Professional p) throws Exception{
         professionalRepository.saveAndFlush(p);
     }

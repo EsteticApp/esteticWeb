@@ -138,4 +138,14 @@ public class EsteticappApplicationTests {
 		}
 		Assert.assertTrue(exist);
 	}
+
+	@Test
+	public void getProfessionalByStateTest(){
+		List<Professional> professionalList = professionalRepository.getProfessionalByState(0);
+		System.out.println("getProfessionalByStateTest output");
+		for (Professional p : professionalList){
+			System.out.println(p.getName());
+		}
+		Assert.assertNotNull(professionalList);
+	}
 }

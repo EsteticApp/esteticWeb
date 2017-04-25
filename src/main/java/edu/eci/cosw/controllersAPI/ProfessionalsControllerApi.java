@@ -73,4 +73,47 @@ public class ProfessionalsControllerApi {
             return new ResponseEntity<>("An error has occurred", HttpStatus.BAD_REQUEST);
         }
     }
+
+    // Actualización estado
+
+    @RequestMapping(path = "/state/{state}", method = RequestMethod.GET)
+    public ResponseEntity<?> getProfessionalsByStateManagement(@PathVariable int state){
+        try {
+            List<Professional> data = professional.getProfessionalByState(state);
+            return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("No professionals found with that state", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    // Hay que indicar cuál será la identificación, ¿la de BD o el nombre?
+    // Por el momento la dejaré como el nombre ~oscar-beltran
+    @RequestMapping(path = "/{email}/state", method = RequestMethod.GET)
+    public ResponseEntity<?> getProfessionalsStateManagement(@PathVariable String email){
+        try {
+            Professional pro = professional.getProfessionalByEmail(email);
+            List<Integer> integers  = new ArrayList<>();
+            integers.add(pro.getState());
+            return new ResponseEntity<>(integers, HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("No services found for that professional", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(value = "/update/state", method = RequestMethod.POST)
+    public   ResponseEntity<?> postUpdateProfessional (@RequestBody List<String> state) {
+        try {
+            int s = Integer.parseInt(state.get(0));
+            Professional profe = professional.getProfessionalByEmail(state.get(1));
+            profe.setState(s);
+            professional.updateProfessional(profe);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception ex){
+            org.apache.log4j.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(null, ex);
+            return new ResponseEntity<>("An error has occurred", HttpStatus.NOT_FOUND);
+        }
+    }
+
 }

@@ -41,6 +41,8 @@ angular.module('myApp', [
                                         'A200': 'ff5252',
                                         'A400': 'ff1744',
                                         'A700': 'd50000',
+                                        'A69': 'ffe717',
+                                        'error': 'ffe717',
                                         'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
                                                                             // on this palette should be dark or light
 
@@ -55,7 +57,7 @@ angular.module('myApp', [
 
             }])
         
-        .controller('ControladorLogout', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location) {
+        .controller('ControladorLogout', ['$scope', '$rootScope', '$http', '$location', 'professionalState', 'professionalStateUpdate', function ($scope, $rootScope, $http, $location, professionalState, professionalStateUpdate) {
                 $scope.logout = function () {
                     $http.post('/logout', {}).then(function () {
                         $rootScope.authenticated = false;
@@ -67,18 +69,52 @@ angular.module('myApp', [
                     });
                 };
 
-                $scope.available = false;
-                $scope.state = "No disponible";
-                $scope.fondo = "fondo-800";
-                $scope.changeStatus = function(){
-                    $scope.available = !$scope.available;
-                    if($scope.available){
+
+
+                $scope.state = "Actualizar";
+                $scope.fondo = "fondo-A69";
+                $scope.startedState = false;
+                $scope.status = 1;
+                $scope.changeColor = function(){
+                    if($scope.status === 1){
                         $scope.state = "Disponible";
                         $scope.fondo = "fondo-100";
-                    }else{
+                    }else if($scope.status === 0){
                         $scope.state = "No disponible";
                         $scope.fondo = "fondo-800";
                     }
+                }
+
+                $scope.changeStatus = function(){
+
+                    var response = professionalState.get({email:$rootScope.EmailString.email});
+
+                    response.$promise.then(function(data) {
+
+//                        console.log(data[0]);
+                        $scope.status = data[0];
+
+                        if($scope.startedState){
+                            if(data[0] === 0) {
+                                $scope.status = 1;
+                            } else {
+                                $scope.status = 0;
+                            }
+//                            console.log($scope.status);
+                            var update = professionalStateUpdate.save([$scope.status + "", $rootScope.EmailString.email]);
+                            update.$promise.then(function(data) {
+                                $scope.changeColor();
+                            });
+
+                        } else {
+                            $scope.changeColor();
+                            $scope.startedState = true;
+                        }
+
+                        $scope.startedState = true;
+
+                    });
+
                 }
             }]);
     

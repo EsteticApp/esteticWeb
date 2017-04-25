@@ -102,4 +102,18 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
                               isArray: true
                           }
                       });
+        })
+
+        .factory('professionalState',function($resource){
+            return $resource('/estilistas/:email/state', {}, {
+                get:        {method: 'GET',
+                             isArray: true},
+                save:     {method: 'POST'}
+            });
+        })
+
+        .factory('professionalStateUpdate',function($resource){
+            return $resource('/estilistas/update/state', {}, {
+                save:     {method: 'POST'}
+            });
         });

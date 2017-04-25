@@ -38,6 +38,21 @@ public class ProfessionalsServiceStub implements ProfessionalManagement {
     }
 
     @Override
+    public List<Professional> getProfessionalByState(int state) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Professional getProfessionalByEmail(String email) throws Exception {
+        return null;
+    }
+
+    @Override
+    public void updateProfessional(Professional p) throws Exception {
+
+    }
+
+    @Override
     public void addProfessional(Professional p) throws Exception{
         if(professionals == null) professionals = new ArrayList<>();
         professionals.add(p);

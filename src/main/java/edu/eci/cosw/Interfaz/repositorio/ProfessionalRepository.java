@@ -24,5 +24,8 @@ public interface ProfessionalRepository extends JpaRepository<Professional, Inte
     public Professional getProfessionalByEmail(@Param("email") String email);
 
     @Query("select distinct user from Professional as user where role = PROFESSIONAL")
-    public List<Professional> getStylistByCategory();
+    public List<Professional> getProfessionalByCategory();
+
+    @Query(value = "from Professional pro where pro.state = ?1")
+    public List<Professional> getProfessionalByState(int state);
 }
