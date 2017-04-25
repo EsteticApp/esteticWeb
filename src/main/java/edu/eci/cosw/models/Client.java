@@ -46,7 +46,6 @@ public class Client implements java.io.Serializable, User {
         this.role = role;
     }
 
-    @Override
     @Column(name = "idclient", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id

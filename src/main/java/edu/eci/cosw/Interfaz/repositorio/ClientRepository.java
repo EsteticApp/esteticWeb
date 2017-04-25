@@ -10,12 +10,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 /**
  *
  * @author 2101240
  */
 public interface ClientRepository extends JpaRepository<Client, Integer>{
 
-    @Query("from Client cli where cli.email LIKE :email")
+    //@Query("from Client cli where cli.email LIKE :email")
+    @Query("select distinct user from Client as user where email LIKE :email ")
     public Client getClientByEmail(@Param("email") String email);
+
+    @Query("select distinct user from Client as user where role = CLIENT")
+    public List<Client> getClients();
+
 }

@@ -69,7 +69,7 @@ public class ProfessionalsControllerApi {
             professional.addProfessional(p);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } catch (Exception ex){
-            org.apache.log4j.Logger.getLogger(ServicesControllerApi.class.getName()).log(null, ex);
+            org.apache.log4j.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(null, ex);
             return new ResponseEntity<>("An error has occurred", HttpStatus.BAD_REQUEST);
         }
     }
