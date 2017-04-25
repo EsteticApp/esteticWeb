@@ -36,7 +36,7 @@ public class ProfessionalsControllerApi {
     }
 
     // Hay que indicar cuál será la identificación, ¿la de BD o el nombre?
-        // Por el momento la dejaré como el nombre ~oscar-beltran
+    // Por el momento la dejaré como el nombre ~oscar-beltran
     @RequestMapping(path = "/id/{professional}", method = RequestMethod.GET)
     public ResponseEntity<?> getServicesByProfessionalManagement(@PathVariable String professional){
         try {

@@ -34,7 +34,7 @@ public class ClientsControllerApi {
         }
     }
 
-
+    //Obtiene los datos de un cliente dado
     @RequestMapping(path = "/email/{email}", method = RequestMethod.GET)
     public ResponseEntity<?> getClientByEmailManagement(@PathVariable String email){
         try {

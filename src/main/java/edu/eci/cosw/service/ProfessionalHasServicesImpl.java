@@ -2,7 +2,6 @@ package edu.eci.cosw.service;
 
 import edu.eci.cosw.Interfaz.ProfessionalHasServiceManagement;
 import edu.eci.cosw.Interfaz.repositorio.ProfessionalHasServicesRepository;
-import edu.eci.cosw.models.Professional;
 import edu.eci.cosw.models.ProfessionalHasServices;
 import edu.eci.cosw.models.ProfessionalHasServicesId;
 import org.springframework.beans.factory.annotation.Autowired;
