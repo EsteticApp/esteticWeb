@@ -40,22 +40,22 @@ angular.module('myApp.Servicios', ['ngRoute'])
 
             $scope.sPeluqueria = function(){
                 $location.path("/ServiciosDisponibles");
-                localStorage.catSeleccionada = "Peluqueria";
+                localStorage.catSeleccionada = 1;
             };
 
             $scope.sUnas = function(){
                 $location.path("/ServiciosDisponibles");
-                localStorage.catSeleccionada = "Unas";
+                localStorage.catSeleccionada = 2;
             };
 
             $scope.sDepilacion = function(){
                 $location.path("/ServiciosDisponibles");
-                localStorage.catSeleccionada = "Depilacion";
+                localStorage.catSeleccionada = 3;
             };
 
             $scope.sMasajes = function(){
                 $location.path("/ServiciosDisponibles");
-                localStorage.catSeleccionada = "Masajes";
+                localStorage.catSeleccionada = 4;
             };
 
             $scope.peluqueria = [

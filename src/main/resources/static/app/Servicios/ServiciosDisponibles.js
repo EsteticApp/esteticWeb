@@ -15,7 +15,7 @@ angular.module('myApp.ServiciosDisponibles', ['ngRoute', 'ngMaterial'])
             $scope.status = '  ';
                 $scope.catselect = localStorage.catSeleccionada;
                 $scope.pedir = function(){
-                      var esti = $resource('/estilistas/'+localStorage.catSeleccionada+'/:rolEstilista');
+                      var esti = $resource('/estilistas/category/'+localStorage.catSeleccionada+'/:rolEstilista');
                       $scope.estilistas = esti.query();
                 };
                 $scope.estilistaSelect = function(estilista) {

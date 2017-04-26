@@ -20,9 +20,9 @@
 
                         <div layout="column" layout-align="center center" class="col-xs-6" layout-xs="column">
                             <md-list ng-repeat="servicio in servicios" layout-align="center center">
-                                <md-checkbox type="checkbox" ng-click="servicioSelect(servicio.nombre)" ng-checked="selection.indexOf(servicio.nombre) > -1" >
+                                <md-checkbox type="checkbox" ng-click="servicioSelect(servicio)" ng-checked="selection.indexOf(servicio) > -1" >
 
-                                    <p> {{ servicio.nombre }}</p>
+                                    <p> {{ servicio }}</p>
 
                                 </md-checkbox>
 

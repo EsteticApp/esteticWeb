@@ -11,12 +11,10 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute', 'ngMaterial'])
 
         .controller('ControladorServiciosSolicitados', ['$resource','$scope', '$rootScope', '$http', '$location', function ($resource,$scope, $rootScope, $http, $location) {
               $scope.estilista=localStorage.estilistaSelect;
-              var esti = $resource('/estilistas/id/'+localStorage.estilistaSelect);
+              var esti = $resource('/estilistas/services/'+localStorage.estilistaSelect);
               $scope.servicios = esti.query();
 
               //$scope.precios = ['$17.000', '$15.000', '$12.000', '$5.000', '$10.000', '$20.000'];
-
-
 
                 $scope.selection=[];
 
@@ -47,6 +45,3 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute', 'ngMaterial'])
                 };
 
         }]);
-
-
-
