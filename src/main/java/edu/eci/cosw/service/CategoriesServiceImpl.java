@@ -28,7 +28,7 @@ public class CategoriesServiceImpl implements CategoryManagement {
     }
 
     @Override
-    public List<Services> getServicesByCategory(String category) throws Exception {
+    public List<Services> getServicesByCategory(int category) throws Exception {
         List<Services> services = servicesRepository.getServicesByCategory(category);
         if(services.isEmpty())throw new Exception();
         return services;

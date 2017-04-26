@@ -22,15 +22,15 @@ public class ProfessionalsServiceStub implements ProfessionalManagement {
     }
 
     @Override
-    public List<Professional> getProfessionalsByCategory(String category) throws Exception{
+    public List<Professional> getProfessionalsByCategory(int categoryId) throws Exception{
         List<Professional> professionalList = new ArrayList<>();
-        professionalList.add(new Professional("Pepito " + category, "1", "pepito@mail.com", "123456", "PROFESSIONAL", null, 0));
+        professionalList.add(new Professional("Pepito " + categoryId, "1", "pepito@mail.com", "123456", "PROFESSIONAL", null, 0));
         if(professionalList.isEmpty())throw new Exception();
         return professionalList;
     }
 
     @Override
-    public List<Services> getServicesByProfessional(String professional) throws Exception{
+    public List<Services> getServicesByProfessional(int professional) throws Exception{
         List<Services> services = new ArrayList<>();
         services.add(new Services("Servicio inventado para el profesional " + professional));
         if(services.isEmpty())throw new Exception();
@@ -38,12 +38,17 @@ public class ProfessionalsServiceStub implements ProfessionalManagement {
     }
 
     @Override
-    public List<Professional> getProfessionalByState(int state) throws Exception {
+    public Professional getProfessionalByEmail(String email) throws Exception {
         return null;
     }
 
     @Override
-    public Professional getProfessionalByEmail(String email) throws Exception {
+    public List<Professional> getProfessionalsByState(int state) throws Exception {
+        return null;
+    }
+
+    @Override
+    public Professional getProfessionalState(int professionalID) throws Exception {
         return null;
     }
 

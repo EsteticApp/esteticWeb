@@ -34,13 +34,13 @@ public class ProfessionalsServiceImpl implements ProfessionalManagement {
     }
 
     @Override
-    public List<Professional> getProfessionalsByCategory(String category) throws Exception {
-        List<Services> servicesList = servicesRepository.getServicesByCategory(category);
+    public List<Professional> getProfessionalsByCategory(int categoryId) throws Exception {
+        List<Services> servicesList = servicesRepository.getServicesByCategory(categoryId);
         List<Professional> professionalList = new ArrayList<>();
         List<ProfessionalHasServices> phsList;
         Professional professional;
         for (Services s :servicesList){
-            phsList = phsRepo.getPHSsByService(s.getName());
+            phsList = phsRepo.getPHSsByServiceID(s.getIdServices());
             for(ProfessionalHasServices phs : phsList){
                 professional = phs.getProfessional();
                 if(! professionalList.contains(professional)) professionalList.add(professional);
@@ -51,8 +51,8 @@ public class ProfessionalsServiceImpl implements ProfessionalManagement {
     }
 
     @Override
-    public List<Services> getServicesByProfessional(String professional) throws Exception {
-        List<ProfessionalHasServices> phsList = phsRepo.getPHSsByProfessional(professional);
+    public List<Services> getServicesByProfessional(int professionalId) throws Exception {
+        List<ProfessionalHasServices> phsList = phsRepo.getPHSsByProfessionalID(professionalId);
         List<Services> servicesList = new ArrayList<>();
         for(ProfessionalHasServices phs : phsList){
             servicesList.add(phs.getServices());
@@ -68,10 +68,17 @@ public class ProfessionalsServiceImpl implements ProfessionalManagement {
     }
 
     @Override
-    public List<Professional> getProfessionalByState(int state) throws Exception {
-        List<Professional> professionalList = professionalRepository.getProfessionalByState(state);
-        if(professionalList.isEmpty()) throw new Exception();
+    public List<Professional> getProfessionalsByState(int state) throws Exception {
+        List<Professional> professionalList = professionalRepository.getProfessionalsByState(state);
+        if(professionalList.isEmpty())throw new Exception();
         return professionalList;
+    }
+
+    @Override
+    public Professional getProfessionalState(int professionalID) throws Exception {
+        Professional pro = professionalRepository.getProfessionalByID(professionalID);
+        if(pro == null) throw new Exception();
+        return pro;
     }
 
     @Override

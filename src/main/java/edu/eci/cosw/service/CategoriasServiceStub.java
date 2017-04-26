@@ -13,7 +13,6 @@ import java.util.List;
 public class CategoriasServiceStub implements CategoryManagement{
 
     private List<Categories> categorias;
-    private List<Services> serviciosFilter;
 
     public CategoriasServiceStub(){
         fillCategories();
@@ -21,12 +20,11 @@ public class CategoriasServiceStub implements CategoryManagement{
 
     public List<Categories> getCategories() throws Exception {
         if(categorias == null)fillCategories();
-        List<String> lista = new ArrayList<>();
         if(categorias.isEmpty())throw new Exception();
         return categorias;
     }
 
-    public List<Services> getServicesByCategory(String category) throws Exception {
+    public List<Services> getServicesByCategory(int category) throws Exception {
         if(categorias == null)fillCategories();
         List<Services> services = new ArrayList<>();
         for(Categories cat : categorias){

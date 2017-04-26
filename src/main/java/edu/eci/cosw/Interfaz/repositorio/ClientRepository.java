@@ -20,10 +20,10 @@ public interface ClientRepository extends JpaRepository<Client, String>{
 
     //@Query("from Client cli where cli.email LIKE :email")
     //@Query("select distinct user from Client as user where email like ?1")
-    @Query(value = "from Client client where client.email like ?1")
-    public Client getClientByEmail(@Param("email") String email);
+    @Query(value = "from Client client where client.id = ?1")
+    public Client getClientByID(int clientID);
 
-    @Query("select distinct user from Client as user where role = CLIENT")
-    public List<Client> getClients();
+    @Query(value = "from Client client where client.email = ?1")
+    public Client getClientByEmail(String email);
 
 }

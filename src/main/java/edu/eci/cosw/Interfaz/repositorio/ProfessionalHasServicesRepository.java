@@ -12,10 +12,9 @@ import java.util.List;
  */
 public interface ProfessionalHasServicesRepository extends JpaRepository<ProfessionalHasServices, ProfessionalHasServicesId> {
 
-    @Query(value = "from ProfessionalHasServices phs where phs.services.name like ?1")
-    public List<ProfessionalHasServices> getPHSsByService(String service);
+    @Query(value = "from ProfessionalHasServices phs where phs.services.idServices = ?1")
+    public List<ProfessionalHasServices> getPHSsByServiceID(int serviceID);
 
-    // En espera de la confirmación de la ID del profesional ~oscar-beltran
-    @Query(value = "from ProfessionalHasServices phs where phs.professional.name like ?1")
-    public List<ProfessionalHasServices> getPHSsByProfessional(String professional);
+    @Query(value = "from ProfessionalHasServices phs where phs.professional.id = ?1")
+    public List<ProfessionalHasServices> getPHSsByProfessionalID(int professionalID);
 }

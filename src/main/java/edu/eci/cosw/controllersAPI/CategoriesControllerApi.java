@@ -45,7 +45,7 @@ public class CategoriesControllerApi {
     }
 
     @RequestMapping(path = "/{category}", method = RequestMethod.GET)
-    public ResponseEntity<?> getTaskByPriorityManagement(@PathVariable String category){
+    public ResponseEntity<?> getTaskByPriorityManagement(@PathVariable int category){
         try {
             List<Services> servicesList = categories.getServicesByCategory(category);
             List<String> data = new ArrayList<>();

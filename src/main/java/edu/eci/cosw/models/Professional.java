@@ -23,7 +23,7 @@ import java.sql.Blob;
 public class Professional implements java.io.Serializable, User {
 
     private static final long serialVersionUID = 328754985741161521L;
-    private int idProfessional;
+    private int id;
     private String name;
     private String idCard;
     private String email;
@@ -49,11 +49,11 @@ public class Professional implements java.io.Serializable, User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     public int getId() {
-        return idProfessional;
+        return id;
     }
 
     public void setId(int id) {
-        this.idProfessional = id;
+        this.id = id;
     }
 
     @Column(name = "name", nullable = false)

@@ -39,7 +39,7 @@ public class EsteticappApplicationTests {
 
 	@Test
 	public void getServicesByCategoryTest(){
-		List<Services> services = servicesRepository.getServicesByCategory("Peluqueria");
+		List<Services> services = servicesRepository.getServicesByCategory(1);
 		Assert.assertNotNull(services);
 		Assert.assertFalse(services.isEmpty());
 	}
@@ -98,8 +98,8 @@ public class EsteticappApplicationTests {
 
 	@Test
 	public void getPHSsByService(){
-		List<ProfessionalHasServices> phsList = phsRepo.getPHSsByService("Cortes");
-		System.out.println("getPHSsByService output");
+		List<ProfessionalHasServices> phsList = phsRepo.getPHSsByServiceID(1);
+		System.out.println("getPHSsByServiceID output");
 		for(ProfessionalHasServices phs : phsList){
 			System.out.println("_______________________________________________");
 			System.out.println(phs.getProfessional().getName());
@@ -110,8 +110,8 @@ public class EsteticappApplicationTests {
 
 	@Test
 	public void getPHSsByProfessional(){
-		List<ProfessionalHasServices> phsList = phsRepo.getPHSsByProfessional("Adrian");
-		System.out.println("getPHSsByProfessional output");
+		List<ProfessionalHasServices> phsList = phsRepo.getPHSsByProfessionalID(1);
+		System.out.println("getPHSsByProfessionalID output");
 		for(ProfessionalHasServices phs : phsList){
 			System.out.println("_______________________________________________");
 			System.out.println(phs.getProfessional().getName());
@@ -141,7 +141,7 @@ public class EsteticappApplicationTests {
 
 	@Test
 	public void getProfessionalByStateTest(){
-		List<Professional> professionalList = professionalRepository.getProfessionalByState(0);
+		List<Professional> professionalList = professionalRepository.getProfessionalsByState(0);
 		System.out.println("getProfessionalByStateTest output");
 		for (Professional p : professionalList){
 			System.out.println(p.getName());

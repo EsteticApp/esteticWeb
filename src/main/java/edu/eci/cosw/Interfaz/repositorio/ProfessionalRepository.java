@@ -19,13 +19,12 @@ import org.springframework.data.repository.query.Param;
 
 public interface ProfessionalRepository extends JpaRepository<Professional, Integer>{
 
-    //@Query("from User As u, Role As r  where u.email=:email")
-    @Query("select distinct user from Professional as user where email LIKE :email ")
-    public Professional getProfessionalByEmail(@Param("email") String email);
+    @Query("from Professional pro where pro.id = ?1")
+    public Professional getProfessionalByID(int professionalID);
 
-    @Query("select distinct user from Professional as user where role = PROFESSIONAL")
-    public List<Professional> getProfessionalByCategory();
+    @Query("from Professional pro where pro.email like ?1")
+    public Professional getProfessionalByEmail(String email);
 
     @Query(value = "from Professional pro where pro.state = ?1")
-    public List<Professional> getProfessionalByState(int state);
+    public List<Professional> getProfessionalsByState(int professionalState);
 }
