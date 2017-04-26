@@ -26,7 +26,7 @@ angular.module('myApp.Login', ['ngRoute'])
                             $rootScope.EmailString.email=data.data.name;
                             $rootScope.authenticated = true;
                             $scope.role=data.data.authorities[0].authority;
-                            $rootScope.Cliente= $scope.role==="CLIENTE";
+                            $rootScope.Cliente= $scope.role==="CLIENT";
                             $rootScope.Professional= $scope.role==="PROFESSIONAL";
                         } else {
                             $rootScope.Cliente= false;
