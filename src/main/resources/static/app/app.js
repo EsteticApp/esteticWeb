@@ -18,7 +18,8 @@ angular.module('myApp', [
     'myApp.Registrar',
     'myApp.Perfil',
     'myApp.Editar',
-    'services.modulo'
+    'services.modulo',
+    'myApp.SolicitarNuevoServicio'
 ]).
         config(['$locationProvider', '$routeProvider', '$httpProvider', '$mdThemingProvider', function ($locationProvider, $routeProvider, $httpProvider, $mdThemingProvider) {
                 $locationProvider.hashPrefix('!');

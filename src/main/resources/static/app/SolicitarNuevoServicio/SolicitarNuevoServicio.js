@@ -11,5 +11,8 @@ angular.module('myApp.SolicitarNuevoServicio', ['ngRoute'])
 
         
         .controller('ControladorSolicitarNuevoServicio', ['$scope', function ($scope) {
-                
+                $scope.requestNewService = function(){
+                    console.log($scope.newServiceName);
+                    console.log($scope.newServiceDescription);
+                }
         }]);

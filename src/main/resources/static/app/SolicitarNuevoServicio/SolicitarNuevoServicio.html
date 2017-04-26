@@ -10,7 +10,21 @@
             </header>
             <div layout="row">
                 <div class="container" flex="70">
+                    <form role="form" ng-submit="requestNewService()">
 
+                        <div class="form-group">
+                            <label for="nombre">Nombre:</label> <input type="text"
+                                                                       class="form-control" id="nombre" name="nombre" ng-model="{newServiceName}"/>
+                        </div>
+                        <div class="form-group" ng-show="users.roles_idRole.nombre=='PROFESSIONAL'">
+                            <label for="cedula">Cedula</label> <input type="number"
+                                                                      class="form-control" id="cedula" name="idCard" ng-model="{newServiceDescription}"/>
+                        </div>
+
+                        <div class="sub">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Solicitar Servicio</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
