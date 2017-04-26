@@ -21,6 +21,7 @@ angular.module('myApp.ServiciosDisponibles', ['ngRoute', 'ngMaterial'])
                 $scope.estilistaSelect = function(estilista) {
                     $location.path("/ServiciosSolicitados");
                     localStorage.estilistaSelect = estilista;
+                    $rootScope.professionalSelected = estilista;
                 };
 
             }]);

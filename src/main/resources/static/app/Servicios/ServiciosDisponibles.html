@@ -11,16 +11,16 @@
                 <md-list ng-controller="ControladorServiciosDisponibles" ng-cloak>
                     <md-subheader class="md-no-sticky">Estilistas:<input type="button" ng-click="pedir()" value="Actualizar" /></md-subheader>
 
-                    <md-list-item style="background:bisque;" ng-repeat="estilista in estilistas" ng-click="estilistaSelect(estilista.id)" class="noright">
+                    <md-list-item style="background:bisque;" ng-repeat="estilista in estilistas" ng-click="estilistaSelect(estilista)" class="noright">
                         <img ng-src="image/peluqueria.jpg" class="md-avatar" />
 
                         <div class="md-list-item-text interlineado" layout="column">
                             <h4>{{ estilista.name }}</h4>
-                            <p>
-                                <b ng-repeat="servicio in estilista.allServicies">
-                                    <b>-</b>{{ servicio.nombre }}
-                                </b>
-                            </p>
+                            <!--<p>-->
+                                <!--<b ng-repeat="servicio in estilista.allServicies">-->
+                                    <!--<b>-</b>{{ servicio.nombre }}-->
+                                <!--</b>-->
+                            <!--</p>-->
                         </div>
                     </md-list-item>
                 </md-list>

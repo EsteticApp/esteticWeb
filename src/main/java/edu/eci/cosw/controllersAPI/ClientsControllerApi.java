@@ -35,10 +35,10 @@ public class ClientsControllerApi {
     }
 
     //Obtiene los datos de un cliente dado
-    @RequestMapping(path = "/email/{email}", method = RequestMethod.GET)
-    public ResponseEntity<?> getClientByEmailManagement(@PathVariable String email){
+    @RequestMapping(path = "/id/{clientID}", method = RequestMethod.GET)
+    public ResponseEntity<?> getClientByEmailManagement(@PathVariable int clientID){
         try {
-            Client client = clientManagement.getClientByEmail(email);
+            Client client = clientManagement.getClientByEmail(clientID);
             return new ResponseEntity<>(client, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
             java.util.logging.Logger.getLogger(ClientsControllerApi.class.getName()).log(Level.SEVERE, null, ex);

@@ -12,4 +12,5 @@ import java.util.List;
 public interface ClientManagement {
     public List<Client> getClients() throws Exception;
     public Client getClientByEmail(String email) throws Exception;
+    public Client getClientByID(int clientID) throws Exception;
 }
