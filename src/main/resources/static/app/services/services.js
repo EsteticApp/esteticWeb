@@ -104,6 +104,12 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
                       });
         })
 
+        .factory('estilistasServicios',function($resource){
+            var servicio = $resource('/estilistas/id/'+localStorage.estilista);
+            return servicio;
+        })
+
+
         .factory('professionalState',function($resource){
             return $resource('/estilistas/:email/state', {}, {
                 get:        {method: 'GET',

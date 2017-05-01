@@ -10,13 +10,17 @@ angular.module('myApp.ServiciosDisponibles', ['ngRoute', 'ngMaterial'])
             }])
 
 
-        .controller('ControladorServiciosDisponibles', ['$resource','$scope', '$rootScope', '$http', '$location', 'estilistasCategorias', 'estCat', function ($resource, $scope, $rootScope, $http, $location, estilistasCategorias, estCat) {
+        .controller('ControladorServiciosDisponibles', ['$resource','$scope', '$rootScope', '$http', '$location', 'estilistasCategorias', 'estCat','estilistasServicios', function ($resource, $scope, $rootScope, $http, $location, estilistasCategorias, estCat, estilistasServicios) {
             $scope.estilistas;
             $scope.status = '  ';
                 $scope.catselect = localStorage.catSeleccionada;
                 $scope.pedir = function(){
                       var esti = $resource('/estilistas/'+localStorage.catSeleccionada+'/:rolEstilista');
                       $scope.estilistas = esti.query();
+
+                      /*var esti = $resource('/estilistas/id/');
+                      $scope.servicios = esti.query();*/
+
                 };
                 $scope.estilistaSelect = function(estilista) {
                     $location.path("/ServiciosSolicitados");
