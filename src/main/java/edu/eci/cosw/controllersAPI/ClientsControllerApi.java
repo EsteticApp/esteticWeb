@@ -29,19 +29,30 @@ public class ClientsControllerApi {
             List<Client> data = clientManagement.getClients();
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ClientsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ClientsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No clients found", HttpStatus.NOT_FOUND);
         }
     }
 
-    //Obtiene los datos de un cliente dado
-    @RequestMapping(path = "/id/{clientID}", method = RequestMethod.GET)
+
+    @RequestMapping(path = "/cliente/id/{clientID}", method = RequestMethod.GET)
     public ResponseEntity<?> getClientByEmailManagement(@PathVariable int clientID){
         try {
-            Client client = clientManagement.getClientByEmail(clientID);
+            Client client = clientManagement.getClientByID(clientID);
             return new ResponseEntity<>(client, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ClientsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ClientsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("No client found with that email", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(path = "/cliente/email/{email}", method = RequestMethod.GET)
+    public ResponseEntity<?> getClientByEmailManagement(@PathVariable String email){
+        try {
+            Client client = clientManagement.getClientByEmail(email);
+            return new ResponseEntity<>(client, HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+//            java.util.logging.Logger.getLogger(ClientsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No client found with that email", HttpStatus.NOT_FOUND);
         }
     }

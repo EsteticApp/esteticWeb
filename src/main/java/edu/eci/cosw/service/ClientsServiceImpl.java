@@ -26,7 +26,14 @@ public class ClientsServiceImpl implements ClientManagement{
 
     @Override
     public Client getClientByEmail(String email) throws Exception {
-        Client client = clientRepository.findOne(email);
+        Client client = clientRepository.getClientByEmail(email);
+        if(client == null) throw new Exception();
+        return client;
+    }
+
+    @Override
+    public Client getClientByID(int clientID) throws Exception {
+        Client client = clientRepository.getClientByID(clientID);
         if(client == null) throw new Exception();
         return client;
     }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by SYSTEM on 19/02/2017.
@@ -34,7 +35,7 @@ public class ServicesControllerApi {
             }
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            org.apache.log4j.Logger.getLogger(ServicesControllerApi.class.getName()).log(null, ex);
+//            Logger.getLogger(ServicesControllerApi.class.getName()).log(null, ex);
             return new ResponseEntity<>("No services found", HttpStatus.NOT_FOUND);
         }
     }
@@ -45,7 +46,7 @@ public class ServicesControllerApi {
             services.addServicio(c);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } catch (Exception ex){
-            org.apache.log4j.Logger.getLogger(ServicesControllerApi.class.getName()).log(null, ex);
+//            Logger.getLogger(ServicesControllerApi.class.getName()).log(null, ex);
             return new ResponseEntity<>("An error has occurred", HttpStatus.BAD_REQUEST);
         }
 

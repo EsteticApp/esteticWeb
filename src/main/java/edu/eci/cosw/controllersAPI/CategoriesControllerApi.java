@@ -39,7 +39,7 @@ public class CategoriesControllerApi {
             }
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            Logger.getLogger(CategoriasServiceStub.class.getName()).log(null, ex);
+//            Logger.getLogger(CategoriasServiceStub.class.getName()).log(null, ex);
             return new ResponseEntity<>("No categories found", HttpStatus.NOT_FOUND);
         }
     }
@@ -54,7 +54,7 @@ public class CategoriesControllerApi {
             }
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ServicesControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ServicesControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No services found in that category", HttpStatus.NOT_FOUND);
         }
     }

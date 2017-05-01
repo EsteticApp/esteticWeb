@@ -18,9 +18,7 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
                 Usuario: { method: 'GET'}
             });
         })
-        
-        
-        
+
         .factory('categoria', function($resource){
             return $resource('/categorias',{},{
                 GET: { method: 'GET', isArray: true}

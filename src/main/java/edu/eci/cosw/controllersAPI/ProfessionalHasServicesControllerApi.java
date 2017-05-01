@@ -31,7 +31,7 @@ public class ProfessionalHasServicesControllerApi {
             List<ProfessionalHasServices> phsList = phsManagement.getPHSs();
             return new ResponseEntity<>(phsList, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            Logger.getLogger(CategoriasServiceStub.class.getName()).log(null, ex);
+//            Logger.getLogger(CategoriasServiceStub.class.getName()).log(null, ex);
             return new ResponseEntity<>("No professionals have registered their services", HttpStatus.NOT_FOUND);
         }
 
@@ -45,7 +45,7 @@ public class ProfessionalHasServicesControllerApi {
             ProfessionalHasServices phs = phsManagement.getSpecificPHS(idPro, idSer);
             return new ResponseEntity<>(phs, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ProfessionalHasServicesControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ProfessionalHasServicesControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No element matches these values", HttpStatus.NOT_FOUND);
         }
     }
@@ -57,7 +57,7 @@ public class ProfessionalHasServicesControllerApi {
             ProfessionalHasServices phs = phsManagement.getSpecificPHS(idPro, idSer);
             return new ResponseEntity<>(phs.getPrice(), HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ProfessionalHasServicesControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ProfessionalHasServicesControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No element matches these values", HttpStatus.NOT_FOUND);
         }
     }

@@ -2,14 +2,12 @@ package edu.eci.cosw.controllersAPI;
 
 import edu.eci.cosw.Interfaz.ReservationManagement;
 import edu.eci.cosw.models.*;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.logging.Level;
 
 /**
  * Created by 2093715 on 3/28/17. Deivan OLiva
@@ -31,34 +29,34 @@ public class ReservationsControllerApi {
             // Se debe ajustar lo que se necesita.
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            Logger.getLogger(ReservationsControllerApi.class.getName()).log(null, ex);
+//            Logger.getLogger(ReservationsControllerApi.class.getName()).log(null, ex);
             return new ResponseEntity<>("No reservations found", HttpStatus.NOT_FOUND);
         }
     }
 
-    @RequestMapping(path = "/state/{state}", method = RequestMethod.GET)
+    @RequestMapping(path = "/reserva/state/{state}", method = RequestMethod.GET)
     public ResponseEntity<?> getReservationsByStateManagement(@PathVariable String state){
         try{
-            List<Reservations> data = reservationManagement.getReservationByState(state);
+            List<Reservations> data = reservationManagement.getReservationsByState(state);
             // IMPORTANTE
             // Se debe ajustar lo que se necesita.
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         }catch (Exception ex){
-            Logger.getLogger(ReservationsControllerApi.class.getName()).log(null, ex);
+//            Logger.getLogger(ReservationsControllerApi.class.getName()).log(null, ex);
             return new ResponseEntity<>("No reservations with that state found", HttpStatus.NOT_FOUND);
         }
     }
 
     //Obtiene las reservas de un cliente dado.
-    @RequestMapping(path = "/client/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getReservationsForClientManagement(@PathVariable String id){
+    @RequestMapping(path = "/reserva/cliente/{clientID}", method = RequestMethod.GET)
+    public ResponseEntity<?> getReservationsByClientManagement(@PathVariable int clientID){
         try{
-            List<Reservations> data = reservationManagement.getReservationByState(id);
+            List<Reservations> data = reservationManagement.getReservationsByClient(clientID);
             // IMPORTANTE
             // Se debe ajustar lo que se necesita.
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         }catch (Exception ex){
-            Logger.getLogger(ReservationsControllerApi.class.getName()).log(null, ex);
+//            Logger.getLogger(ReservationsControllerApi.class.getName()).log(null, ex);
             return new ResponseEntity<>("No reservations with that state found", HttpStatus.NOT_FOUND);
         }
     }

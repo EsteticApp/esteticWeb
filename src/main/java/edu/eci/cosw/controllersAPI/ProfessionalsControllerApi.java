@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by SYSTEM on 19/02/2017.
@@ -32,7 +33,7 @@ public class ProfessionalsControllerApi {
             List<Professional> data = professional.getProfessionals();
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No professionals found", HttpStatus.NOT_FOUND);
         }
     }
@@ -47,7 +48,7 @@ public class ProfessionalsControllerApi {
             }
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No services found for that professional", HttpStatus.NOT_FOUND);
         }
     }
@@ -69,7 +70,7 @@ public class ProfessionalsControllerApi {
             List<Professional> data = professional.getProfessionalsByState(state);
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No professionals found with that state", HttpStatus.NOT_FOUND);
         }
     }
@@ -82,7 +83,7 @@ public class ProfessionalsControllerApi {
             integers.add(pro.getState());
             return new ResponseEntity<>(integers, HttpStatus.ACCEPTED);
         } catch (Exception ex) {
-            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+//            java.util.logging.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("No services found for that professional", HttpStatus.NOT_FOUND);
         }
     }
@@ -95,7 +96,7 @@ public class ProfessionalsControllerApi {
             professional.addProfessional(p);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } catch (Exception ex){
-            org.apache.log4j.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(null, ex);
+//            Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(null, ex);
             return new ResponseEntity<>("An error has occurred", HttpStatus.BAD_REQUEST);
         }
     }
@@ -109,9 +110,8 @@ public class ProfessionalsControllerApi {
             professional.updateProfessional(profe);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception ex){
-            org.apache.log4j.Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(null, ex);
+//            Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(null, ex);
             return new ResponseEntity<>("An error has occurred", HttpStatus.NOT_FOUND);
         }
     }
-
 }

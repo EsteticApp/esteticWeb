@@ -10,7 +10,8 @@ import java.util.List;
 public interface ReservationManagement {
 
     public List<Reservations> getReservations() throws Exception;
-    public List<Reservations> getReservationByState(String state) throws Exception;
+    public List<Reservations> getReservationsByState(String state) throws Exception;
+    public List<Reservations> getReservationsByClient(int clientID) throws Exception;
 
 //    public List<Reserva> getReservasActivas(String iduser);
 //    public List<Reserva> getReservasPendientes(String iduser);

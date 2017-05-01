@@ -21,13 +21,17 @@ public class ReservasStub implements ReservationManagement {
     }
 
     @Override
-    public List<Reservations> getReservationByState(String state) throws Exception {
+    public List<Reservations> getReservationsByState(String state) throws Exception {
         List<Reservations> reservationsList = new ArrayList<>();
         if(reservationsList.isEmpty()) throw new Exception();
         return reservationsList;
     }
 
-//    private static List<Reserva> reservas;
+    @Override
+    public List<Reservations> getReservationsByClient(int clientID) throws Exception {
+        return null;
+    }
+    //    private static List<Reserva> reservas;
 //    private List<UsuarioReserva> usuarios;
 //    private edu.eci.cosw.service.User user;
 //
