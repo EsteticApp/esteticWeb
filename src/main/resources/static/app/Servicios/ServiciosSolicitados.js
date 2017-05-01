@@ -15,9 +15,8 @@ angular.module('myApp.ServiciosSolicitados', ['ngRoute', 'ngMaterial'])
               var esti = $resource('/estilistas/services/'+$scope.estilista.id);
               $scope.servicios = esti.query();
 
-              //$scope.precios = ['$17.000', '$15.000', '$12.000', '$5.000', '$10.000', '$20.000'];
+              $scope.selection=[];
 
-                $scope.selection=[];
 
                 $scope.servicioSelect = function servicioSelect(servicio) {
                   var idx = $scope.selection.indexOf(servicio);
