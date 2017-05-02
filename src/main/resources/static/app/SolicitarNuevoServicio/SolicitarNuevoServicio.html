@@ -1,4 +1,4 @@
-<div ng-show="Professional">
+<div ng-show="Professional" style = "text-align:center">
     <div class="opacidad container">
         <h1 class="titulo">Solicitar nuevo servicio:</h1>
 
@@ -8,9 +8,17 @@
                 <h2 class="titulo2-servicios">Formulario</h2>
                 <h4 class="titulo4-servicios">Por favor llenar los siguientes campos.</h4>
             </header>
-            <div layout="row">
-                <p>HOLA</p>
-                </div>
+            <b/>
+            <hr/>
+            <div align="center">
+                <form ng-submit="requestNewService()" style = "text-align:center">
+                    <p>Nombre</p>
+                    <p><input type="text" ng-model="newServiceName" placeholder="Ingrese nombre servicio" required></p>
+                    <p>Descripción</p>
+                    <p><textarea ng-model="newServiceDescription" placeholder="Ingrese la descripción del servicio" required></textarea></p>
+                    <p><button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar</button></p>
+                </form>
+
             </div>
         </section>
 

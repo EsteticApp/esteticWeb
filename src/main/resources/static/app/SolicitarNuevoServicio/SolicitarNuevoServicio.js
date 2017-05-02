@@ -11,8 +11,13 @@ angular.module('myApp.SolicitarNuevoServicio', ['ngRoute'])
 
         
         .controller('ControladorSolicitarNuevoServicio', ['$scope', function ($scope) {
+                $scope.newServiceName;
+                $scope.newServiceDescription;
                 $scope.requestNewService = function(){
-                    console.log($scope.newServiceName);
-                    console.log($scope.newServiceDescription);
+                    var body = "Tu solicitud ha sido enviada \n Servicio: " + $scope.newServiceName + "\n " + "Descripción: " + $scope.newServiceDescription;
+                    var body2 = "Por favor considera este nuevo servicio \n Servicio: " + $scope.newServiceName + "\n " + "Descripción: " + $scope.newServiceDescription;
+                    window.location.href('mailto:Skist1975@armyspy.com?subject=Solicitud nuevo servicio&body='+body2);
+                    alert(body);
                 }
+
         }]);
