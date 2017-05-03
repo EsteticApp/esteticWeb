@@ -17,7 +17,6 @@ angular.module('myApp.Login', ['ngRoute','services.modulo'])
 
                 $scope.getUserID = function(){
 
-                    console.log($rootScope.EmailString.email);
                     var response = userID.get({email:$rootScope.EmailString.email});
 
                     response.$promise.then(function(data) {
@@ -33,7 +32,6 @@ angular.module('myApp.Login', ['ngRoute','services.modulo'])
                     $http.get('user/auteticacion', {headers: headers}).then(successCallback, errorCallback);
                     function successCallback(data) {
                         if (data.data.name) {
-                            console.log(data.data.name);
                             $rootScope.EmailString.email=data.data.name;
                             $rootScope.authenticated = true;
                             $scope.role=data.data.authorities[0].authority;

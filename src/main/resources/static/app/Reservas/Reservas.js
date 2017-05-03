@@ -86,35 +86,44 @@ angular.module('myApp.Reservas', ['ngRoute'])
         }])
 
         .controller('ControladorReservasUsuario',['$rootScope','$scope','reservasUsers',function($rootScope,$scope,reservasUsers){
-           console.log("Controller Reservas de un solo cliente");
-           var tr = reservasUsers.Consultar($rootScope.EmailString);
-           $scope.reservaCliente = tr;
-           $scope.face = 'image/logo-user.png';
-           console.log(tr);
+            if($rootScope.Cliente){
+                console.log("Controller Reservas de un solo cliente");
+                console.log($rootScope.UserID);
+                reservasUsers.get({clienteID:$rootScope.UserID}).$promise.then(function(data) {
+                    console.log("Hizo solicitud");
+                    console.log(data);
+                });
 
-           $scope.avatars = [
-            {avatar :'image/avatar1.jpg'},
-            {avatar :'image/avatar2.jpg'},
-            {avatar :'image/avatar3.jpg'},
-            {avatar :'image/avatar4.jpg'},
-            {avatar :'image/avatar5.jpg'}
-           ];
-
-        }])
-
-        .controller('ControladorReservasProfesionales',['$rootScope','$scope','reservasUsers',function($rootScope,$scope,reservasUsers){
-                   console.log("Controller Reservas de un solo profesional");
-                   var tr = reservasUsers.Consultar($rootScope.EmailString);
-                   $scope.reservaCliente = tr;
-                   $scope.face = 'image/logo-user.png';
-                   console.log(tr);
-
-                   $scope.avatars = [
+                $scope.face = 'image/logo-user.png';
+                $scope.avatars = [
                     {avatar :'image/avatar1.jpg'},
                     {avatar :'image/avatar2.jpg'},
                     {avatar :'image/avatar3.jpg'},
                     {avatar :'image/avatar4.jpg'},
                     {avatar :'image/avatar5.jpg'}
-                   ];
+               ];
+            }
 
-                }]);
+
+        }])
+
+        .controller('ControladorReservasProfesionales',['$rootScope','$scope','reservasProfesional',function($rootScope,$scope,reservasUsers){
+            if($rootScope.Professional){
+               console.log("Controller Reservas de un solo profesional");
+               console.log($rootScope.UserID);
+               var tr = reservasProfesional.get({professionalID:$rootScope.UserID});
+               $scope.reservaProfesional = tr;
+               $scope.face = 'image/logo-user.png';
+               console.log(tr);
+
+               $scope.avatars = [
+                {avatar :'image/avatar1.jpg'},
+                {avatar :'image/avatar2.jpg'},
+                {avatar :'image/avatar3.jpg'},
+                {avatar :'image/avatar4.jpg'},
+                {avatar :'image/avatar5.jpg'}
+               ];
+
+            }
+
+        }]);

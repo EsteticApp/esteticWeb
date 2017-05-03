@@ -87,12 +87,11 @@ angular.module('myApp', [
                 }
 
                 $scope.changeStatus = function(){
-
-                    var response = professionalState.get({email:$rootScope.UserID});
+                    var response = professionalState.get({id:$rootScope.UserID});
 
                     response.$promise.then(function(data) {
 
-//                        console.log(data[0]);
+
                         $scope.status = data[0];
 
                         if($scope.startedState){
@@ -101,7 +100,6 @@ angular.module('myApp', [
                             } else {
                                 $scope.status = 0;
                             }
-//                            console.log($scope.status);
                             var update = professionalStateUpdate.save([$scope.status + "", $rootScope.EmailString.email]);
                             update.$promise.then(function(data) {
                                 $scope.changeColor();

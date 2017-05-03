@@ -75,7 +75,7 @@ public class ProfessionalsControllerApi {
         }
     }
 
-    @RequestMapping(path = "/estilista/state/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/estilista/state/{professionalID}", method = RequestMethod.GET)
     public ResponseEntity<?> getProfessionalsStateManagement(@PathVariable int professionalID){
         try {
             Professional pro = professional.getProfessionalState(professionalID);
@@ -101,7 +101,7 @@ public class ProfessionalsControllerApi {
         }
     }
 
-    @RequestMapping(value = "/estilista/state/", method = RequestMethod.POST)
+    @RequestMapping(value = "/estilista/state", method = RequestMethod.POST)
     public   ResponseEntity<?> postUpdateProfessional (@RequestBody List<String> state) {
         try {
             int s = Integer.parseInt(state.get(0));
@@ -110,7 +110,7 @@ public class ProfessionalsControllerApi {
             professional.updateProfessional(profe);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception ex){
-//            Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(null, ex);
+//            Logger.getLogger(ProfessionalsControllerApi.class.getName()).log(null);
             return new ResponseEntity<>("An error has occurred", HttpStatus.NOT_FOUND);
         }
     }

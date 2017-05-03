@@ -51,7 +51,29 @@ public class ReservationsControllerApi {
     @RequestMapping(path = "/reserva/cliente/{clientID}", method = RequestMethod.GET)
     public ResponseEntity<?> getReservationsByClientManagement(@PathVariable int clientID){
         try{
+            System.out.println("==========================================");
+            System.out.println("Acceso a la API");
+            System.out.println("CLIENTE: " + clientID);
             List<Reservations> data = reservationManagement.getReservationsByClient(clientID);
+            System.out.println("EMPTY: " + data.isEmpty());
+            // IMPORTANTE
+            // Se debe ajustar lo que se necesita.
+            return new ResponseEntity<>(data, HttpStatus.ACCEPTED);
+        }catch (Exception ex){
+//            Logger.getLogger(ReservationsControllerApi.class.getName()).log(null, ex);
+            return new ResponseEntity<>("No reservations with that state found", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    // Obtiene las reservas asociadas a un profesional
+    @RequestMapping(path = "/reserva/professional/{professionalID}", method = RequestMethod.GET)
+    public ResponseEntity<?> getReservationsByProfessionalManagement(@PathVariable int professionalID){
+        try{
+            System.out.println("==========================================");
+            System.out.println("Acceso a la API");
+            System.out.println("PROFESSIONAL: " + professionalID);
+            List<Reservations> data = reservationManagement.getReservationsByProfessional(professionalID);
+            System.out.println("EMPTY: " + data.isEmpty());
             // IMPORTANTE
             // Se debe ajustar lo que se necesita.
             return new ResponseEntity<>(data, HttpStatus.ACCEPTED);

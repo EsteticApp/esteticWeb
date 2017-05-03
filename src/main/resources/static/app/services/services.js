@@ -39,13 +39,27 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
             };
         })
 
-        .factory('reservasUsers', function($resource){
-            console.log("consultando reservas users")
-            return $resource('/reservas/email',
-            {id:"@id"},{
-                Consultar: { method: 'POST'}
+        .factory('reservasUsers',function($resource){
+            return $resource('/reservas/reserva/cliente/:clientID', {}, {
+                get:        {method: 'GET',
+                             isArray: true}
             });
-         })
+        })
+
+        .factory('reservasProfesional',function($resource){
+            return $resource('/reservas/reserva/profesional/:professionalID', {}, {
+                get:        {method: 'GET',
+                             isArray: true}
+            });
+        })
+
+//        .factory('reservasUsers', function($resource){
+//            console.log("consultando reservas users")
+//            return $resource('/reservas/email',
+//            {id:"@id"},{
+//                Consultar: { method: 'POST'}
+//            });
+//         })
 
 
         .factory('estilista', function($resource){
@@ -109,7 +123,7 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
 
 
         .factory('professionalState',function($resource){
-            return $resource('/estilista/state/{id}', {}, {
+            return $resource('/estilistas/estilista/state/:id', {}, {
                 get:        {method: 'GET',
                              isArray: true},
                 save:     {method: 'POST'}
@@ -117,7 +131,7 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
         })
 
         .factory('professionalStateUpdate',function($resource){
-            return $resource('/estilistas/state', {}, {
+            return $resource('/estilistas/estilista/state', {}, {
                 save:     {method: 'POST'}
             });
         })

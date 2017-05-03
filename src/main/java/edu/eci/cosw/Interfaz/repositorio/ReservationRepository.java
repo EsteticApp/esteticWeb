@@ -16,4 +16,7 @@ public interface ReservationRepository  extends JpaRepository<Reservations, Inte
 
     @Query(value = "select cli.reservations from Client cli where cli.id like ?1")
     public List<Reservations> getReservationByClient(int clientID);
+
+    @Query(value = "from Reservations res where res.idProfessional like ?1")
+    public List<Reservations> getReservationByProfessional(int professionalID);
 }

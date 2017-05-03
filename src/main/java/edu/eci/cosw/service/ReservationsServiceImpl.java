@@ -37,4 +37,11 @@ public class ReservationsServiceImpl implements ReservationManagement{
         if(reservations.isEmpty())throw new Exception();
         return reservations;
     }
+
+    @Override
+    public List<Reservations> getReservationsByProfessional(int professionalID) throws Exception {
+        List<Reservations> reservations = reservationRepository.getReservationByProfessional(professionalID);
+        if(reservations.isEmpty())throw new Exception();
+        return reservations;
+    }
 }

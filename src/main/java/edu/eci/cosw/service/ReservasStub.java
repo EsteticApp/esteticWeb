@@ -31,6 +31,12 @@ public class ReservasStub implements ReservationManagement {
     public List<Reservations> getReservationsByClient(int clientID) throws Exception {
         return null;
     }
+
+    @Override
+    public List<Reservations> getReservationsByProfessional(int professionalID) throws Exception {
+        return null;
+    }
+
     //    private static List<Reserva> reservas;
 //    private List<UsuarioReserva> usuarios;
 //    private edu.eci.cosw.service.User user;
