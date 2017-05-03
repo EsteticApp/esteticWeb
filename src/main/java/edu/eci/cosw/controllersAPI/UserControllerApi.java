@@ -11,6 +11,7 @@ import edu.eci.cosw.Interfaz.User;
 import edu.eci.cosw.models.Professional;
 import edu.eci.cosw.service.ApplicationService;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class UserControllerApi {
     @Autowired
     ApplicationService users;
 //    User users;
+
 
     @RequestMapping("/auteticacion")
     public Principal user(Principal user) {
@@ -137,6 +139,19 @@ public class UserControllerApi {
         } catch (Exception ex) {
             Logger.getLogger(UserControllerApi.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @RequestMapping(path = "/id/{email:.+}", method = RequestMethod.GET)
+    public ResponseEntity<?> getClientByEmailManagement(@PathVariable String email){
+        try {
+            ArrayList<Integer> id = new ArrayList<>();
+            User u = users.traerUsuario(email);
+            id.add(u.getId());
+            return new ResponseEntity<>(id, HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+//            java.util.logging.Logger.getLogger(ClientsControllerApi.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("No client found with that email", HttpStatus.NOT_FOUND);
         }
     }
 }

@@ -1,7 +1,10 @@
 package edu.eci.cosw;
 
+import edu.eci.cosw.Interfaz.User;
 import edu.eci.cosw.Interfaz.repositorio.*;
+import edu.eci.cosw.controllersAPI.UserControllerApi;
 import edu.eci.cosw.models.*;
+import edu.eci.cosw.service.ApplicationService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,6 +29,8 @@ public class EsteticappApplicationTests {
 	private ProfessionalHasServicesRepository phsRepo;
 	@Autowired
 	private ProfessionalRepository professionalRepository;
+	@Autowired
+	private ApplicationService applicationService;
 
 	@Test
 	public void contextLoads() {
@@ -147,5 +152,12 @@ public class EsteticappApplicationTests {
 			System.out.println(p.getName());
 		}
 		Assert.assertNotNull(professionalList);
+	}
+
+	@Test
+	public void getUserIDByEmail(){
+		User u = applicationService.traerUsuario("cliente@mail.com");
+		System.out.println(u.getId());
+		Assert.assertNotNull(u);
 	}
 }

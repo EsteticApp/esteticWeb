@@ -109,7 +109,7 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
 
 
         .factory('professionalState',function($resource){
-            return $resource('/estilistas/:email/state', {}, {
+            return $resource('/estilista/state/{id}', {}, {
                 get:        {method: 'GET',
                              isArray: true},
                 save:     {method: 'POST'}
@@ -117,7 +117,14 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
         })
 
         .factory('professionalStateUpdate',function($resource){
-            return $resource('/estilistas/update/state', {}, {
+            return $resource('/estilistas/state', {}, {
                 save:     {method: 'POST'}
+            });
+        })
+
+        .factory('userID',function($resource){
+            return $resource('/app/user/id/:email', {}, {
+                get:        {method: 'GET',
+                             isArray: true}
             });
         });

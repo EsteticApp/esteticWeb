@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.Login', ['ngRoute'])
+angular.module('myApp.Login', ['ngRoute','services.modulo'])
 
         .config(['$routeProvider', function ($routeProvider) {
                 $routeProvider.when('/Login', {
@@ -10,10 +10,21 @@ angular.module('myApp.Login', ['ngRoute'])
             }])
 
 
-        .controller('ControladorLogin', ['$scope', '$rootScope', '$http', '$location', function ($scope, $rootScope, $http, $location) {
+        .controller('ControladorLogin', ['$scope', '$rootScope', '$http', '$location', 'userID', function ($scope, $rootScope, $http, $location, userID) {
                 $scope.aut = false;
                 $scope.person = [];
                 $rootScope.EmailString={}
+
+                $scope.getUserID = function(){
+
+                    console.log($rootScope.EmailString.email);
+                    var response = userID.get({email:$rootScope.EmailString.email});
+
+                    response.$promise.then(function(data) {
+                        $rootScope.UserID = data[0];
+                    });
+
+                }
                 var authenticate = function (credentials, callback) {
                     var headers = credentials ? {authorization: "Basic "
                                 + btoa(credentials.username + ":" + credentials.password)
@@ -22,7 +33,7 @@ angular.module('myApp.Login', ['ngRoute'])
                     $http.get('user/auteticacion', {headers: headers}).then(successCallback, errorCallback);
                     function successCallback(data) {
                         if (data.data.name) {
-                            console.log(data.data.name)
+                            console.log(data.data.name);
                             $rootScope.EmailString.email=data.data.name;
                             $rootScope.authenticated = true;
                             $scope.role=data.data.authorities[0].authority;
@@ -52,6 +63,7 @@ angular.module('myApp.Login', ['ngRoute'])
                             $scope.error = false;
                             $rootScope.user=$scope.credentials.username;
                             $location.path("/"+$scope.role);
+                            $scope.getUserID();
                         } else {
                             $location.path("/login");
                             $scope.error = true;

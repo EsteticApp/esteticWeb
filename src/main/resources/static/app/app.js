@@ -88,7 +88,7 @@ angular.module('myApp', [
 
                 $scope.changeStatus = function(){
 
-                    var response = professionalState.get({email:$rootScope.EmailString.email});
+                    var response = professionalState.get({email:$rootScope.UserID});
 
                     response.$promise.then(function(data) {
 
