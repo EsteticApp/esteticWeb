@@ -42,7 +42,7 @@ angular.module('myApp.Editar', ['ngRoute'])
             }])
         .controller('ControladorEditar', ['$scope', '$rootScope', '$http', 'fileUpload','$location', 'usuarioPost','registrarUpdate', function ($scope, $rootScope, $http,fileUpload, $location,usuarioPost,registrarUpdate) {
                 console.log($rootScope.EmailString);
-                $scope.user = usuarioPost.Usuario($rootScope.EmailString);
+                $scope.user = usuarioPost.Usuario($rootScope.EmailString.email);
                 console.log($scope.user);
                 
                 $scope.test = function () {
