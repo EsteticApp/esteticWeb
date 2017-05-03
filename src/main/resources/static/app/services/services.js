@@ -7,7 +7,7 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
         .factory('usuarioPost', function($resource){
             
             return $resource('./user/email',
-            {email:"@email"},{
+            {},{
                 Usuario: { method: 'POST'}
             });
         })

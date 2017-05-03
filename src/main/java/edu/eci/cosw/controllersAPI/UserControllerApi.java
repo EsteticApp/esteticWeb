@@ -86,8 +86,9 @@ public class UserControllerApi {
     @RequestMapping(path = "/email", method = RequestMethod.POST)
     public ResponseEntity<?> getUser(@RequestBody String email){
         try {
-            System.out.println("Lllegua aquiiiii "+email);
+            System.out.println("Llego aqui "+email);
             User user= users.getUsuario(email,"");
+            //System.out.println(user.getRole());
 //            User user= users.getUserByEmail(email.getEmail());
             return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
         } catch (Exception ex) {

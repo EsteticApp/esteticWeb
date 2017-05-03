@@ -68,7 +68,7 @@ public class EsteticappApplication {
                     User user = usersStub.getUsuario(name, pass);
 //                    User user = usersStub.loginUser(name, pass);
 
-                    System.out.println("Paso Aca");
+                  //  System.out.println("Paso Aca");
                     
                     if (user != null) {
                         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
