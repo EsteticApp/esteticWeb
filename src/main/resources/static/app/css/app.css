@@ -5,7 +5,7 @@
 
 .body-fon{
 
-     background-image: url("../image/background.jpg");
+    /**background-image: url("../image/background.jpg");**/
 }
 
 
@@ -53,7 +53,7 @@
 
 .logo img{
     width: auto;
-    height: 124px;
+    height: 148px;
 }
 .foo{
     background:#000000;
@@ -93,6 +93,22 @@
 }
 
 /*Menu*/
+
+.menuInicio .navbar-default {
+    background-color: #85DEAF;
+    border-color:#85DEAF;
+}
+
+.menuInicio .navbar-default .navbar-nav > li > a {
+    color: #FFF;
+    font-family: 'EB Garamond', serif;
+    font-size: 1.4em;
+}
+
+.menuInicio .navbar-nav {
+    margin-left: 24%;
+}
+
 .navbar-nav > li{
 }
 

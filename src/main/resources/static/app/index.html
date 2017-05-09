@@ -18,9 +18,28 @@
         <title>EsteticApp</title>
     </head>
     <body class="body-fon">
-        <header class="header-est">
 
-            <div class="container">
+        <header class="header-est">
+            <div class="menuInicio" ng-show = "!authenticated">
+                <nav class="navbar navbar-default navbar-fat navbar-clean">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="#"></a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li class=""><a href="index.html">Inicio</a></li>
+                            <li class=""><a href="#">Peluquería</a></li>
+                            <li class=""><a href="#">Uñas</a></li>
+                            <li class=""><a href="#">Depilación</a></li>
+                            <li class=""><a href="#">Masajes</a></li>
+                            <li class=""><a href="#">Trabaja con nosotros</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#!/Login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
+                        </ul>
+                </nav>
+            </div>
+                <div class="container">
 
                 <div class="col-sm-2 logo">
                     <a href="index.html" id="logo" >
