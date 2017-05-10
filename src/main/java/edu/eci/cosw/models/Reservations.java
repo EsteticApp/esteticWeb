@@ -1,7 +1,8 @@
 package edu.eci.cosw.models;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
+
 
 /**
  * Created by oscar on 19/04/17.

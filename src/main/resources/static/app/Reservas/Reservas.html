@@ -88,7 +88,7 @@
     </div>
 </div>
 
-<div ng-show="Professional">
+<div nng-show="user.role =='PROFESSIONAL'">
 
     <div class="opacidad container">
         <h1 class="titulo">Mis Reservas:</h1>
@@ -108,11 +108,12 @@
                     <section>
                         <md-subheader md-colors="{'color':'fondo-50','background': 'fondo-200'}">Reservas Nuevas</md-subheader>
                         <md-list layout-padding>
-                            <div ng-repeat="reservas in reservaCliente track by $index">
-                                <md-list-item class="md-3-line" ng-repeat="reserva in reservas track by $index">
+                            <div >
+                                <md-list-item class="md-3-line" ng-repeat="reserva in reservaProfesional track by $index">
                                     <img ng-src="image/avatar3.jpg" class="md-avatar" alt="{{message.who}}">
                                     <div class="md-list-item-text">
-                                        <h3>Cliente: Andrea Camila Fecha:{{reserva.reservationDate}}</h3>
+                                        <h3>Cliente: Andrea Camila</h3>
+                                        <h3> Fecha:{{reserva.reservationDate}}</h3>
                                         <h4>Telefono:{{reserva.phone}}</h4>
                                         <p>Direccion: {{reserva.address}}</p>
                                         <p>Precio Servicios: $ {{reserva.reservationPrice}}</p>
@@ -140,7 +141,7 @@
                                             </md-menu-item>
                                         </md-menu-content>
                                     </md-menu>
-                                </md-list-item>
+                                    </md-list-item>
                             </div>
                         </md-list>
                     </section>

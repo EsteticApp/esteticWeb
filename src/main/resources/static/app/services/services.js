@@ -47,7 +47,7 @@ angular.module('services.modulo', ['ngRoute', 'ngResource'])
         })
 
         .factory('reservasProfesional',function($resource){
-            return $resource('/reservas/reserva/profesional/:professionalID', {}, {
+            return $resource('./reservas/reserva/professional/:professionalID', {}, {
                 get:        {method: 'GET',
                              isArray: true}
             });

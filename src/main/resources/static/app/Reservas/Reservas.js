@@ -107,14 +107,13 @@ angular.module('myApp.Reservas', ['ngRoute'])
 
         }])
 
-        .controller('ControladorReservasProfesionales',['$rootScope','$scope','reservasProfesional',function($rootScope,$scope,reservasUsers){
+        .controller('ControladorReservasProfesionales',['$rootScope','$scope','reservasProfesional',function($rootScope,$scope,reservasProfesional){
             if($rootScope.Professional){
                console.log("Controller Reservas de un solo profesional");
                console.log($rootScope.UserID);
-               var tr = reservasProfesional.get({professionalID:$rootScope.UserID});
-               $scope.reservaProfesional = tr;
+               $scope.reservaProfesional= reservasProfesional.get({professionalID:$rootScope.UserID});
                $scope.face = 'image/logo-user.png';
-               console.log(tr);
+               console.log($scope.reservaProfesional);
 
                $scope.avatars = [
                 {avatar :'image/avatar1.jpg'},
